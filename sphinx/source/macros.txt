@@ -1,0 +1,50 @@
+
+.. include:: <isonum.txt>
+
+.. |devsim| replace:: ``DEVSIM``
+.. |mycopyright| replace:: Copyright |copy| 2009--2018 DEVSIM LLC
+
+.. |anaconda| replace:: ``Anaconda``
+.. |redhatfive| replace:: ``Red Hat 5``
+.. |centosfive| replace:: ``Centos 5``
+.. |centossix| replace:: ``Centos 6``
+.. |cpluspluseleven| replace:: ``C++11``
+.. |visit| replace:: ``VisIt``
+.. |paraview| replace:: ``ParaView``
+.. |postmini| replace:: ``Postmini``
+.. |tecplot| replace:: ``Tecplot``
+
+.. |devsimgithub| replace:: `https://github.com/devsim/devsim <https://github.com/devsim/devsim>`__
+.. |devsimgithubrelease| replace:: `https://github.com/devsim/devsim/releases <https://github.com/devsim/devsim/releases>`__
+.. |devsimsourceforge| replace:: `http://sourceforge.net/projects/devsim <http://sourceforge.net/projects/devsim>`__
+.. |devsimsupport| replace:: `https://github.com/devsim/devsim/issues <https://github.com/devsim/devsim/issues>`__
+.. |devsimurl| replace:: `https://devsim.com <https://devsim.com>`__
+.. |devsimorg| replace:: `https://devsim.org <https://devsim.org>`__
+.. |devsimllc| replace:: DEVSIM LLC
+.. |symdiffurl| replace:: `https://symdiff.org <https://symdiff.org>`__
+
+.. |cgns| replace:: ``CGNS``
+.. |genius| replace:: ``Genius``
+.. |geniusds| replace:: ``Genius Device Simulator``
+.. |gmsh| replace:: ``Gmsh``
+.. |intelmkl| replace:: ``Intel Math Kernel Library``
+.. |intelmklce| replace:: |intelmkl| Community Edition
+.. |linux| replace:: ``Linux``
+.. |macosx| replace:: ``Apple Mac OS X``
+.. |macosxyosemite| replace:: ``Mac OS X 10.10 (Yosemite)``
+.. |mswindows| replace:: ``Microsoft Windows``
+.. |mswindowsseven| replace:: ``Microsoft Windows 7``
+.. |python| replace:: ``Python``
+.. |pythontwoseven| replace:: ``Python 2.7``
+.. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
+.. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``
+.. |symdiff| replace:: ``SYMDIFF``
+.. |tcl| replace:: ``Tcl``
+.. |ubuntuprecise| replace:: ``Ubuntu 12.04 (LTS)``
+.. |ubuntutrusty| replace:: ``Ubuntu 14.04 (LTS)``
+.. |ubuntuxenial| replace:: ``Ubuntu 16.04 (LTS)``
+
+.. |superlu| replace:: ``SuperLU``
+.. |sqlite| replace:: ``SQLite3``
+.. |zlib| replace:: ``zlib``
+
