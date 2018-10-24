@@ -9,8 +9,8 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  The official website for this project is located at |devsimorg|.
 
-Updates Since The Last Release
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+July 20, 2018
+~~~~~~~~~~~~~
 
 Documentation
 ^^^^^^^^^^^^^
