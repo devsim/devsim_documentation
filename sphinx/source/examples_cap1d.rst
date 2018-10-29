@@ -41,7 +41,7 @@ The following statements create a one-dimensional mesh which is :math:`1` m long
 
 .. code-block:: python
 
-  from ds import *
+  from devsim import *
   device="MyDevice"
   region="MyRegion"
 
@@ -196,37 +196,37 @@ Running the simulation
 
 We run the simulation and see the results.
 
-..
+.. code-block:: none
 
-  |  capacitance> devsim cap1d.py
-  | ----------------------------------------
-  |
-  |  DEVSIM
-  |
-  |  Version: Beta 0.01
-  |
-  |  Copyright 2009-2013 Devsim LLC
-  |
-  | ----------------------------------------
-  |
-  |
-  | contact2
-  |  (region: MyRegion)
-  |  (contact: contact1)
-  |  (contact: contact2)
-  | Region "MyRegion" on device "MyDevice" has equations 0:10
-  | Device "MyDevice" has equations 0:10
-  | number of equations 11
-  | Iteration: 0
-  |   Device: "MyDevice"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  |     Region: "MyRegion"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  |       Equation: "PotentialEquation"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  | Iteration: 1
-  |   Device: "MyDevice"	RelError: 2.77924e-16	AbsError: 1.12632e-16
-  |     Region: "MyRegion"	RelError: 2.77924e-16	AbsError: 1.12632e-16
-  |       Equation: "PotentialEquation"	RelError: 2.77924e-16	AbsError: 1.12632e-16
-  | contact: contact1 charge: 3.45150e-13
-  | contact: contact2 charge: -3.45150e-13
+  capacitance> python cap1d.py
+  ----------------------------------------
+  
+   DEVSIM
+  
+   Version: Beta 0.01
+  
+   Copyright 2009-2013 Devsim LLC
+  
+  ----------------------------------------
+  
+  
+  contact2
+   (region: MyRegion)
+   (contact: contact1)
+   (contact: contact2)
+  Region "MyRegion" on device "MyDevice" has equations 0:10
+  Device "MyDevice" has equations 0:10
+  number of equations 11
+  Iteration: 0
+    Device: "MyDevice"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+      Region: "MyRegion"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+        Equation: "PotentialEquation"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+  Iteration: 1
+    Device: "MyDevice"	RelError: 2.77924e-16	AbsError: 1.12632e-16
+      Region: "MyRegion"	RelError: 2.77924e-16	AbsError: 1.12632e-16
+        Equation: "PotentialEquation"	RelError: 2.77924e-16	AbsError: 1.12632e-16
+  contact: contact1 charge: 3.45150e-13
+  contact: contact2 charge: -3.45150e-13
 
 Which corresponds to our expected result of :math:`3.4515 10^{-13}` :math:`\text{F}/\text{cm}^2` for a homogenous capacitor.
 
@@ -242,7 +242,7 @@ Defining the mesh
 
 .. code-block:: python
 
-  from ds import *
+  from devsim import *
   device="MyDevice"
   region="MyRegion"
 
@@ -390,48 +390,48 @@ Before writing the mesh out for visualization, the ``element_from_edge_model`` i
 Running the simulation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-..
+.. code-block:: none
 
-  | ----------------------------------------
-  |
-  |  DEVSIM
-  |
-  |  Version: Beta 0.01
-  |
-  |  Copyright 2009-2013 Devsim LLC
-  |
-  | ----------------------------------------
-  |
-  |
-  | Creating Region air
-  | Creating Region m1
-  | Creating Region m2
-  | Adding 8281 nodes
-  | Adding 23918 edges with 22990 duplicates removed
-  | Adding 15636 triangles  with 0 duplicate removed
-  | Adding 334 nodes
-  | Adding 665 edges with 331 duplicates removed
-  | Adding 332 triangles  with 0 duplicate removed
-  | Adding 162 nodes
-  | Adding 321 edges with 159 duplicates removed
-  | Adding 160 triangles  with 0 duplicate removed
-  | Contact bot in region air with 334 nodes
-  | Contact top in region air with 162 nodes
-  | Region "air" on device "MyDevice" has equations 0:8280
-  | Region "m1" on device "MyDevice" has no equations.
-  | Region "m2" on device "MyDevice" has no equations.
-  | Device "MyDevice" has equations 0:8280
-  | number of equations 8281
-  | Iteration: 0
-  |   Device: "MyDevice"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  |     Region: "air"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  |       Equation: "PotentialEquation"	RelError: 1.00000e+00	AbsError: 1.00000e+00
-  | Iteration: 1
-  |   Device: "MyDevice"	RelError: 1.25144e-12	AbsError: 1.73395e-13
-  |     Region: "air"	RelError: 1.25144e-12	AbsError: 1.73395e-13
-  |       Equation: "PotentialEquation"	RelError: 1.25144e-12	AbsError: 1.73395e-13
-  | 3.35017166004e-12
-  | -3.35017166004e-12
+  ----------------------------------------
+  
+   DEVSIM
+  
+   Version: Beta 0.01
+  
+   Copyright 2009-2013 Devsim LLC
+  
+  ----------------------------------------
+  
+  
+  Creating Region air
+  Creating Region m1
+  Creating Region m2
+  Adding 8281 nodes
+  Adding 23918 edges with 22990 duplicates removed
+  Adding 15636 triangles  with 0 duplicate removed
+  Adding 334 nodes
+  Adding 665 edges with 331 duplicates removed
+  Adding 332 triangles  with 0 duplicate removed
+  Adding 162 nodes
+  Adding 321 edges with 159 duplicates removed
+  Adding 160 triangles  with 0 duplicate removed
+  Contact bot in region air with 334 nodes
+  Contact top in region air with 162 nodes
+  Region "air" on device "MyDevice" has equations 0:8280
+  Region "m1" on device "MyDevice" has no equations.
+  Region "m2" on device "MyDevice" has no equations.
+  Device "MyDevice" has equations 0:8280
+  number of equations 8281
+  Iteration: 0
+    Device: "MyDevice"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+      Region: "air"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+        Equation: "PotentialEquation"	RelError: 1.00000e+00	AbsError: 1.00000e+00
+  Iteration: 1
+    Device: "MyDevice"	RelError: 1.25144e-12	AbsError: 1.73395e-13
+      Region: "air"	RelError: 1.25144e-12	AbsError: 1.73395e-13
+        Equation: "PotentialEquation"	RelError: 1.25144e-12	AbsError: 1.73395e-13
+  3.35017166004e-12
+  -3.35017166004e-12
 
 A visualization of the results is shown in :numref:`cap2dresult`.
 

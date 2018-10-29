@@ -9,12 +9,12 @@ Solver
 Solver
 ~~~~~~
 
-|devsim| uses Newton methods to solve the system of PDE's.  All of the analyses are performed using the :meth:`ds.solve`.
+|devsim| uses Newton methods to solve the system of PDE's.  All of the analyses are performed using the :meth:`devsim.solve`.
 
 DC analysis
 ~~~~~~~~~~~
 
-A DC analysis is performed using the :meth:`ds.solve`.
+A DC analysis is performed using the :meth:`devsim.solve`.
 
 .. code-block:: python
 
@@ -23,18 +23,18 @@ A DC analysis is performed using the :meth:`ds.solve`.
 AC analysis
 ~~~~~~~~~~~
 
-An AC analysis is performed using the :meth:`ds.solve`.  A circuit voltage source is required to set the AC source.
+An AC analysis is performed using the :meth:`devsim.solve`.  A circuit voltage source is required to set the AC source.
 
 Noise/Sensitivity analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An noise analysis is performed using the :meth:`ds.solve` command.  A circuit node is specified in order to find its sensitivity to changes in the bulk quantities of each device.  If the circuit node is named ``V1.I``.  A noise simulation is performed using:
+An noise analysis is performed using the :meth:`devsim.solve` command.  A circuit node is specified in order to find its sensitivity to changes in the bulk quantities of each device.  If the circuit node is named ``V1.I``.  A noise simulation is performed using:
 
 .. code-block:: python
 
   solve(type="noise", frequency=1e5, output_node="V1.I")
 
-Noise and sensitivity analysis is performed using the :meth:`ds.solve`.  If the equation begin solved is ``PotentialEquation``, the names of the scalar impedance field is then:
+Noise and sensitivity analysis is performed using the :meth:`devsim.solve`.  If the equation begin solved is ``PotentialEquation``, the names of the scalar impedance field is then:
 
 - ``V1.I_PotentialEquation_real``
 - ``V1.I_PotentialEquation_imag``
@@ -51,7 +51,7 @@ and the vector impedance fields evaluated on the nodes are
 Transient analysis
 ~~~~~~~~~~~~~~~~~~
 
-Transient analysis is performed using the :meth:`ds.solve`.  |devsim| supports time-integration of the device PDE's.  The three methods are supported are:
+Transient analysis is performed using the :meth:`devsim.solve`.  |devsim| supports time-integration of the device PDE's.  The three methods are supported are:
 
 - BDF1
 - TRBDF

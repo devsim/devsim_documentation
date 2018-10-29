@@ -24,7 +24,7 @@ Supported platforms
   +-------------+------+--------------------------------------+
   | Platform    | Bits | OS Version                           |
   +=============+======+======================================+
-  | |mswindows| | 64   | |mswindowsseven|                     |
+  | |mswindows| | 64   | |mswindowsseven|, |mswindowsten|     |
   +-------------+------+--------------------------------------+
   +-------------+------+--------------------------------------+
   | |linux|     | 64   | |ubuntutrusty|                       |
@@ -34,14 +34,14 @@ Supported platforms
   |             |      | |rhelsix| (|centossix| compatible)   |
   +-------------+------+--------------------------------------+
   +-------------+------+--------------------------------------+
-  | |macosx|    | 64   | |macosxyosemite|                     |
+  | |macosx|    | 64   | |macosxhighsierra|                   |
   +-------------+------+--------------------------------------+
 
 
 Binary availability
 ~~~~~~~~~~~~~~~~~~~
 
-Compiled packages for the the platforms in :numref:`installation__platforms` are currently available from |devsimgithubrelease|.  The prerequisites on each platform are the default |python| and |tcl| packages for your operating system.  Information about required packages for |mswindowsseven| are in the file ``windows.txt``.
+Compiled packages for the the platforms in :numref:`installation__platforms` are currently available from |devsimgithubrelease|.  The prerequisites on each platform are described in the ``linux.txt``, ``macos.txt``, and ``windows.txt``.
 
 Source code availability
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,13 +57,14 @@ A |devsim| directory is created with the following sub directories listed in :nu
 
 .. table:: Directory structure for |devsim|.
 
-   =================== =======================================================
-   ``bin``              contains the devsim binary
-   ``doc``              contains product documentation
-   ``examples``         contains example scripts
-   ``python_packages``  contains runtime libraries
-   ``testing``          contains additional examples used for testing
-   =================== =======================================================
+   ==============================  =======================================================
+   ``bin``                         contains the devsim tcl binary
+   ``lib/devsim``                  contains the devsim interpreter modules
+   ``lib/devsim/python_packages``  contains runtime libraries
+   ``doc``                         contains product documentation
+   ``examples``                    contains example scripts
+   ``testing``                     contains additional examples used for testing
+   ==============================  =======================================================
 
 Running DEVSIM
 ~~~~~~~~~~~~~~

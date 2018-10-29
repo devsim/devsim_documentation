@@ -220,13 +220,13 @@ User functions
 
 Commands for specifying and manipulating user functions are listed in :numref:`symdiff__userfunccommands`.  They are used in order to define new user function, as well as the derivatives of the functions with respect to the user variables.  For example, the following expression defines a function named ``f`` which takes one argument.
 
-.. code-block:: python
+.. code-block:: none
 
   > define(f(x), 0.5*x)
 
 The list after the function protoype is used to define the derivatives with respect to each of the independent variables.  Once defined, the function may be used in any other expression.  In additions the any expression can be used as an arguments.  For example:
 
-.. code-block:: python
+.. code-block:: none
 
   > diff(f(x*y),x)
   ((0.5 * (x * y)) * y)
@@ -244,23 +244,23 @@ The chain rule is applied to ensure that the derivative is correct.  This can be
 
 The ``declare`` command is required when the derivatives of two user functions are based on one another.  For example:
 
-..
+.. code-block:: none
 
-  | > declare(cos(x))
-  | cos(x)
-  | > define(sin(x),cos(x))
-  | sin(x)
-  | > define(cos(x),-sin(x))
-  | cos(x)
+  > declare(cos(x))
+  cos(x)
+  > define(sin(x),cos(x))
+  sin(x)
+  > define(cos(x),-sin(x))
+  cos(x)
 
 When declared, a functions derivatives are set to 0, unless specified with a define command.  It is now possible to use these expressions as desired.
 
-..
+.. code-block:: none
 
-  | > diff(sin(cos(x)),x)
-  | (cos(cos(x)) * (-sin(x)))
-  | > simplify(cos(cos(x)) * (-sin(x)))
-  | (-cos(cos(x)) * sin(x))
+  > diff(sin(cos(x)),x)
+  (cos(cos(x)) * (-sin(x)))
+  > simplify(cos(cos(x)) * (-sin(x)))
+  (-cos(cos(x)) * sin(x))
 
 Macro assignment
 ^^^^^^^^^^^^^^^^
@@ -269,27 +269,27 @@ The use of macro assignment allows the substitution of expressions into new expr
 
 In this example, the result of the each command is substituted into the next.
 
-..
+.. code-block:: none
 
-  | > a+b
-  | (a + b)
-  | > $_-b
-  | ((a + b) - b)
-  | > simplify($_)
-  | a
+  > a+b
+  (a + b)
+  > $_-b
+  ((a + b) - b)
+  > simplify($_)
+  a
 
 In addition to the default macro definition, it is possible to specify a variable identifier by using the ``$`` character followed by an alphanumeric string beginning with a letter.  In addition to letters and numbers, a ``_`` character may be used as well.  A macro which has not previously assigned will implicitly use ``0`` as its value.
 
 This example demonstrates the use of macro assignment.
 
-..
+.. code-block:: none
 
-  | > $a1 = a + b
-  | (a + b)
-  | > $a2 = a - b
-  | (a - b)
-  | > simplify($a1+$a2)
-  | (2 * a)
+  > $a1 = a + b
+  (a + b)
+  > $a2 = a - b
+  (a - b)
+  > simplify($a1+$a2)
+  (2 * a)
 
 Invoking SYMDIFF from DEVSIM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -297,7 +297,7 @@ Invoking SYMDIFF from DEVSIM
 Equation parser
 ^^^^^^^^^^^^^^^
 
-The :meth:`ds.symdiff` should be used when defining new functions to the parser.  Since you do not specify regions or interfaces, it considers all strings as being independent variables, as opposed to models.  :ref:`ModelCommands` presents commands which have the concepts of models. A ``;`` should be used to separate each statement.
+The :meth:`devsim.symdiff` should be used when defining new functions to the parser.  Since you do not specify regions or interfaces, it considers all strings as being independent variables, as opposed to models.  :ref:`ModelCommands` presents commands which have the concepts of models. A ``;`` should be used to separate each statement.
 
 This is a sample invocation from |devsim|
 
@@ -309,7 +309,7 @@ This is a sample invocation from |devsim|
 Evaluating external math
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :meth:`ds.register_function` is used to evaluate functions declared or defined within |symdiff|.  A |python| procedure may then be used taking the same number of arguments.  For example:
+The :meth:`devsim.register_function` is used to evaluate functions declared or defined within |symdiff|.  A |python| procedure may then be used taking the same number of arguments.  For example:
 
 .. code-block:: python
 

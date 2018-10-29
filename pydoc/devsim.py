@@ -1,7 +1,7 @@
 
 def add_circuit_node (**kwargs):
     '''
-    ds.add_circuit_node (name, value, variable_update)
+    devsim.add_circuit_node (name, value, variable_update)
 
     Adds a circuit node for use in circuit or multi-device simulation
 
@@ -18,7 +18,7 @@ def add_circuit_node (**kwargs):
 
 def circuit_alter (**kwargs):
     '''
-    ds.circuit_alter (name, param, value)
+    devsim.circuit_alter (name, param, value)
 
     Alter the value of a circuit element parameter
 
@@ -35,7 +35,7 @@ def circuit_alter (**kwargs):
 
 def circuit_element (**kwargs):
     '''
-    ds.circuit_element (name, value, n1, n2, acreal, acimag)
+    devsim.circuit_element (name, value, n1, n2, acreal, acimag)
 
     Adds a circuit element external to the devices
 
@@ -58,7 +58,7 @@ def circuit_element (**kwargs):
 
 def circuit_node_alias (**kwargs):
     '''
-    ds.circuit_node_alias (node, alias)
+    devsim.circuit_node_alias (node, alias)
 
     Create an alias for a circuit node
 
@@ -73,7 +73,7 @@ def circuit_node_alias (**kwargs):
 
 def get_circuit_equation_number (**kwargs):
     '''
-    ds.get_circuit_equation_number (node)
+    devsim.get_circuit_equation_number (node)
 
     Returns the row number correspond to circuit node in a region.  Values are only valid when during the course of a solve.
 
@@ -86,7 +86,7 @@ def get_circuit_equation_number (**kwargs):
 
 def get_circuit_node_list (**kwargs):
     '''
-    ds.get_circuit_node_list ()
+    devsim.get_circuit_node_list ()
 
     Gets the list of the nodes in the circuit.
     '''
@@ -94,7 +94,7 @@ def get_circuit_node_list (**kwargs):
 
 def get_circuit_node_value (**kwargs):
     '''
-    ds.get_circuit_node_value (solution, node)
+    devsim.get_circuit_node_value (solution, node)
 
     Gets the value of a circuit node for a given solution type.
 
@@ -109,7 +109,7 @@ def get_circuit_node_value (**kwargs):
 
 def get_circuit_solution_list (**kwargs):
     '''
-    ds.get_circuit_solution_list ()
+    devsim.get_circuit_solution_list ()
 
     Gets the list of available circuit solutions.
     '''
@@ -117,7 +117,7 @@ def get_circuit_solution_list (**kwargs):
 
 def set_circuit_node_value (**kwargs):
     '''
-    ds.set_circuit_node_value (solution, node, value)
+    devsim.set_circuit_node_value (solution, node, value)
 
     Sets the value of a circuit node for a given solution type.
 
@@ -134,7 +134,7 @@ def set_circuit_node_value (**kwargs):
 
 def contact_equation (**kwargs):
     '''
-    ds.contact_equation (device, contact, name, variable_name, circuit_node, edge_charge_model, edge_current_model, edge_model, element_charge_model, element_current_model, element_model, node_charge_model, node_current_model, node_model)
+    devsim.contact_equation (device, contact, name, variable_name, circuit_node, edge_charge_model, edge_current_model, edge_model, element_charge_model, element_current_model, element_model, node_charge_model, node_current_model, node_model)
 
     Create a contact equation on a device
 
@@ -173,7 +173,7 @@ def contact_equation (**kwargs):
 
 def custom_equation (**kwargs):
     '''
-    ds.custom_equation (name, procedure)
+    devsim.custom_equation (name, procedure)
 
     Custom equation assembly.  See :ref:`models__customequation` for a description of how the function should be structured.
 
@@ -188,7 +188,7 @@ def custom_equation (**kwargs):
 
 def delete_contact_equation (**kwargs):
     '''
-    ds.delete_contact_equation (device, contact, name)
+    devsim.delete_contact_equation (device, contact, name)
 
     This command deletes an equation from a contact.
 
@@ -205,7 +205,7 @@ def delete_contact_equation (**kwargs):
 
 def delete_equation (**kwargs):
     '''
-    ds.delete_equation (device, region, name)
+    devsim.delete_equation (device, region, name)
 
     This command deletes an equation from a region.
 
@@ -222,7 +222,7 @@ def delete_equation (**kwargs):
 
 def delete_interface_equation (**kwargs):
     '''
-    ds.delete_interface_equation (device, interface, name)
+    devsim.delete_interface_equation (device, interface, name)
 
     This command deletes an equation from an interface.
 
@@ -239,7 +239,7 @@ def delete_interface_equation (**kwargs):
 
 def equation (**kwargs):
     '''
-    ds.equation (device, region, name, variable_name, node_model, edge_model, edge_volume_model, time_node_model, element_model, volume_model, variable_update)
+    devsim.equation (device, region, name, variable_name, node_model, edge_model, edge_volume_model, time_node_model, element_model, volume_model, variable_update)
 
     Specify an equation to solve on a device
 
@@ -285,7 +285,7 @@ def equation (**kwargs):
 
 def get_contact_equation_command (**kwargs):
     '''
-    ds.get_contact_equation_command (device, contact, name)
+    devsim.get_contact_equation_command (device, contact, name)
 
     This command gets the options used when creating this contact equation.
 
@@ -302,7 +302,7 @@ def get_contact_equation_command (**kwargs):
 
 def get_contact_equation_list (**kwargs):
     '''
-    ds.get_contact_equation_list (device, contact)
+    devsim.get_contact_equation_list (device, contact)
 
     This command gets a list of equations on the specified contact.
 
@@ -317,7 +317,7 @@ def get_contact_equation_list (**kwargs):
 
 def get_equation_command (**kwargs):
     '''
-    ds.get_equation_command (device, region, name)
+    devsim.get_equation_command (device, region, name)
 
     This command gets the options used when creating this equation.
 
@@ -334,7 +334,7 @@ def get_equation_command (**kwargs):
 
 def get_equation_list (**kwargs):
     '''
-    ds.get_equation_list (device, region)
+    devsim.get_equation_list (device, region)
 
     This command gets a list of equations on the specified region.
 
@@ -349,7 +349,7 @@ def get_equation_list (**kwargs):
 
 def get_equation_numbers (**kwargs):
     '''
-    ds.get_equation_numbers (device, region, equation, variable)
+    devsim.get_equation_numbers (device, region, equation, variable)
 
     Returns a list of the equation numbers corresponding to each node in a region.  Values are only valid when during the course of a solve.
 
@@ -368,7 +368,7 @@ def get_equation_numbers (**kwargs):
 
 def get_interface_equation_command (**kwargs):
     '''
-    ds.get_interface_equation_command (device, interface, name)
+    devsim.get_interface_equation_command (device, interface, name)
 
     This command gets the options used when creating this interface equation.
 
@@ -385,7 +385,7 @@ def get_interface_equation_command (**kwargs):
 
 def get_interface_equation_list (**kwargs):
     '''
-    ds.get_interface_equation_list (device, interface)
+    devsim.get_interface_equation_list (device, interface)
 
     This command gets a list of equations on the specified interface.
 
@@ -400,7 +400,7 @@ def get_interface_equation_list (**kwargs):
 
 def interface_equation (**kwargs):
     '''
-    ds.interface_equation (device, interface, name, name0, name1, variable_name, interface_model, type)
+    devsim.interface_equation (device, interface, name, name0, name1, variable_name, interface_model, type)
 
     Command to specify an equation at an interface
 
@@ -427,7 +427,7 @@ def interface_equation (**kwargs):
 
 def get_contact_list (**kwargs):
     '''
-    ds.get_contact_list (device)
+    devsim.get_contact_list (device)
 
     Gets a list of contacts on a device.
 
@@ -440,7 +440,7 @@ def get_contact_list (**kwargs):
 
 def get_device_list (**kwargs):
     '''
-    ds.get_device_list ()
+    devsim.get_device_list ()
 
     Gets a list of devices on the simulation.
     '''
@@ -448,7 +448,7 @@ def get_device_list (**kwargs):
 
 def get_element_node_list (**kwargs):
     '''
-    ds.get_element_node_list (device, region, contact, interface)
+    devsim.get_element_node_list (device, region, contact, interface)
 
     Gets a list of nodes for each element on a device, region, contact, or interface.
 
@@ -467,7 +467,7 @@ def get_element_node_list (**kwargs):
 
 def get_interface_list (**kwargs):
     '''
-    ds.get_interface_list (device)
+    devsim.get_interface_list (device)
 
     Gets a list of interfaces on a device.
 
@@ -480,7 +480,7 @@ def get_interface_list (**kwargs):
 
 def get_region_list (**kwargs):
     '''
-    ds.get_region_list (device, contact, interface)
+    devsim.get_region_list (device, contact, interface)
 
     Gets a list of regions on a device, contact, or interface.
 
@@ -497,7 +497,7 @@ def get_region_list (**kwargs):
 
 def add_db_entry (**kwargs):
     '''
-    ds.add_db_entry (material, parameter, value, unit, description)
+    devsim.add_db_entry (material, parameter, value, unit, description)
 
     Adds an entry to the database
 
@@ -523,7 +523,7 @@ def add_db_entry (**kwargs):
 
 def close_db (**kwargs):
     '''
-    ds.close_db ()
+    devsim.close_db ()
 
     Closes the database so that its entries are no longer available
     '''
@@ -531,7 +531,7 @@ def close_db (**kwargs):
 
 def create_db (**kwargs):
     '''
-    ds.create_db (filename)
+    devsim.create_db (filename)
 
     Create a database to store material properties
 
@@ -544,7 +544,7 @@ def create_db (**kwargs):
 
 def get_db_entry (**kwargs):
     '''
-    ds.get_db_entry (material, parameter)
+    devsim.get_db_entry (material, parameter)
 
     This command returns a list containing the value, unit, and description for the requested material db entry
 
@@ -559,7 +559,7 @@ def get_db_entry (**kwargs):
 
 def get_dimension (**kwargs):
     '''
-    ds.get_dimension (device)
+    devsim.get_dimension (device)
 
     Get the dimension of the device
 
@@ -572,7 +572,7 @@ def get_dimension (**kwargs):
 
 def get_material (**kwargs):
     '''
-    ds.get_material (device, region)
+    devsim.get_material (device, region)
 
     Returns the material for the specified region
 
@@ -587,7 +587,7 @@ def get_material (**kwargs):
 
 def get_parameter (**kwargs):
     '''
-    ds.get_parameter (device, region, name)
+    devsim.get_parameter (device, region, name)
 
     Get a parameter on a region, device, or globally.
 
@@ -609,7 +609,7 @@ def get_parameter (**kwargs):
 
 def get_parameter_list (**kwargs):
     '''
-    ds.get_parameter_list (device, region)
+    devsim.get_parameter_list (device, region)
 
     Get list of parameter names on region, device, or globally
 
@@ -629,7 +629,7 @@ def get_parameter_list (**kwargs):
 
 def open_db (**kwargs):
     '''
-    ds.open_db (filename, permissions)
+    devsim.open_db (filename, permissions)
 
     Open a database storing material properties
 
@@ -644,7 +644,7 @@ def open_db (**kwargs):
 
 def save_db (**kwargs):
     '''
-    ds.save_db ()
+    devsim.save_db ()
 
     Saves any new or modified db entries to the database file
     '''
@@ -652,7 +652,7 @@ def save_db (**kwargs):
 
 def set_material (**kwargs):
     '''
-    ds.set_material (device, region, material)
+    devsim.set_material (device, region, material)
 
     Sets the new material for a region
 
@@ -669,7 +669,7 @@ def set_material (**kwargs):
 
 def set_parameter (**kwargs):
     '''
-    ds.set_parameter (device, region, name, value)
+    devsim.set_parameter (device, region, name, value)
 
     Set a parameter on region, device, or globally
 
@@ -693,7 +693,7 @@ def set_parameter (**kwargs):
 
 def add_1d_contact (**kwargs):
     '''
-    ds.add_1d_contact (material, mesh, name, tag)
+    devsim.add_1d_contact (material, mesh, name, tag)
 
     Add a contact to a 1D mesh
 
@@ -712,7 +712,7 @@ def add_1d_contact (**kwargs):
 
 def add_1d_interface (**kwargs):
     '''
-    ds.add_1d_interface (mesh, tag, name)
+    devsim.add_1d_interface (mesh, tag, name)
 
     Add an interface to a 1D mesh
 
@@ -729,7 +729,7 @@ def add_1d_interface (**kwargs):
 
 def add_1d_mesh_line (**kwargs):
     '''
-    ds.add_1d_mesh_line (mesh, tag, pos, ns, ps)
+    devsim.add_1d_mesh_line (mesh, tag, pos, ns, ps)
 
     Add a mesh line to a 1D mesh
 
@@ -750,7 +750,7 @@ def add_1d_mesh_line (**kwargs):
 
 def add_1d_region (**kwargs):
     '''
-    ds.add_1d_region (mesh, tag1, tag2, region, material)
+    devsim.add_1d_region (mesh, tag1, tag2, region, material)
 
     Add a region to a 1D mesh
 
@@ -771,7 +771,7 @@ def add_1d_region (**kwargs):
 
 def add_2d_contact (**kwargs):
     '''
-    ds.add_2d_contact (name, material, mesh, region, xl, xh, yl, yh, bloat)
+    devsim.add_2d_contact (name, material, mesh, region, xl, xh, yl, yh, bloat)
 
     Add an interface to a 2D mesh
 
@@ -800,7 +800,7 @@ def add_2d_contact (**kwargs):
 
 def add_2d_interface (**kwargs):
     '''
-    ds.add_2d_interface (mesh, name, region0, region1, xl, xh, yl, yh, bloat)
+    devsim.add_2d_interface (mesh, name, region0, region1, xl, xh, yl, yh, bloat)
 
     Add an interface to a 2D mesh
 
@@ -829,7 +829,7 @@ def add_2d_interface (**kwargs):
 
 def add_2d_mesh_line (**kwargs):
     '''
-    ds.add_2d_mesh_line (mesh, pos, ns, ps)
+    devsim.add_2d_mesh_line (mesh, pos, ns, ps)
 
     Add a mesh line to a 2D mesh
 
@@ -848,7 +848,7 @@ def add_2d_mesh_line (**kwargs):
 
 def add_2d_region (**kwargs):
     '''
-    ds.add_2d_region (mesh, region, material, xl, xh, yl, yh, bloat)
+    devsim.add_2d_region (mesh, region, material, xl, xh, yl, yh, bloat)
 
     Add a region to a 2D mesh
 
@@ -875,7 +875,7 @@ def add_2d_region (**kwargs):
 
 def add_genius_contact (**kwargs):
     '''
-    ds.add_genius_contact (genius_name, material, mesh, name, region)
+    devsim.add_genius_contact (genius_name, material, mesh, name, region)
 
     Create a contact for an imported Genius mesh
 
@@ -896,7 +896,7 @@ def add_genius_contact (**kwargs):
 
 def add_genius_interface (**kwargs):
     '''
-    ds.add_genius_interface (genius_name, mesh, name, region0, region1)
+    devsim.add_genius_interface (genius_name, mesh, name, region0, region1)
 
     Create an interface for an imported Genius mesh
 
@@ -917,7 +917,7 @@ def add_genius_interface (**kwargs):
 
 def add_genius_region (**kwargs):
     '''
-    ds.add_genius_region (genius_name, mesh, region, material)
+    devsim.add_genius_region (genius_name, mesh, region, material)
 
     Create a region for an imported Genius  mesh
 
@@ -936,7 +936,7 @@ def add_genius_region (**kwargs):
 
 def add_gmsh_contact (**kwargs):
     '''
-    ds.add_gmsh_contact (gmsh_name, material, mesh, name, region)
+    devsim.add_gmsh_contact (gmsh_name, material, mesh, name, region)
 
     Create a mesh to import a Gmsh mesh
 
@@ -957,7 +957,7 @@ def add_gmsh_contact (**kwargs):
 
 def add_gmsh_interface (**kwargs):
     '''
-    ds.add_gmsh_interface (gmsh_name, mesh, name, region0, region1)
+    devsim.add_gmsh_interface (gmsh_name, mesh, name, region0, region1)
 
     Create an interface for an imported Gmsh mesh
 
@@ -978,7 +978,7 @@ def add_gmsh_interface (**kwargs):
 
 def add_gmsh_region (**kwargs):
     '''
-    ds.add_gmsh_region (gmsh_name, mesh, region, material)
+    devsim.add_gmsh_region (gmsh_name, mesh, region, material)
 
     Create a region for an imported Gmsh mesh
 
@@ -997,7 +997,7 @@ def add_gmsh_region (**kwargs):
 
 def create_1d_mesh (**kwargs):
     '''
-    ds.create_1d_mesh (mesh)
+    devsim.create_1d_mesh (mesh)
 
     Create a mesh to create a 1D device
 
@@ -1010,7 +1010,7 @@ def create_1d_mesh (**kwargs):
 
 def create_2d_mesh (**kwargs):
     '''
-    ds.create_2d_mesh (mesh)
+    devsim.create_2d_mesh (mesh)
 
     Create a mesh to create a 2D device
 
@@ -1023,7 +1023,7 @@ def create_2d_mesh (**kwargs):
 
 def create_contact_from_interface (**kwargs):
     '''
-    ds.create_contact_from_interface (device, region, interface, material, name)
+    devsim.create_contact_from_interface (device, region, interface, material, name)
 
     Creates a contact on a device from an existing interface
 
@@ -1044,7 +1044,7 @@ def create_contact_from_interface (**kwargs):
 
 def create_device (**kwargs):
     '''
-    ds.create_device (mesh, device)
+    devsim.create_device (mesh, device)
 
     Create a device from a mesh
 
@@ -1059,7 +1059,7 @@ def create_device (**kwargs):
 
 def create_genius_mesh (**kwargs):
     '''
-    ds.create_genius_mesh (file, mesh)
+    devsim.create_genius_mesh (file, mesh)
 
     This command reads in a Genius mesh written in the CGNS format
 
@@ -1081,7 +1081,7 @@ def create_genius_mesh (**kwargs):
 
 def create_gmsh_mesh (**kwargs):
     '''
-    ds.create_gmsh_mesh (mesh, file, coordinates, elements, physical_names)
+    devsim.create_gmsh_mesh (mesh, file, coordinates, elements, physical_names)
 
     Create a mesh to import a Gmsh mesh
 
@@ -1129,7 +1129,7 @@ def create_gmsh_mesh (**kwargs):
 
 def finalize_mesh (**kwargs):
     '''
-    ds.finalize_mesh (mesh)
+    devsim.finalize_mesh (mesh)
 
     Finalize a mesh so no additional mesh specifications can be added and devices can be created.
 
@@ -1142,7 +1142,7 @@ def finalize_mesh (**kwargs):
 
 def load_devices (**kwargs):
     '''
-    ds.load_devices (file)
+    devsim.load_devices (file)
 
     Load devices from a DEVSIM file
 
@@ -1155,7 +1155,7 @@ def load_devices (**kwargs):
 
 def write_devices (**kwargs):
     '''
-    ds.write_devices (file, device, type)
+    devsim.write_devices (file, device, type)
 
     Write a device to a file for visualization or restart
 
@@ -1172,7 +1172,7 @@ def write_devices (**kwargs):
 
 def contact_edge_model (**kwargs):
     '''
-    ds.contact_edge_model (device, contact, name, equation, display_type)
+    devsim.contact_edge_model (device, contact, name, equation, display_type)
 
     Create an edge model evaluated at a contact
 
@@ -1193,7 +1193,7 @@ def contact_edge_model (**kwargs):
 
 def contact_node_model (**kwargs):
     '''
-    ds.contact_node_model (device, contact, name, equation, display_type)
+    devsim.contact_node_model (device, contact, name, equation, display_type)
 
     Create an node model evaluated at a contact
 
@@ -1214,7 +1214,7 @@ def contact_node_model (**kwargs):
 
 def cylindrical_edge_couple (**kwargs):
     '''
-    ds.cylindrical_edge_couple (device, region)
+    devsim.cylindrical_edge_couple (device, region)
 
     This command creates the ``EdgeCouple`` model for 2D cylindrical simulation
 
@@ -1242,7 +1242,7 @@ def cylindrical_edge_couple (**kwargs):
 
 def cylindrical_node_volume (**kwargs):
     '''
-    ds.cylindrical_node_volume (device, region)
+    devsim.cylindrical_node_volume (device, region)
 
     This command creates the ``NodeVolume`` model for 2D cylindrical simulation
 
@@ -1276,7 +1276,7 @@ def cylindrical_node_volume (**kwargs):
 
 def cylindrical_surface_area (**kwargs):
     '''
-    ds.cylindrical_surface_area (device, region)
+    devsim.cylindrical_surface_area (device, region)
 
     This command creates the ``SurfaceArea`` model for 2D cylindrical simulation
 
@@ -1306,7 +1306,7 @@ def cylindrical_surface_area (**kwargs):
 
 def debug_triangle_models (**kwargs):
     '''
-    ds.debug_triangle_models (device, region)
+    devsim.debug_triangle_models (device, region)
 
     Debugging command used in the development of DEVSIM and used in regressions.
 
@@ -1321,7 +1321,7 @@ def debug_triangle_models (**kwargs):
 
 def delete_edge_model (**kwargs):
     '''
-    ds.delete_edge_model (device, region, name)
+    devsim.delete_edge_model (device, region, name)
 
     Deletes an edge model from a region
 
@@ -1338,7 +1338,7 @@ def delete_edge_model (**kwargs):
 
 def delete_element_model (**kwargs):
     '''
-    ds.delete_element_model (device, region, name)
+    devsim.delete_element_model (device, region, name)
 
     Deletes a element model from a region
 
@@ -1355,7 +1355,7 @@ def delete_element_model (**kwargs):
 
 def delete_interface_model (**kwargs):
     '''
-    ds.delete_interface_model (device, interface, name)
+    devsim.delete_interface_model (device, interface, name)
 
     Deletes an interface model from an interface
 
@@ -1372,7 +1372,7 @@ def delete_interface_model (**kwargs):
 
 def delete_node_model (**kwargs):
     '''
-    ds.delete_node_model (device, region, name)
+    devsim.delete_node_model (device, region, name)
 
     Deletes a node model from a region
 
@@ -1389,7 +1389,7 @@ def delete_node_model (**kwargs):
 
 def edge_average_model (**kwargs):
     '''
-    ds.edge_average_model (device, region, node_model, edge_model, derivative, average_type)
+    devsim.edge_average_model (device, region, node_model, edge_model, derivative, average_type)
 
     Creates an edge model based on the node model values
 
@@ -1427,7 +1427,7 @@ def edge_average_model (**kwargs):
 
 def edge_from_node_model (**kwargs):
     '''
-    ds.edge_from_node_model (device, region, node_model)
+    devsim.edge_from_node_model (device, region, node_model)
 
     For a node model, creates an 2 edge models referring to the node model value at both ends of the edge.
 
@@ -1454,7 +1454,7 @@ def edge_from_node_model (**kwargs):
 
 def edge_model (**kwargs):
     '''
-    ds.edge_model (device, region, name, equation, display_type)
+    devsim.edge_model (device, region, name, equation, display_type)
 
     Creates an edge model based on an equation
 
@@ -1486,7 +1486,7 @@ def edge_model (**kwargs):
 
 def element_from_edge_model (**kwargs):
     '''
-    ds.element_from_edge_model (device, region, edge_model, derivative)
+    devsim.element_from_edge_model (device, region, edge_model, derivative)
 
     Creates element edge models from an edge model
 
@@ -1541,7 +1541,7 @@ def element_from_edge_model (**kwargs):
 
 def element_from_node_model (**kwargs):
     '''
-    ds.element_from_node_model (device, region, node_model)
+    devsim.element_from_node_model (device, region, node_model)
 
     Creates element edge models from a node model
 
@@ -1570,7 +1570,7 @@ def element_from_node_model (**kwargs):
 
 def element_model (**kwargs):
     '''
-    ds.element_model (device, region, name, equation, display_type)
+    devsim.element_model (device, region, name, equation, display_type)
 
     Create a model evaluated on element edges.
 
@@ -1591,7 +1591,7 @@ def element_model (**kwargs):
 
 def get_edge_model_list (**kwargs):
     '''
-    ds.get_edge_model_list (device, region)
+    devsim.get_edge_model_list (device, region)
 
     Returns a list of the edge models on the device region
 
@@ -1606,7 +1606,7 @@ def get_edge_model_list (**kwargs):
 
 def get_edge_model_values (**kwargs):
     '''
-    ds.get_edge_model_values (device, region, name)
+    devsim.get_edge_model_values (device, region, name)
 
     Get the edge model values calculated at each edge.
 
@@ -1623,7 +1623,7 @@ def get_edge_model_values (**kwargs):
 
 def get_element_model_list (**kwargs):
     '''
-    ds.get_element_model_list (device, region)
+    devsim.get_element_model_list (device, region)
 
     Returns a list of the element edge models on the device region
 
@@ -1638,7 +1638,7 @@ def get_element_model_list (**kwargs):
 
 def get_element_model_values (**kwargs):
     '''
-    ds.get_element_model_values (device, region, name)
+    devsim.get_element_model_values (device, region, name)
 
     Get element model values at each element edge
 
@@ -1655,7 +1655,7 @@ def get_element_model_values (**kwargs):
 
 def get_interface_model_list (**kwargs):
     '''
-    ds.get_interface_model_list (device, interface)
+    devsim.get_interface_model_list (device, interface)
 
     Returns a list of the interface models on the interface
 
@@ -1670,7 +1670,7 @@ def get_interface_model_list (**kwargs):
 
 def get_interface_model_values (**kwargs):
     '''
-    ds.get_interface_model_values (device, interface, name)
+    devsim.get_interface_model_values (device, interface, name)
 
     Gets interface model values evaluated at each interface node.
 
@@ -1687,7 +1687,7 @@ def get_interface_model_values (**kwargs):
 
 def get_node_model_list (**kwargs):
     '''
-    ds.get_node_model_list (device, region)
+    devsim.get_node_model_list (device, region)
 
     Returns a list of the node models on the device region
 
@@ -1702,7 +1702,7 @@ def get_node_model_list (**kwargs):
 
 def get_node_model_values (**kwargs):
     '''
-    ds.get_node_model_values (device, region, name)
+    devsim.get_node_model_values (device, region, name)
 
     Get node model values evaluated at each node in a region.
 
@@ -1719,7 +1719,7 @@ def get_node_model_values (**kwargs):
 
 def interface_model (**kwargs):
     '''
-    ds.interface_model (device, interface, equation)
+    devsim.interface_model (device, interface, equation)
 
     Create an interface model from an equation.
 
@@ -1736,7 +1736,7 @@ def interface_model (**kwargs):
 
 def interface_normal_model (**kwargs):
     '''
-    ds.interface_normal_model (device, region, interface)
+    devsim.interface_normal_model (device, region, interface)
 
     Creates edge models whose components are based on direction and distance to an interface
 
@@ -1765,7 +1765,7 @@ def interface_normal_model (**kwargs):
 
 def node_model (**kwargs):
     '''
-    ds.node_model (device, region, name, equation, display_type)
+    devsim.node_model (device, region, name, equation, display_type)
 
     Create a node model from an equation.
 
@@ -1786,7 +1786,7 @@ def node_model (**kwargs):
 
 def node_solution (**kwargs):
     '''
-    ds.node_solution (device, region, name)
+    devsim.node_solution (device, region, name)
 
     Create node model whose values are set.
 
@@ -1803,7 +1803,7 @@ def node_solution (**kwargs):
 
 def print_edge_values (**kwargs):
     '''
-    ds.print_edge_values (device, region, name)
+    devsim.print_edge_values (device, region, name)
 
     Print edge values for debugging.
 
@@ -1820,7 +1820,7 @@ def print_edge_values (**kwargs):
 
 def print_element_values (**kwargs):
     '''
-    ds.print_element_values (device, region, name)
+    devsim.print_element_values (device, region, name)
 
     Print element values for debugging.
 
@@ -1837,7 +1837,7 @@ def print_element_values (**kwargs):
 
 def print_node_values (**kwargs):
     '''
-    ds.print_node_values (device, region, name)
+    devsim.print_node_values (device, region, name)
 
     Print node values for debugging.
 
@@ -1854,7 +1854,7 @@ def print_node_values (**kwargs):
 
 def register_function (**kwargs):
     '''
-    ds.register_function (name, nargs)
+    devsim.register_function (name, nargs)
 
     This command is used to register a new Python procedure for evaluation by SYMDIFF.
 
@@ -1869,7 +1869,7 @@ def register_function (**kwargs):
 
 def set_node_value (**kwargs):
     '''
-    ds.set_node_value (device, region, name, index, value)
+    devsim.set_node_value (device, region, name, index, value)
 
     A uniform value is used if index is not specified.  Note that equation based node models will lose this value if their equation is recalculated.
 
@@ -1890,7 +1890,7 @@ def set_node_value (**kwargs):
 
 def set_node_values (**kwargs):
     '''
-    ds.set_node_values (device, region, name, init_from, values)
+    devsim.set_node_values (device, region, name, init_from, values)
 
     Set node model values from another node model, or a list of values.
 
@@ -1911,7 +1911,7 @@ def set_node_values (**kwargs):
 
 def symdiff (**kwargs):
     '''
-    ds.symdiff (expr)
+    devsim.symdiff (expr)
 
     This command returns an expression.  All strings are treated as independent variables.  It is primarily used for defining new functions to the parser.
 
@@ -1924,7 +1924,7 @@ def symdiff (**kwargs):
 
 def vector_element_model (**kwargs):
     '''
-    ds.vector_element_model (device, region, element_model)
+    devsim.vector_element_model (device, region, element_model)
 
     Create vector components from an element edge model
 
@@ -1952,7 +1952,7 @@ def vector_element_model (**kwargs):
 
 def vector_gradient (**kwargs):
     '''
-    ds.vector_gradient (device, region, node_model, calc_type)
+    devsim.vector_gradient (device, region, node_model, calc_type)
 
     Creates the vector gradient for noise analysis
 
@@ -1982,7 +1982,7 @@ def vector_gradient (**kwargs):
 
 def get_contact_charge (**kwargs):
     '''
-    ds.get_contact_charge (device, contact, equation)
+    devsim.get_contact_charge (device, contact, equation)
 
     Get charge at the contact
 
@@ -1999,7 +1999,7 @@ def get_contact_charge (**kwargs):
 
 def get_contact_current (**kwargs):
     '''
-    ds.get_contact_current (device, contact, equation)
+    devsim.get_contact_current (device, contact, equation)
 
     Get current at the contact
 
@@ -2016,7 +2016,7 @@ def get_contact_current (**kwargs):
 
 def solve (**kwargs):
     '''
-    ds.solve (type, solver_type, absolute_error, relative_error, charge_error, gamma, tdelta, maximum_iterations, frequency, output_node, info)
+    devsim.solve (type, solver_type, absolute_error, relative_error, charge_error, gamma, tdelta, maximum_iterations, frequency, output_node, info)
 
     Call the solver.  A small-signal AC source is set with the circuit voltage source.
 

@@ -16,7 +16,7 @@ Using the python packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For these examples, python modules are provided to supply the appropriate model and parameter settings.  A listing is shown in :numref:`ppack`.
-The ``python_packages`` must be in your path, and may be set using the methods described in :ref:`sec__pythonpath`.  The example files in the |devsim| distribution set the path properly when loading modules.
+The ``devsim.python_packages`` module is part of the distribution.  The example files in the |devsim| distribution set the path properly when loading modules.
 
 .. _ppack:
 
@@ -33,7 +33,7 @@ For this example, ``diode_1d.py``, the following line is used to import the rele
 
 .. code-block:: python
 
-  from ds import *
+  from devsim import *
   from simple_physics import *
 
 Creating the mesh

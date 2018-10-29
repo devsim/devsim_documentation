@@ -13,7 +13,7 @@ Introduction
 Using Tecplot
 ~~~~~~~~~~~~~
 
-The :meth:`ds.write_devices` is used to create an ASCII file suitable for use in |tecplot|.  Edge quantities are interpolated onto the node positions in the resulting structure.  Element edge quantities are interpolated onto the centers of each triangle or tetrahedron in the mesh.
+The :meth:`devsim.write_devices` is used to create an ASCII file suitable for use in |tecplot|.  Edge quantities are interpolated onto the node positions in the resulting structure.  Element edge quantities are interpolated onto the centers of each triangle or tetrahedron in the mesh.
 
 .. code-block:: python
 
@@ -22,7 +22,7 @@ The :meth:`ds.write_devices` is used to create an ASCII file suitable for use in
 Using Postmini
 ~~~~~~~~~~~~~~
 
-The :meth:`ds.write_devices` is used to create an ASCII file suitable for use in |postmini|.  Edge and element edge quantities are interpolated onto the node positions in the resulting structure.
+The :meth:`devsim.write_devices` is used to create an ASCII file suitable for use in |postmini|.  Edge and element edge quantities are interpolated onto the node positions in the resulting structure.
 
 .. code-block:: python
 
@@ -31,7 +31,7 @@ The :meth:`ds.write_devices` is used to create an ASCII file suitable for use in
 Using Paraview
 ~~~~~~~~~~~~~~
 
-The :meth:`ds.write_devices` is used to create an ASCII file suitable for use in |paraview|.  Edge quantities are interpolated onto the node positions in the resulting structure.  Element edge quantities are interpolated onto the centers of each triangle or tetrahedron in the mesh.
+The :meth:`devsim.write_devices` is used to create an ASCII file suitable for use in |paraview|.  Edge quantities are interpolated onto the node positions in the resulting structure.  Element edge quantities are interpolated onto the centers of each triangle or tetrahedron in the mesh.
 
 .. code-block:: python
 
@@ -42,7 +42,7 @@ One ``vtu`` file per device region will be created, as well as a ``vtm`` file wh
 Using VisIt
 ~~~~~~~~~~~
 
-|visit| supports reading the |tecplot| and |paraview| formats.  When using the ``vtk`` option on the :meth:`ds.write_devices`, a file with a ``visit`` filename extension is created to load the files created for |paraview|.
+|visit| supports reading the |tecplot| and |paraview| formats.  When using the ``vtk`` option on the :meth:`devsim.write_devices`, a file with a ``visit`` filename extension is created to load the files created for |paraview|.
 
 DEVSIM
 ~~~~~~

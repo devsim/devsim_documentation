@@ -11,7 +11,7 @@ export PYTHONPATH=${PWD}
 (cd pydoc && python CommandDoc.py) && (cd sphinx && make clean && make html)
 open file://${HOME}/git/devsim_manual/sphinx/build/html/CommandReference.html#meshing-commands
 
-cp CommandReference.rst file into sphinx directory.
+cp CommandReference.rst file into sphinx/source directory.
 cp DevsimDoc.cc into devsim directory
 
 cd ../sphinx

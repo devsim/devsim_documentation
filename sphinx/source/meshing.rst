@@ -12,62 +12,62 @@ Meshing
 
 .. code-block:: python
 
-  ds.create_1d_mesh(mesh="cap")
-  ds.add_1d_mesh_line(mesh="cap", pos=0, ps=0.1, tag="top")
-  ds.add_1d_mesh_line(mesh="cap", pos=0.5, ps=0.1, tag="mid")
-  ds.add_1d_mesh_line(mesh="cap", pos=1, ps=0.1, tag="bot")
-  ds.add_1d_contact(mesh="cap", name="top", tag="top", material="metal")
-  ds.add_1d_contact(mesh="cap", name="bot", tag="bot", material="metal")
-  ds.add_1d_interface(mesh="cap", name="MySiOx", tag="mid")
-  ds.add_1d_region(mesh="cap", material="Si", region="MySiRegion",
+  devsim.create_1d_mesh(mesh="cap")
+  devsim.add_1d_mesh_line(mesh="cap", pos=0, ps=0.1, tag="top")
+  devsim.add_1d_mesh_line(mesh="cap", pos=0.5, ps=0.1, tag="mid")
+  devsim.add_1d_mesh_line(mesh="cap", pos=1, ps=0.1, tag="bot")
+  devsim.add_1d_contact(mesh="cap", name="top", tag="top", material="metal")
+  devsim.add_1d_contact(mesh="cap", name="bot", tag="bot", material="metal")
+  devsim.add_1d_interface(mesh="cap", name="MySiOx", tag="mid")
+  devsim.add_1d_region(mesh="cap", material="Si", region="MySiRegion",
     tag1="top", tag2="mid")
-  ds.add_1d_region(mesh="cap", material="Ox", region="MyOxRegion",
+  devsim.add_1d_region(mesh="cap", material="Ox", region="MyOxRegion",
     tag1="mid", tag2="bot")
-  ds.finalize_mesh(mesh="cap")
-  ds.create_device(mesh="cap", device="device")
+  devsim.finalize_mesh(mesh="cap")
+  devsim.create_device(mesh="cap", device="device")
 
-The :meth:`ds.create_1d_mesh` is first used to initialize the specification of a new mesh by the name specified with the ``command`` option. The :meth:`ds.add_1d_mesh_line` is used to specify the end points of the 1D structure, as well as the location of points where the spacing changes.  The ``command`` is used to create reference labels used for specifying the contacts, interfaces and regions.
+The :meth:`devsim.create_1d_mesh` is first used to initialize the specification of a new mesh by the name specified with the ``command`` option. The :meth:`devsim.add_1d_mesh_line` is used to specify the end points of the 1D structure, as well as the location of points where the spacing changes.  The ``command`` is used to create reference labels used for specifying the contacts, interfaces and regions.
 
-The :meth:`ds.add_1d_contact`, :meth:`ds.add_1d_interface` and :meth:`ds.add_1d_region` are used to specify the contacts, interfaces and regions for the device.
+The :meth:`devsim.add_1d_contact`, :meth:`devsim.add_1d_interface` and :meth:`devsim.add_1d_region` are used to specify the contacts, interfaces and regions for the device.
 
-Once the meshing commands have been completed, the :meth:`ds.finalize_mesh` is called to create a mesh structure and then :meth:`ds.create_device` is used to create a device using the mesh.
+Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
 
 2D mesher
 ~~~~~~~~~
 
-Similar to the 1D mesher, the 2D mesher uses a sequence of non-terminating mesh lines are specified in both the x and y directions to specify a mesh structure.  As opposed to using tags, the regions are specified using :meth:`ds.add_2d_region` as box coordinates on the mesh coordinates.  The contacts and interfaces are specified using boxes, however it is best to ensure the the interfaces and contacts encompass only one line of points.
+Similar to the 1D mesher, the 2D mesher uses a sequence of non-terminating mesh lines are specified in both the x and y directions to specify a mesh structure.  As opposed to using tags, the regions are specified using :meth:`devsim.add_2d_region` as box coordinates on the mesh coordinates.  The contacts and interfaces are specified using boxes, however it is best to ensure the the interfaces and contacts encompass only one line of points.
 
 .. code-block:: python
 
-  ds.create_2d_mesh(mesh="cap")
-  ds.add_2d_mesh_line(mesh="cap", dir="y", pos=-0.001, ps=0.001)
-  ds.add_2d_mesh_line(mesh="cap", dir="x", pos=xmin, ps=0.1)
-  ds.add_2d_mesh_line(mesh="cap", dir="x", pos=xmax, ps=0.1)
-  ds.add_2d_mesh_line(mesh="cap", dir="y", pos=ymin, ps=0.1)
-  ds.add_2d_mesh_line(mesh="cap", dir="y", pos=ymax, ps=0.1)
-  ds.add_2d_mesh_line(mesh="cap", dir="y", pos=+1.001, ps=0.001)
-  ds.add_2d_region(mesh="cap", material="gas", region="gas1", yl=-.001, yh=0.0)
-  ds.add_2d_region(mesh="cap", material="gas", region="gas2", yl=1.0, yh=1.001)
-  ds.add_2d_region(mesh="cap", material="Oxide", region="r0", xl=xmin, xh=xmax,
+  devsim.create_2d_mesh(mesh="cap")
+  devsim.add_2d_mesh_line(mesh="cap", dir="y", pos=-0.001, ps=0.001)
+  devsim.add_2d_mesh_line(mesh="cap", dir="x", pos=xmin, ps=0.1)
+  devsim.add_2d_mesh_line(mesh="cap", dir="x", pos=xmax, ps=0.1)
+  devsim.add_2d_mesh_line(mesh="cap", dir="y", pos=ymin, ps=0.1)
+  devsim.add_2d_mesh_line(mesh="cap", dir="y", pos=ymax, ps=0.1)
+  devsim.add_2d_mesh_line(mesh="cap", dir="y", pos=+1.001, ps=0.001)
+  devsim.add_2d_region(mesh="cap", material="gas", region="gas1", yl=-.001, yh=0.0)
+  devsim.add_2d_region(mesh="cap", material="gas", region="gas2", yl=1.0, yh=1.001)
+  devsim.add_2d_region(mesh="cap", material="Oxide", region="r0", xl=xmin, xh=xmax,
     yl=ymid1, yh=ymin)
-  ds.add_2d_region(mesh="cap", material="Silicon", region="r1", xl=xmin, xh=xmax,
+  devsim.add_2d_region(mesh="cap", material="Silicon", region="r1", xl=xmin, xh=xmax,
     yl=ymid2, yh=ymid1)
-  ds.add_2d_region(mesh="cap", material="Silicon", region="r2", xl=xmin, xh=xmax,
+  devsim.add_2d_region(mesh="cap", material="Silicon", region="r2", xl=xmin, xh=xmax,
     yl=ymid2, yh=ymax)
 
-  ds.add_2d_interface(mesh="cap", name="i0", region0="r0", region1="r1")
-  ds.add_2d_interface(mesh="cap", name="i1", region0="r1", region1="r2",
+  devsim.add_2d_interface(mesh="cap", name="i0", region0="r0", region1="r1")
+  devsim.add_2d_interface(mesh="cap", name="i1", region0="r1", region1="r2",
     xl=0, xh=1, yl=ymid2, yh=ymid2, bloat=1.0e-10)
-  ds.add_2d_contact(mesh="cap", name="top", region="r0", yl=ymin, yh=ymin,
+  devsim.add_2d_contact(mesh="cap", name="top", region="r0", yl=ymin, yh=ymin,
     bloat=1.0e-10, material="metal")
-  ds.add_2d_contact(mesh="cap", name="bot", region="r2", yl=ymax, yh=ymax,
+  devsim.add_2d_contact(mesh="cap", name="bot", region="r2", yl=ymax, yh=ymax,
     bloat=1.0e-10, material="metal")
-  ds.finalize_mesh(mesh="cap")
-  ds.create_device(mesh="cap", device="device")
+  devsim.finalize_mesh(mesh="cap")
+  devsim.create_device(mesh="cap", device="device")
 
-In the current implementation of the software, it is necessary to create a region on both sides of the contact in order to create a contact using :meth:`ds.add_2d_contact` or an interface using :meth:`ds.add_2d_interface`.
+In the current implementation of the software, it is necessary to create a region on both sides of the contact in order to create a contact using :meth:`devsim.add_2d_contact` or an interface using :meth:`devsim.add_2d_interface`.
 
-Once the meshing commands have been completed, the :meth:`ds.finalize_mesh` is called to create a mesh structure and then :meth:`ds.create_device` is used to create a device using the mesh.
+Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
 
 .. _sec__externalmesher:
 
@@ -81,7 +81,7 @@ Using an external mesher
 Genius
 ^^^^^^
 
-Meshes from the |geniusds| software (see :ref:`geniusAvailability`) can be imported using the |cgns| format.  In this example, :meth:`ds.create_genius_mesh` returns region and boundary information which can be used to setup the device.
+Meshes from the |geniusds| software (see :ref:`geniusAvailability`) can be imported using the |cgns| format.  In this example, :meth:`devsim.create_genius_mesh` returns region and boundary information which can be used to setup the device.
 
 .. code-block:: python
 
@@ -129,36 +129,36 @@ The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create 
 
 .. code-block:: python
 
-  ds.create_gmsh_mesh(file="gmsh_mos2d.msh", mesh="mos2d")
-  ds.add_gmsh_region(mesh="mos2d" gmsh_name="bulk", region="bulk",
+  devsim.create_gmsh_mesh(file="gmsh_mos2d.msh", mesh="mos2d")
+  devsim.add_gmsh_region(mesh="mos2d" gmsh_name="bulk", region="bulk",
     material="Silicon")
-  ds.add_gmsh_region(mesh="mos2d" gmsh_name="oxide", region="oxide",
+  devsim.add_gmsh_region(mesh="mos2d" gmsh_name="oxide", region="oxide",
     material="Silicon")
-  ds.add_gmsh_region(mesh="mos2d" gmsh_name="gate", region="gate",
+  devsim.add_gmsh_region(mesh="mos2d" gmsh_name="gate", region="gate",
     material="Silicon")
-  ds.add_gmsh_contact(mesh="mos2d" gmsh_name="drain_contact", region="bulk",
+  devsim.add_gmsh_contact(mesh="mos2d" gmsh_name="drain_contact", region="bulk",
       name="drain", material="metal")
-  ds.add_gmsh_contact(mesh="mos2d" gmsh_name="source_contact", region="bulk",
+  devsim.add_gmsh_contact(mesh="mos2d" gmsh_name="source_contact", region="bulk",
       name="source", material="metal")
-  ds.add_gmsh_contact(mesh="mos2d" gmsh_name="body_contact", region="bulk",
+  devsim.add_gmsh_contact(mesh="mos2d" gmsh_name="body_contact", region="bulk",
       name="body", material="metal")
-  ds.add_gmsh_contact(mesh="mos2d" gmsh_name="gate_contact", region="gate",
+  devsim.add_gmsh_contact(mesh="mos2d" gmsh_name="gate_contact", region="gate",
       name="gate", material="metal")
-  ds.add_gmsh_interface(mesh="mos2d" gmsh_name="gate_oxide_interface",
+  devsim.add_gmsh_interface(mesh="mos2d" gmsh_name="gate_oxide_interface",
     region0="gate", region1="oxide", name="gate_oxide")
-  ds.add_gmsh_interface(mesh="mos2d" gmsh_name="bulk_oxide_interface",
+  devsim.add_gmsh_interface(mesh="mos2d" gmsh_name="bulk_oxide_interface",
     region0="bulk", region1="oxide", name="bulk_oxide")
-  ds.finalize_mesh(mesh="mos2d")
-  ds.create_device(mesh="mos2d", device="mos2d")
+  devsim.finalize_mesh(mesh="mos2d")
+  devsim.create_device(mesh="mos2d", device="mos2d")
 
 
-Once the meshing commands have been completed, the :meth:`ds.finalize_mesh` is called to create a mesh structure and then :meth:`ds.create_device` is used to create a device using the mesh.
+Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
 
 .. _sec__devsimLoadSave:
 
 Loading and saving results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :meth:`ds.write_devices` is used to create an ASCII file suitable for saving data for restarting the simulation later.  The ``devsim`` format encodes structural information, as well as the commands necessary for generating the models and equations used in the simulation.  The ``devsim_data`` format is used for storing numerical information for use in other programs for analysis.
-The :meth:`ds.load_devices` is then used to reload the device data for restarting the simulation.
+The :meth:`devsim.write_devices` is used to create an ASCII file suitable for saving data for restarting the simulation later.  The ``devsim`` format encodes structural information, as well as the commands necessary for generating the models and equations used in the simulation.  The ``devsim_data`` format is used for storing numerical information for use in other programs for analysis.
+The :meth:`devsim.load_devices` is then used to reload the device data for restarting the simulation.
 

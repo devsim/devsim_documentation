@@ -32,10 +32,13 @@
 .. |linux| replace:: ``Linux``
 .. |macosx| replace:: ``Apple Mac OS X``
 .. |macosxyosemite| replace:: ``Mac OS X 10.10 (Yosemite)``
+.. |macosxhighsierra| replace:: ``Mac OS X 10.13 (High Sierra)``
 .. |mswindows| replace:: ``Microsoft Windows``
 .. |mswindowsseven| replace:: ``Microsoft Windows 7``
+.. |mswindowsten| replace:: ``Microsoft Windows 10``
 .. |python| replace:: ``Python``
 .. |pythontwoseven| replace:: ``Python 2.7``
+.. |pythonthreeseven| replace:: ``Python 3.7``
 .. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
 .. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``
 .. |symdiff| replace:: ``SYMDIFF``

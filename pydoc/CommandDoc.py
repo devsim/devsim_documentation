@@ -29,7 +29,7 @@ solverCommands.Command,
 #  if print_verbatim:
 #    print >>ofh, r'\begin{verbatim}'
 #  commandname = command["name"]
-#  ret = "ds."+commandname + " ("
+#  ret = "devsim."+commandname + " ("
 #  parameters = command['parameters']
 #  if len(parameters) == 0:
 #    ret = ret + ")"
@@ -230,7 +230,7 @@ def PyEscape(s):
 
 def printPyCommandString(ofh, command):
   commandname = command["name"]
-  ofh.write("ds."+commandname + " (")
+  ofh.write("devsim."+commandname + " (")
   ofh.write(", ".join([p[0] for p in command['parameters']]))
   ofh.write(")\n")
 
@@ -358,7 +358,7 @@ with open(filename, "w") as ofh:
   for command in Commands:
     printCppDoc(ofh, command)
 
-filename="ds.py"
+filename="devsim.py"
 with open(filename, "w") as ofh:
   for command in Commands:
     printPyDoc(ofh, command)
@@ -388,7 +388,7 @@ Command Reference
     methods = ', '.join([i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])])
     #print methods
     ofh.write('''
-.. automodule:: ds
+.. automodule:: devsim
    :members: ''' + methods)
     ofh.write('\n\n')
 

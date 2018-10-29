@@ -14,7 +14,7 @@ Parameters are set globally, on devices, or on regions of a device.  The models 
 
 .. code-block:: python
 
-  ds.set_parameter(device="device", region="region",
+  devsim.set_parameter(device="device", region="region",
     name="ThermalVoltage", value=0.0259)
 
 Material database entries
@@ -24,12 +24,12 @@ Alternatively, parameters may be set based on material types.  A database file i
 
 .. code-block:: python
 
-  ds.create_db(filename="foodb")
-  ds.add_db_entry(material="global", parameter="q", value=1.60217646e-19,
+  devsim.create_db(filename="foodb")
+  devsim.add_db_entry(material="global", parameter="q", value=1.60217646e-19,
     unit="coul", description="Electron Charge")
-  ds.add_db_entry(material="Si", parameter="one",
+  devsim.add_db_entry(material="Si", parameter="one",
     value=1, unit="", description="")
-  ds.close_db
+  devsim.close_db
 
 When a database entry is not available for a specific material, the parameter will be looked up on the ``global`` material entry.
 

@@ -9,6 +9,54 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  The official website for this project is located at |devsimorg|.
 
+|release| |today|
+~~~~~~~~~~~~~~~~~
+
+Version
+^^^^^^^
+
+Due to the numerous changes in the |python| API, the version number has been updated to having a major revision of ``1``.  We adopt the semantic version numbering presented at https://semver.org.  The version number can be accessed through the |python| interface using the ``devsim.__version__`` variable.
+
+Python Support
+^^^^^^^^^^^^^^
+
+|devsim| is now loaded as a shared library from any compatible Python interpreter.  Previously, |devsim| binaries contained an embedded Python interpreter.  The following versions of Python are supported in this release
+
+- 2.7
+- 3.6
+- 3.7 
+
+By first setting the ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution, ``devsim`` is loaded by using
+
+.. code-block:: python
+
+  import devsim
+
+from |python|.  Previous versions of devsim used the ``ds`` module, the manual will be updated to reflect the change in module name.
+
+Many of the examples in the distribution rely on the ``python_packages`` module, which is available by using:
+
+.. code-block:: python
+
+  import devsim.python_packages
+
+The default version of |python| for use in scripts is 3.7, however scripts written for earlier versions of |python| 3 should work.  |python| 2.7 is deprecated for future development.
+
+
+|anaconda| |pythonthreeseven| is the recommended distribution and is available from https://continuum.io.  The |intelmkl| is required for the official |devsim| releases.  These may be installed in |anaconda| using the following command:
+
+.. code-block:: none
+
+  conda install mkl
+
+Some of the examples and tests also use ``numpy``, which is available using:
+
+.. code-block:: none
+
+  conda install numpy
+
+Please see :ref:`ch__scripting` and :ref:`sec__installation` for more information.
+
 July 20, 2018
 ~~~~~~~~~~~~~
 
@@ -25,17 +73,17 @@ Python 3 executable, ``devsim_py3`` is now supplied in addition to standard Pyth
 Element Information
 ^^^^^^^^^^^^^^^^^^^
 
-The :meth:`ds.get_element_node_list` retrieves a list of nodes for every element on a ``region``, ``contact``, or ``interface``.
+The :meth:`devsim.get_element_node_list` retrieves a list of nodes for every element on a ``region``, ``contact``, or ``interface``.
 
 Interface Boundary Condition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``type=hybrid`` option is now available for the :meth:`ds.interface_equation` command.
+The ``type=hybrid`` option is now available for the :meth:`devsim.interface_equation` command.  Please see :ref:`sec__interface_equation_assembly` for information about boundary conditions.
 
 Interace Equation Coupling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``name0``, and ``name1`` options are now available for the :meth:`ds.interface_equation` command.  They make it possible to change the equation coupling in each region.
+The ``name0``, and ``name1`` options are now available for the :meth:`devsim.interface_equation` command.  They make it possible to change the equation coupling in each region.
 
 Interface and Contact Surface Area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -45,8 +93,8 @@ Contact surface area is no longer included in ``SurfaceArea`` node model.  It is
 Bug Fixes
 ^^^^^^^^^
 
-- The :meth:`ds.interface_equation` command is fixed for ``type=fluxterm`` boundary conditions on the interface.
-- The :meth:`ds.get_material`, and :meth:`ds.set_material` now properly handle the ``contact`` option.
+- The :meth:`devsim.interface_equation` command is fixed for ``type=fluxterm`` boundary conditions on the interface.
+- The :meth:`devsim.get_material`, and :meth:`devsim.set_material` now properly handle the ``contact`` option.
 - Interface equation assembly properly skips nodes when an interface node is shared with a contact.
 
 Extended Precision
@@ -62,9 +110,11 @@ When compiled with 128-bit extended precision support, these options enable calc
 
 .. code-block:: python
 
-  ds.set_parameter(name = "extended_solver", value=True)
-  ds.set_parameter(name = "extended_model", value=True)
-  ds.set_parameter(name = "extended_equation", value=True)
+  devsim.set_parameter(name = "extended_solver", value=True)
+  devsim.set_parameter(name = "extended_model", value=True)
+  devsim.set_parameter(name = "extended_equation", value=True)
+
+Currently, the |linux| and gcc-based |macosx| versions have extended precision support.
 
 May 15, 2017
 ~~~~~~~~~~~~
@@ -98,7 +148,7 @@ Enhancements
 
 - Build scripts are provided to build on various platforms.
 - |devsim| mesh format stores elements, instead of just nodes, for contact and interfaces
-- The :meth:`ds.create_gmsh_mesh` command can be used to create a device from a provided list of elements.
+- The :meth:`devsim.create_gmsh_mesh` command can be used to create a device from a provided list of elements.
 
 Example Availability
 ^^^^^^^^^^^^^^^^^^^^
@@ -116,11 +166,11 @@ November 24, 2015
 Python Help
 ^^^^^^^^^^^
 
-The |python| interpreter now has documentation for each command, derived from the documentation in the manual.  For example, help for the :meth:`ds.solve` can be found using:
+The |python| interpreter now has documentation for each command, derived from the documentation in the manual.  For example, help for the :meth:`devsim.solve` can be found using:
 
 .. code-block:: python
 
-  help("ds.solve")
+  help("devsim.solve")
 
 Manual Updates
 ^^^^^^^^^^^^^^
@@ -133,16 +183,16 @@ November 1, 2015
 Convergence Info
 ^^^^^^^^^^^^^^^^
 
-The :meth:`ds.solve` now supports the ``info`` option.  The solve command will then return convergence information.
+The :meth:`devsim.solve` now supports the ``info`` option.  The solve command will then return convergence information.
 
 Python Interpreter Changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The way |devsim| commands are loaded into the ``ds`` module has been changed.  It is now possible to see the full list of |devsim| commands by typing
+The way |devsim| commands are loaded into the ``devsim`` module has been changed.  It is now possible to see the full list of |devsim| commands by typing
 
 .. code-block:: python
 
-  help('ds')
+  help('devsim')
 
 in the |python| interpreter.
 
@@ -173,38 +223,38 @@ Binary releases are available for these platforms at |devsimorg|.
 September 6, 2015
 ~~~~~~~~~~~~~~~~~
 
-The :meth:`ds.set_node_values` takes a new option, ``values``.  It is a list containing values to set for all of the nodes in a region.
+The :meth:`devsim.set_node_values` takes a new option, ``values``.  It is a list containing values to set for all of the nodes in a region.
 
 The following new commands have been added:
 
-- :meth:`ds.get_equation_list`
-- :meth:`ds.get_contact_equation_list`
-- :meth:`ds.get_interface_equation_list`
-- :meth:`ds.delete_equation`
-- :meth:`ds.delete_contact_equation`
-- :meth:`ds.delete_interface_equation`
-- :meth:`ds.get_equation_command`
-- :meth:`ds.get_contact_equation_command`
-- :meth:`ds.get_interface_equation_command`
+- :meth:`devsim.get_equation_list`
+- :meth:`devsim.get_contact_equation_list`
+- :meth:`devsim.get_interface_equation_list`
+- :meth:`devsim.delete_equation`
+- :meth:`devsim.delete_contact_equation`
+- :meth:`devsim.delete_interface_equation`
+- :meth:`devsim.get_equation_command`
+- :meth:`devsim.get_contact_equation_command`
+- :meth:`devsim.get_interface_equation_command`
 
 August 10, 2015
 ~~~~~~~~~~~~~~~
 
-The :meth:`ds.create_contact_from_interface` may be used to create a contact at the location of an interface.  This is useful when contact boundary conditions are needed for a region connected to the interface.
+The :meth:`devsim.create_contact_from_interface` may be used to create a contact at the location of an interface.  This is useful when contact boundary conditions are needed for a region connected to the interface.
 
 July 16, 2015
 ~~~~~~~~~~~~~
 
-The :meth:`ds.set_node_value` was not properly setting the value.  This issue is now resolved.
+The :meth:`devsim.set_node_value` was not properly setting the value.  This issue is now resolved.
 
 June 7, 2015
 ~~~~~~~~~~~~
 
-The :meth:`ds.equation` now suppports the ``edge_volume_model``.  This makes it possible to integrate edge quantities properly so that it is integrated with respect to the volume on nodes of the edge.  To set the node volumes for integration, it is necessary to define a model for the node volumes on both nodes of the edge.  For example:
+The :meth:`devsim.equation` now suppports the ``edge_volume_model``.  This makes it possible to integrate edge quantities properly so that it is integrated with respect to the volume on nodes of the edge.  To set the node volumes for integration, it is necessary to define a model for the node volumes on both nodes of the edge.  For example:
 
 .. code-block:: python
 
-  ds.edge_model(device="device", region="region", name="EdgeNodeVolume",
+  devsim.edge_model(device="device", region="region", name="EdgeNodeVolume",
     equation="0.5*EdgeCouple*EdgeLength")
   set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
   set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
@@ -281,12 +331,12 @@ The ``coordinate_index`` and ``node_index`` are now part of the default node mod
 Set Node Value
 ^^^^^^^^^^^^^^
 
-It is now possible to use the :meth:`ds.set_node_value` to set a uniform value or indexed value on a node model.
+It is now possible to use the :meth:`devsim.set_node_value` to set a uniform value or indexed value on a node model.
 
 Fix Edge Average Model
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Fixed issue with :meth:`ds.edge_average_model` during serialization to the |devsim| format.
+Fixed issue with :meth:`devsim.edge_average_model` during serialization to the |devsim| format.
 
 July 29, 2013
 ~~~~~~~~~~~~~
@@ -316,7 +366,7 @@ Please see :ref:`sec__externalmesher` for more information about importing meshe
 |devsim| can now read meshes written from |geniusds|.  More information about |genius| is in :ref:`sec__geniusintro`.
 
 |gmsh| **Mesh Import**
-|devsim| reads version ``2.1`` and ``2.2`` meshes from |gmsh|.  Version ``2.0`` is no longer supported.  Please see ref:`sec__gmshintro` for more information.
+|devsim| reads version ``2.1`` and ``2.2`` meshes from |gmsh|.  Version ``2.0`` is no longer supported.  Please see :ref:`sec__gmshintro` for more information.
 
 Math Functions
 ^^^^^^^^^^^^^^

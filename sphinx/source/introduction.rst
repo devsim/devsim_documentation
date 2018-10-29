@@ -17,8 +17,8 @@ Goals
 
 The primary goal of |devsim| is to give the user as much flexibility and control as possible.  In this regard, few models are coded into the program binary.  They are implemented in human-readable scripts that can be modified if necessary.
 
-|devsim| is embedded within a scripting language interface (:ref:`ch__scripting`).  This provides control structures and language syntax in a consistent and intuitive manner.
-Taking a hierarchical approach, the user is provided an environment where they can implement new models on their own.  This is without requiring extensive vendor support or use of compiled programming languages.
+|devsim| has a scripting language interface (:ref:`ch__scripting`).  This provides control structures and language syntax in a consistent and intuitive manner.
+The user is provided an environment where they can implement new models on their own.  This is without requiring extensive vendor support or use of compiled programming languages.
 
 |symdiff| (:ref:`ch__symdiff`) is the symbolic expression parser used to allow the formulation of device equations in terms of models and parameters.  Using symbolic differentiation, the required partial derivatives can be generated, or provided by the user.  |devsim| then assembles these equations over the mesh.
 
@@ -27,16 +27,16 @@ Structures
 ~~~~~~~~~~
 
 **Devices**
-A device refers to a discrete structure being simulated.  It is composed of the following types of objects.
+A ``device`` refers to a discrete structure being simulated.  It is composed of the following types of objects.
 
 **Regions**
-A region defines a portion of the device of a specific material.  Each region has its own system of equations being solved.
+A ``region`` defines a portion of the device of a specific material.  Each region has its own system of equations being solved.
 
 **Interfaces**
-Interfaces connect two regions together.  At the interfaces, equations are specified to account for how the flux in each device region crosses the region boundary.
+An ``interface`` connects two regions together.  At the interfaces, equations are specified to account for how the flux in each device region crosses the region boundary.
 
 **Contacts**
-Contacts specify the boundary conditions required for device simulation.  It also specifies how terminal currents are are integrated into an external circuit.
+A ``contact`` specifies the boundary conditions required for device simulation.  It also specifies how terminal currents are are integrated into an external circuit.
 
 Equation assembly
 ~~~~~~~~~~~~~~~~~
