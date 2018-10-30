@@ -53,6 +53,7 @@ region_option_optional,
 "parameters" : (
 device_option_optional,
 region_option_optional,
+contact_option_optional,
 )
 },
 {
@@ -61,6 +62,7 @@ region_option_optional,
 "parameters" : (
 device_option_optional,
 region_option_optional,
+contact_option_optional,
 ("material", "New material name", required, string, None, None),
 )
 },

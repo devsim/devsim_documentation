@@ -572,7 +572,7 @@ def get_dimension (**kwargs):
 
 def get_material (**kwargs):
     '''
-    devsim.get_material (device, region)
+    devsim.get_material (device, region, contact)
 
     Returns the material for the specified region
 
@@ -582,6 +582,8 @@ def get_material (**kwargs):
        The selected device
     region : str, optional
        The selected region
+    contact : str, optional
+       Contact on which to apply this command
     '''
     pass
 
@@ -652,7 +654,7 @@ def save_db (**kwargs):
 
 def set_material (**kwargs):
     '''
-    devsim.set_material (device, region, material)
+    devsim.set_material (device, region, contact, material)
 
     Sets the new material for a region
 
@@ -662,6 +664,8 @@ def set_material (**kwargs):
        The selected device
     region : str, optional
        The selected region
+    contact : str, optional
+       Contact on which to apply this command
     material : str
        New material name
     '''
