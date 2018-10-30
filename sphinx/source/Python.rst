@@ -10,17 +10,21 @@ Starting DEVSIM
 
 Refer to :ref:`sec__installation` for instructions on how to install |devsim|.  Once installed, |devsim| may be invoked using the following command
 
-.. code-block:: none
+By first setting the ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution, ``devsim`` is loaded by using
 
-  python
+.. code-block:: python
 
-for an interactive shell or
+  import devsim
 
-.. code-block:: none
+from |python|.
 
-  python filename.py
+Many of the examples in the distribution rely on the ``python_packages`` module, which is available by using:
 
-for batch mode where ``filename.py`` is the name of script being run.  |devsim| output is printed to the screen.  To capture the output of the program, shell redirection commands may be used to direct the output to a file.
+.. code-block:: python
+
+  import devsim.python_packages
+
+The default version of |python| for use in scripts is 3.7, however scripts written for earlier versions of |python| 3 should work.  |python| 2.7 is deprecated for future development.
 
 .. _sec__python:
 
@@ -130,7 +134,7 @@ Fatal errors
 
 When |devsim| enters a state in which it may not recover.  The interpreter should throw a |python| exception with a message ``DEVSIM FATAL``.  At this point |devsim| may enter an inconsistent state, so it is suggested not to attempt to continue script execution if this occurs.
 
-In rare situations, the program may behave in an erratic manner, print a message, such as ``UNEXPECTED`` or terminate abruptly.  Please report this to |devsimllc| using the contact information in :ref:`Contact`.
+In rare situations, the program may behave in an erratic manner, print a message, such as ``UNEXPECTED`` or terminate abruptly.  Please report this using the contact information in :ref:`Contact`.
 
 Floating point exceptions
 ^^^^^^^^^^^^^^^^^^^^^^^^^

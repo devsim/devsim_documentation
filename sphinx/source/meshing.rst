@@ -125,7 +125,7 @@ Example locations are available on :ref:`examples__geniusdir`.
 Gmsh
 ^^^^
 
-The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create a 1D, 2D, or 3D mesh suitable for use in |devsim|.  When creating the mesh file using the software, use physical group names to map the difference entities in the resulting mesh file to a group name.  In this example, a mos structure is read in:
+The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create a 1D, 2D, or 3D mesh suitable for use in |devsim|.  When creating the mesh file using the software, use physical group names to map the difference entities in the resulting mesh file to a group name.  In this example, a MOS structure is read in:
 
 .. code-block:: python
 
@@ -153,6 +153,11 @@ The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create 
 
 
 Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
+
+Custom mesh loading using scripting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is also possible to arbitrarily load a mesh from a |python| using the :meth:`devsim.create_gmsh_mesh`.  This is explained in the ``Notes`` section of the command.
 
 .. _sec__devsimLoadSave:
 
