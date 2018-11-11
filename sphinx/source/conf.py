@@ -223,7 +223,9 @@ latex_elements = {
 'fncychap' : '',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+#'preamble': r'''
+#\addtocontents{toc}{\protect\hypertarget{toc}{}}
+#''',
 
 # Latex figure (float) alignment
 #'figure_align': 'htbp',
@@ -233,6 +235,7 @@ latex_elements = {
 'tableofcontents' : r'''
 \renewcommand{\thepage}{\roman{page}}
 \tableofcontents
+\addcontentsline{toc}{chapter}{\contentsname}
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
