@@ -12,6 +12,11 @@ Introduction
 |release| |today|
 ~~~~~~~~~~~~~~~~~
 
+Documentation
+^^^^^^^^^^^^^
+
+The formatting of the PDF and online documentation has been improved.  Also significant changes have been made to the way |devsim| is called from |python|.
+
 Version
 ^^^^^^^
 
@@ -32,7 +37,7 @@ By first setting the ``PYTHONPATH`` variable to the ``lib`` directory in the |de
 
   import devsim
 
-from |python|.  Previous versions of devsim used the ``ds`` module, the manual will be updated to reflect the change in module name.
+from |python|.  Previous releases of devsim used the ``ds`` module, the manual will be updated to reflect the change in module name.
 
 Many of the examples in the distribution rely on the ``python_packages`` module, which is available by using:
 
@@ -40,7 +45,7 @@ Many of the examples in the distribution rely on the ``python_packages`` module,
 
   import devsim.python_packages
 
-The default version of |python| for use in scripts is 3.7, however scripts written for earlier versions of |python| 3 should work.  |python| 2.7 is deprecated for future development.
+The default version of |python| for use in scripts is |pythonthreeseven|. Scripts written for earlier versions of |pythonthree| should work.  |pythontwoseven| is deprecated for future development.
 
 
 |anaconda| |pythonthreeseven| is the recommended distribution and is available from https://continuum.io.  The |intelmkl| is required for the official |devsim| releases.  These may be installed in |anaconda| using the following command:
@@ -56,6 +61,11 @@ Some of the examples and tests also use ``numpy``, which is available using:
   conda install numpy
 
 Please see :ref:`ch__scripting` and :ref:`sec__installation` for more information.
+
+CGNS Support
+^^^^^^^^^^^^
+
+Support for loading |cgns| files is deprecated, and is no longer part of the official releases.  Please see :ref:`sec__externalmesher` for more information about importing meshes from other tools.
 
 July 20, 2018
 ~~~~~~~~~~~~~
@@ -83,7 +93,7 @@ The ``type=hybrid`` option is now available for the :meth:`devsim.interface_equa
 Interace Equation Coupling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``name0``, and ``name1`` options are now available for the :meth:`devsim.interface_equation` command.  They make it possible to change the equation coupling in each region.
+The ``name0``, and ``name1`` options are now available for the :meth:`devsim.interface_equation` command.  They make it possible to couple dissimilar equation names across regions.
 
 Interface and Contact Surface Area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,8 +104,8 @@ Bug Fixes
 ^^^^^^^^^
 
 - The :meth:`devsim.interface_equation` command is fixed for ``type=fluxterm`` boundary conditions on the interface.
-- The :meth:`devsim.get_material`, and :meth:`devsim.set_material` now properly handle the ``contact`` option.
-- Interface equation assembly properly skips nodes when an interface node is shared with a contact.
+- The :meth:`devsim.get_material`, and :meth:`devsim.set_material` handle the ``contact`` option.
+- Interface equation assembly skips nodes when an interface node is shared with a contact.
 
 Extended Precision
 ^^^^^^^^^^^^^^^^^^

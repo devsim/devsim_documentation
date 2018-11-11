@@ -9,13 +9,13 @@ Front Matter
 Contact
 ~~~~~~~
 
-.. table::
+.. csv-table:: Contact
 
-  ==================== =================
-  Web:                 |devsimurl|
-  Email:               info@devsim.com
-  Open Source Project: |devsimorg|
-  ==================== =================
+  Web:,                  |devsimurl|
+  Email:,                info@devsim.com
+  Open Source Project:,  |devsimorg|
+  Online Documentation:, |devsimnet|
+  Online Forum:,         |devsimforum|
 
 .. _sec__copyright:
 

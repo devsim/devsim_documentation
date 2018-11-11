@@ -2,13 +2,16 @@
 
 .. _ch__modelparameters:
 
-Model Parameters
-----------------
+Parameters
+----------
 
 Parameters can be set using the commands in :ref:`MaterialCommands`.  There are two complementary formalisms for doing this.
 
 Parameters
 ~~~~~~~~~~
+
+Overview
+^^^^^^^^
 
 Parameters are set globally, on devices, or on regions of a device.  The models on each device region are automatically updated whenever parameters change.
 

@@ -20,7 +20,9 @@
 .. |devsimsupport| replace:: `https://github.com/devsim/devsim/issues <https://github.com/devsim/devsim/issues>`__
 .. |devsimurl| replace:: `https://devsim.com <https://devsim.com>`__
 .. |devsimorg| replace:: `https://devsim.org <https://devsim.org>`__
+.. |devsimnet| replace:: `https://devsim.net <https://devsim.net>`__
 .. |devsimllc| replace:: DEVSIM LLC
+.. |devsimforum| replace:: `https://groups.google.com/d/forum/devsim <https://groups.google.com/d/forum/devsim>`__
 .. |symdiffurl| replace:: `https://symdiff.org <https://symdiff.org>`__
 
 .. |cgns| replace:: ``CGNS``
@@ -38,6 +40,7 @@
 .. |mswindowsten| replace:: ``Microsoft Windows 10``
 .. |python| replace:: ``Python``
 .. |pythontwoseven| replace:: ``Python 2.7``
+.. |pythonthree| replace:: ``Python 3``
 .. |pythonthreeseven| replace:: ``Python 3.7``
 .. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
 .. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``

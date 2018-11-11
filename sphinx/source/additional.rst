@@ -17,7 +17,7 @@ Individual files are covered by the license terms contained in the comments at t
 SYMDIFF
 ~~~~~~~
 
-|symdiff| is available from |symdiffurl| and is covered by the terms of the Apache License, Version 2.0 :cite:`apache2`.
+|symdiff| is available from |symdiffurl| under the terms of the Apache License, Version 2.0 :cite:`apache2`.
 
 
 .. _thirdpartyavailability:
