@@ -156,6 +156,7 @@ When using the :meth:`devsim.solve`, the solver may not converge and a message w
       raise
     #### put code to modify step here.
 
+.. _python__verbosity:
 
 Verbosity
 ^^^^^^^^^
@@ -169,6 +170,8 @@ The following example sets the default level of debugging for the entire simulat
   devsim.set_parameter(name="debug_level", value="info")
   devsim.set_parameter(device="device" region="gate",
     name="debug_level", value="verbose")
+
+.. _python__parallelization:
 
 Parallelization
 ^^^^^^^^^^^^^^^
