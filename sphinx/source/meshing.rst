@@ -154,6 +154,8 @@ The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create 
 
 Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
 
+.. _sec__customMeshLoad:
+
 Custom mesh loading using scripting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

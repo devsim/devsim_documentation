@@ -62,6 +62,16 @@ Some of the examples and tests also use ``numpy``, which is available using:
 
 Please see :ref:`ch__scripting` and :ref:`sec__installation` for more information.
 
+GMSH Support
+^^^^^^^^^^^^
+
+|gmsh| has announced a new version of their mesh format ``4.0``.  |devsim| currently supports the previous version, ``2.2``.  To load a file from |gmsh|, it is now necessary to either:
+
+* Save the file in the ``2.2`` format from |gmsh|
+* Parse the ``4.0`` file, and then use :ref:`sec__customMeshLoad`
+
+A future release of |devsim| will provide this capability.
+
 CGNS Support
 ^^^^^^^^^^^^
 
