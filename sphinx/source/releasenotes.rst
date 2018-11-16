@@ -59,6 +59,12 @@ The default version of |python| for use in scripts is |pythonthreeseven|. Script
 
   conda install mkl
 
+On the |mswindows| platform, the following packages should also be installed:
+
+.. code-block:: none
+
+  conda install sqlite zlib
+
 Some of the examples and tests also use ``numpy``, which is available using:
 
 .. code-block:: none
