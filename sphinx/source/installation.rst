@@ -19,23 +19,13 @@ Supported platforms
 
 .. _installation__platforms:
 
-.. table:: Current platforms for |devsim|.
+.. csv-table:: Current platforms for |devsim|.
+  :header: "Platform", "Bits", "OS Version"
+  :widths: 10, 10, 10
 
-  +-------------+------+--------------------------------------+
-  | Platform    | Bits | OS Version                           |
-  +=============+======+======================================+
-  | |mswindows| | 64   | |mswindowsseven|, |mswindowsten|     |
-  +-------------+------+--------------------------------------+
-  +-------------+------+--------------------------------------+
-  | |linux|     | 64   | |ubuntutrusty|                       |
-  +-------------+------+--------------------------------------+
-  |             |      | |ubuntuxenial|                       |
-  +-------------+------+--------------------------------------+
-  |             |      | |rhelsix| (|centossix| compatible)   |
-  +-------------+------+--------------------------------------+
-  +-------------+------+--------------------------------------+
-  | |macosx|    | 64   | |macosxhighsierra|                   |
-  +-------------+------+--------------------------------------+
+  "|mswindows|", "32, 64", "|mswindowsseven|, |mswindowsten|"
+  "|linux|", "64", "|ubuntutrusty|, |ubuntuxenial|, |rhelsix| (|centossix| compatible)"
+  "|macosx|", "64", "|macosxhighsierra|"
 
 
 Binary availability

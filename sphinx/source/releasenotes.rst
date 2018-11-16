@@ -22,6 +22,11 @@ Version
 
 Due to the numerous changes in the |python| API, the version number has been updated to having a major revision of ``1``.  We adopt the semantic version numbering presented at https://semver.org.  The version number can be accessed through the |python| interface using the ``devsim.__version__`` variable.
 
+Operating Systems
+^^^^^^^^^^^^^^^^^
+
+The |mswindows| 32-bit operating system is now supported in addition to the platforms listed in :ref:`sec__supportedplatforms`.
+
 Python Support
 ^^^^^^^^^^^^^^
 
