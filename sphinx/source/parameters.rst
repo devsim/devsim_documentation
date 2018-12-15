@@ -27,21 +27,21 @@ They may also be used to control program behavior, as listed in :numref:`paramet
 
 .. csv-table:: Parameters controlling program behavior.
   :header: "Parameter", "Description"
-  :widths: 10, 20
+  :widths: 20, 20
 
-  "debug_level", "``info``, ``verbose`` :numref:`python__verbosity`"
-  "threads_available", "``value=1``, :numref:`python__parallelization`"
-  "threads_task_size", "``value=?``, :numref:`python__parallelization`"
-  "node_volume_model", ":numref:`sec__cylindrical`"
-  "edge_couple_model", ":numref:`sec__cylindrical`"
-  "edge_node0_volume_model", ":numref:`sec__cylindrical`"
-  "edge_node1_volume_model", ":numref:`sec__cylindrical`"
-  "element_edge_couple_model", ":numref:`sec__cylindrical`"
-  "element_node0_volume_model", ":numref:`sec__cylindrical`"
-  "element_node1_volume_model", ":numref:`sec__cylindrical`"
-  "extended_solver", "``value=False`` Extended precision matrix and RHS assembly and error evaluations.  Linear solver and circuit assembly is still double precision``"
-  "extended_model",  "``value=False`` Extended precision model evaluation"
-  "extended_equation", "``value=False`` Extended precision equation evaluation"
+  "``debug_level``", "``info``, ``verbose`` :numref:`python__verbosity`"
+  "``threads_available``", "``value=1``, :numref:`python__parallelization`"
+  "``threads_task_size``", "``value=?``, :numref:`python__parallelization`"
+  "``node_volume_model``", ":numref:`sec__cylindrical`"
+  "``edge_couple_model``", ":numref:`sec__cylindrical`"
+  "``edge_node0_volume_model``", ":numref:`sec__cylindrical`"
+  "``edge_node1_volume_model``", ":numref:`sec__cylindrical`"
+  "``element_edge_couple_model``", ":numref:`sec__cylindrical`"
+  "``element_node0_volume_model``", ":numref:`sec__cylindrical`"
+  "``element_node1_volume_model``", ":numref:`sec__cylindrical`"
+  "``extended_solver``", "``value=False`` Extended precision matrix and RHS assembly and error evaluations.  Linear solver and circuit assembly is still double precision``"
+  "``extended_model``",  "``value=False`` Extended precision model evaluation"
+  "``extended_equation``", "``value=False`` Extended precision equation evaluation"
 
 
 Material database entries

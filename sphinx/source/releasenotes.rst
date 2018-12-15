@@ -7,10 +7,10 @@ Release Notes
 Introduction
 ~~~~~~~~~~~~
 
-|devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  The official website for this project is located at |devsimorg|.
+|devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-|release| |today|
-~~~~~~~~~~~~~~~~~
+|release| (December 16, 2018)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Documentation
 ^^^^^^^^^^^^^
@@ -171,8 +171,8 @@ Binary Releases
 Bug Fixes
 ^^^^^^^^^
 
-* 3d element edge derivatives were not being evaluated correctly
-* 3d equation model evaluation for element edge models
+* 3D element edge derivatives were not being evaluated correctly
+* 3D equation model evaluation for element edge models
 
 Enhancements
 ^^^^^^^^^^^^

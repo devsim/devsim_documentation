@@ -32,9 +32,9 @@
 .. |intelmkl| replace:: ``Intel Math Kernel Library``
 .. |intelmklce| replace:: |intelmkl| Community Edition
 .. |linux| replace:: ``Linux``
-.. |macosx| replace:: ``Apple Mac OS X``
-.. |macosxyosemite| replace:: ``Mac OS X 10.10 (Yosemite)``
-.. |macosxhighsierra| replace:: ``Mac OS X 10.13 (High Sierra)``
+.. |macosx| replace:: ``Apple macOS``
+.. |macosxyosemite| replace:: ``macOS 10.10 (Yosemite)``
+.. |macosxhighsierra| replace:: ``macOS 10.13 (High Sierra)``
 .. |mswindows| replace:: ``Microsoft Windows``
 .. |mswindowsseven| replace:: ``Microsoft Windows 7``
 .. |mswindowsten| replace:: ``Microsoft Windows 10``

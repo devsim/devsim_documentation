@@ -74,7 +74,7 @@ Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` 
 Using an external mesher
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-|devsim| supports reading meshes from |geniusds| and |gmsh|.  In addition, meshes may be input directly using the |python| interface.  These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
+|devsim| supports reading meshes from |gmsh|.   Support for |geniusds| is deprecated and will be removed from a future release.  In addition, meshes may be input directly using the |python| interface.  These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
 
 .. _sec__geniusintro:
 

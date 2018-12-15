@@ -34,7 +34,7 @@ This directory has examples importing meshes from |geniusds|.
 vector_potential
 ~~~~~~~~~~~~~~~~
 
-This is a 2d magnetic field simulation solving for the magnetic potential.  The simulation script is ``vector_potential/twowire.py``  A simulation result for two wires conducting current is shown in :numref:`twowireresult`.
+This is a 2D magnetic field simulation solving for the magnetic potential.  The simulation script is ``vector_potential/twowire.py``  A simulation result for two wires conducting current is shown in :numref:`twowireresult`.
 
 
 .. _twowireresult:

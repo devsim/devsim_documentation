@@ -235,7 +235,7 @@ Which corresponds to our expected result of :math:`3.4515 10^{-13}` :math:`\text
 2D Capacitor
 ~~~~~~~~~~~~
 
-This example is called ``cap2d.py`` and is located in the ``examples/capacitance`` directory distributed with |devsim|.  This file uses the same physics as the 1d example, but with a 2d structure.  The mesh is built using the |devsim| internal mesher.  An air region exists with two electrodes in the simulation domain.
+This example is called ``cap2d.py`` and is located in the ``examples/capacitance`` directory distributed with |devsim|.  This file uses the same physics as the 1D example, but with a 2D structure.  The mesh is built using the |devsim| internal mesher.  An air region exists with two electrodes in the simulation domain.
 
 Defining the mesh
 ~~~~~~~~~~~~~~~~~
