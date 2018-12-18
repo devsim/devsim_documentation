@@ -9,7 +9,7 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-|release| (December 16, 2018)
+|release| (December 18, 2018)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Documentation
