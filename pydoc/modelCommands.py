@@ -45,7 +45,7 @@ This model is only available in 2D.  The created variables are
 - ``ElementCylindricalEdgeCouple`` (Element Edge Model)
 - ``CylindricalEdgeCouple`` (Edge Model)
 
-The :meth:`ds.set_parameter` must be used to set
+The :meth:`devsim.set_parameter` must be used to set
 
 - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
 - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -69,7 +69,7 @@ This model is only available in 2D.  The created variables are
 
 The ``ElementCylindricalNodeVolume@en0`` and ``ElementCylindricalNodeVolume@en1`` represent the node volume at each end of the element edge.
 
-The :meth:`ds.set_parameter` must be used to set
+The :meth:`devsim.set_parameter` must be used to set
 
 - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
 - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -90,7 +90,7 @@ This model is only available in 2D.  The created variables are
 
 and is the cylindrical surface area along each contact and interface node in the device region.
 
-The :meth:`ds.set_parameter` must be used to set
+The :meth:`devsim.set_parameter` must be used to set
 
 - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
 - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -147,13 +147,13 @@ For a node model, creates 2 edge models referring to the node model value at bot
 
 ..
 
-  ds.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient")
+  devsim.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient")
 
 and the derivatives ``ElectricField:Potential@n0`` and ``ElectricField:Potential@n1`` are then created from
 
 ..
 
-  ds.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient", derivative="Potential")
+  devsim.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient", derivative="Potential")
 ''',
 "parameters" : (
 ("device", device_option_text, required, string, None, None),
@@ -178,7 +178,7 @@ For example, to calculate electric field:
 
 ..
 
-  ds.edge_from_node_model(device=device, region=region, node_model="Potential")
+  devsim.edge_from_node_model(device=device, region=region, node_model="Potential")
 
 ''',
 "parameters" : (
@@ -197,7 +197,7 @@ The ``vector`` option uses an averaging scheme for the edge values projected in 
 - ``model_y_onNode``
 - ``model_z_onNode`` (3D)
 
-This averaging scheme does not produce accurate results, and it is recommended to use the :meth:`ds.element_from_edge_model` to create components better suited for visualization.  See :ref:`ch__visualization` for more information about creating data files for external visualization programs.
+This averaging scheme does not produce accurate results, and it is recommended to use the :meth:`devsim.element_from_edge_model` to create components better suited for visualization.  See :ref:`ch__visualization` for more information about creating data files for external visualization programs.
 ''',
 "parameters" : (
   ("device", device_option_text, required, string, None, None),
@@ -502,7 +502,7 @@ Used for noise analysis.  The ``avoidzero`` option is important for noise analys
 - ``model_grady`` (2D and 3D)
 - ``model_gradz`` (3D)
 
-It is important not to use these models for simulation, since DEVSIM, does not have a way of evaluating the derivatives of these models.  The models can be used for integrating the impedance field, and other postprocessing.  The :meth:`ds.element_from_edge_model` command can be used to create gradients for use in a simulation.
+It is important not to use these models for simulation, since DEVSIM, does not have a way of evaluating the derivatives of these models.  The models can be used for integrating the impedance field, and other postprocessing.  The :meth:`devsim.element_from_edge_model` command can be used to create gradients for use in a simulation.
 ''',
 "parameters" : (
 ("device", device_option_text, required, string, None, None),

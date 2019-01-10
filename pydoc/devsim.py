@@ -276,9 +276,9 @@ def equation (**kwargs):
     In order to set the node volumes for integration of the ``edge_volume_model``, it is possible to do something like this:
 
     ..
-      ds.edge_model(device="device", region="region", name="EdgeNodeVolume", equation="0.5*SurfaceArea*EdgeLength")
-      ds.set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
-      ds.set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
+      devsim.edge_model(device="device", region="region", name="EdgeNodeVolume", equation="0.5*SurfaceArea*EdgeLength")
+      devsim.set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
+      devsim.set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
 
     '''
     pass
@@ -517,7 +517,7 @@ def add_db_entry (**kwargs):
     Notes
     -----
 
-    The :meth:`ds.save_db` command is used to commit these added entries permanently to the database.
+    The :meth:`devsim.save_db` command is used to commit these added entries permanently to the database.
     '''
     pass
 
@@ -625,7 +625,7 @@ def get_parameter_list (**kwargs):
     Notes
     -----
 
-    Note that the ``device`` and ``region`` options are optional.  If the region is not specified, the parameter is retrieved for the entire device.  If the device is not specified, the parameter is retrieved for all devices.  Unlike the :meth:`ds.getParameter`, parameter names on the the device are not retrieved if they do not exist on the region.  Similarly, the parameter names over all devices are not retrieved if they do not exist on the device.
+    Note that the ``device`` and ``region`` options are optional.  If the region is not specified, the parameter is retrieved for the entire device.  If the device is not specified, the parameter is retrieved for all devices.  Unlike the :meth:`devsim.getParameter`, parameter names on the the device are not retrieved if they do not exist on the region.  Similarly, the parameter names over all devices are not retrieved if they do not exist on the device.
     '''
     pass
 
@@ -1237,7 +1237,7 @@ def cylindrical_edge_couple (**kwargs):
     - ``ElementCylindricalEdgeCouple`` (Element Edge Model)
     - ``CylindricalEdgeCouple`` (Edge Model)
 
-    The :meth:`ds.set_parameter` must be used to set
+    The :meth:`devsim.set_parameter` must be used to set
 
     - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
     - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -1270,7 +1270,7 @@ def cylindrical_node_volume (**kwargs):
 
     The ``ElementCylindricalNodeVolume@en0`` and ``ElementCylindricalNodeVolume@en1`` represent the node volume at each end of the element edge.
 
-    The :meth:`ds.set_parameter` must be used to set
+    The :meth:`devsim.set_parameter` must be used to set
 
     - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
     - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -1300,7 +1300,7 @@ def cylindrical_surface_area (**kwargs):
 
     and is the cylindrical surface area along each contact and interface node in the device region.
 
-    The :meth:`ds.set_parameter` must be used to set
+    The :meth:`devsim.set_parameter` must be used to set
 
     - ``raxis_variable``, the variable (``x`` or ``y``) which is the radial axis variable in the cylindrical coordinate system
     - ``raxis_zero``, the location of the z axis for the radial axis variable
@@ -1419,13 +1419,13 @@ def edge_average_model (**kwargs):
 
     ..
 
-      ds.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient")
+      devsim.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient")
 
     and the derivatives ``ElectricField:Potential@n0`` and ``ElectricField:Potential@n1`` are then created from
 
     ..
 
-      ds.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient", derivative="Potential")
+      devsim.edge_average_model(device=device, region=region, node_model="Potential", edge_model="ElecticField", average_type="negative_gradient", derivative="Potential")
     '''
     pass
 
@@ -1451,7 +1451,7 @@ def edge_from_node_model (**kwargs):
 
     ..
 
-      ds.edge_from_node_model(device=device, region=region, node_model="Potential")
+      devsim.edge_from_node_model(device=device, region=region, node_model="Potential")
 
     '''
     pass
@@ -1484,7 +1484,7 @@ def edge_model (**kwargs):
     - ``model_y_onNode``
     - ``model_z_onNode`` (3D)
 
-    This averaging scheme does not produce accurate results, and it is recommended to use the :meth:`ds.element_from_edge_model` to create components better suited for visualization.  See :ref:`ch__visualization` for more information about creating data files for external visualization programs.
+    This averaging scheme does not produce accurate results, and it is recommended to use the :meth:`devsim.element_from_edge_model` to create components better suited for visualization.  See :ref:`ch__visualization` for more information about creating data files for external visualization programs.
     '''
     pass
 
@@ -1980,7 +1980,7 @@ def vector_gradient (**kwargs):
     - ``model_grady`` (2D and 3D)
     - ``model_gradz`` (3D)
 
-    It is important not to use these models for simulation, since DEVSIM, does not have a way of evaluating the derivatives of these models.  The models can be used for integrating the impedance field, and other postprocessing.  The :meth:`ds.element_from_edge_model` command can be used to create gradients for use in a simulation.
+    It is important not to use these models for simulation, since DEVSIM, does not have a way of evaluating the derivatives of these models.  The models can be used for integrating the impedance field, and other postprocessing.  The :meth:`devsim.element_from_edge_model` command can be used to create gradients for use in a simulation.
     '''
     pass
 

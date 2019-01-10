@@ -27,7 +27,7 @@ region_option_optional,
 "name" : "get_parameter_list",
 "description" : "Get list of parameter names on region, device, or globally",
 "long_description" : r'''
-Note that the ``device`` and ``region`` options are optional.  If the region is not specified, the parameter is retrieved for the entire device.  If the device is not specified, the parameter is retrieved for all devices.  Unlike the :meth:`ds.getParameter`, parameter names on the the device are not retrieved if they do not exist on the region.  Similarly, the parameter names over all devices are not retrieved if they do not exist on the device.
+Note that the ``device`` and ``region`` options are optional.  If the region is not specified, the parameter is retrieved for the entire device.  If the device is not specified, the parameter is retrieved for all devices.  Unlike the :meth:`devsim.getParameter`, parameter names on the the device are not retrieved if they do not exist on the region.  Similarly, the parameter names over all devices are not retrieved if they do not exist on the device.
 ''',
 "parameters" : (
 device_option_optional,
@@ -99,7 +99,7 @@ contact_option_optional,
 "name" : "add_db_entry",
 "description" : "Adds an entry to the database",
 "long_description" : r'''
-The :meth:`ds.save_db` command is used to commit these added entries permanently to the database.
+The :meth:`devsim.save_db` command is used to commit these added entries permanently to the database.
 ''',
 "parameters" : (
 ("material", "Material name requested. ``global`` refers to all regions whose material does not have the parameter name specified", required, string, None, None),
