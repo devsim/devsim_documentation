@@ -1,5 +1,7 @@
 # devsim_documentation
 
+[![Build Status](https://travis-ci.org/devsim/devsim_documentation.svg?branch=master)](https://travis-ci.org/devsim/devsim_documentation)
+
 ## Introduction
 
 This is the future location for the DEVSIM Manual and related documentation.  It is currently hosted in pdf and html formats here. https://devsim.net

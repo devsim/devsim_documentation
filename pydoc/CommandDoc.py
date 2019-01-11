@@ -1,4 +1,4 @@
-import StringIO
+import io
 import commandCommon
 import sys
 
@@ -163,21 +163,21 @@ solverCommands.Command,
 def printCppMultiline(ofh, csb):
   s = CppEscape(csb.getvalue())
   for l in s.splitlines():
-    print >>ofh, r'"%s\n"' % l 
+    print(r'"%s\n"' % l, file=ofh) 
 
 
 def printCppCommand(ofh, sectionname, command):
-  for k in command.keys():
+  for k in list(command.keys()):
     if k not in ("name", "description", "long_description", "parameters"):
       raise RuntimeError("Unexpected key: " + k)
   try:
     commandname = command["name"].lower()
 
-    print >>ofh, "\nstatic const char %s_doc[] =" % commandname
-    csb = StringIO.StringIO()
+    print("\nstatic const char %s_doc[] =" % commandname, file=ofh)
+    csb = io.StringIO()
     printPyCommand(csb, sectionname, command, False)
     printCppMultiline(ofh, csb)
-    print >>ofh, ";"
+    print(";", file=ofh)
   except Exception as e:
     #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
     raise
@@ -305,7 +305,7 @@ Parameters
 # Follow guide from https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 # TODO return values
 def printPyCommand(ofh, sectionname, command, print_def):
-  for k in command.keys():
+  for k in list(command.keys()):
     if k not in ("name", "description", "long_description", "parameters"):
       raise RuntimeError("Unexpected key: " + k)
   try:
@@ -315,7 +315,7 @@ def printPyCommand(ofh, sectionname, command, print_def):
         "commandname" : commandname,
       }
       ofh.write("\ndef %(commandname)s (**kwargs):\n" % mydict)
-    csb = StringIO.StringIO()
+    csb = io.StringIO()
     if print_def:
       csb.write("'''\n")
     printPyCommandString(csb, command)

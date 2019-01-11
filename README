@@ -1,22 +1,7 @@
-If using anaconda, make sure you have sphinx installed.  And the following package:
-conda install sphinx sphinx_rtd_theme
-pip install sphinxcontrib-bibtex
+Build steps starting with conda in your path.
 
-cd pydoc
-export PYTHONPATH=${PWD}
+preinstall.sh
+source activate devsim_doc
+build.sh
 
-# edit python files
-
-#check results
-(cd pydoc && python CommandDoc.py) && (cd sphinx && make clean && make html)
-open file://${HOME}/git/devsim_manual/sphinx/build/html/CommandReference.html#meshing-commands
-
-cp CommandReference.rst file into sphinx/source directory.
-cp DevsimDoc.cc into devsim directory
-
-cd ../sphinx
-make pdf
-make html
-bash sync.sh
-
-cp devsim.pdf into devsim directory
+The doc directory contains the pdf, html, and c++ file.

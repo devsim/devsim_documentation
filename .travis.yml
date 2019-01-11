@@ -1,0 +1,21 @@
+
+language: minimal
+
+dist: xenial
+#sudo: false
+
+# use apt-file command to find packages
+before_install:
+  - set -e
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+    sudo apt-get --yes install curl bzip2 make latexmk texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra;
+    curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh;
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/anaconda;
+    fi
+
+script:
+  - source ${HOME}/anaconda/bin/activate base
+  - ./preinstall.sh
+  - source activate devsim_doc
+  - ./build.sh
+
