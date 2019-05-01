@@ -9,8 +9,30 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-|release| (December 18, 2018)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release |release| (April 30, 2018)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Bernoulli function, :math:`B(x)`,
+
+.. math::
+
+  B \left( x \right) = \frac{x}{\mathrm{e}^x - 1}
+
+and its derivative,
+
+.. math::
+  dBdx \left( x \right) = \frac{\mathrm{e}^x - 1 - x \mathrm{e}^x}{\left(\mathrm{e}^x - 1\right)^2}
+
+have been refactored.  They are used to calculate electron and hole current densities using the Scharfetter-Gummel method :cite:`sgieeeted1969`.
+
+The Bernoulli function has numerical issues when :math:`x` approaches ``0`` and requires special evaluation.  In this release, |devsim|, takes advantage of |cpluspluseleven| math library functions for evaluating the denominator.
+
+In addition, these functions are evaluated with extended precision, when this mode is enabled in the simulator.  This mode is described in :ref:`release_extended` and controlling parameters are in :ref:`parameters__behavior`.
+
+Users should expect that simulation results should change in the number of solver iterations and small differences in simulation results.  This and other functions are listed in :ref:`symdiff__functions`.
+
+Release 1.0.0 (December 18, 2018)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Documentation
 ^^^^^^^^^^^^^
@@ -127,6 +149,8 @@ Bug Fixes
 - The :meth:`devsim.interface_equation` command is fixed for ``type=fluxterm`` boundary conditions on the interface.
 - The :meth:`devsim.get_material`, and :meth:`devsim.set_material` handle the ``contact`` option.
 - Interface equation assembly skips nodes when an interface node is shared with a contact.
+
+.. _release_extended:
 
 Extended Precision
 ^^^^^^^^^^^^^^^^^^
