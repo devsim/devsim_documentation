@@ -9,8 +9,25 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Release |release| (April 30, 2018)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.2.0 (May 8, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|devsim| releases have better support for |pythonthree|.  Using the stable ABI, the software is able to run newer |pythonthree| releases, without rebuilding the software.
+
+Support for |pythontwoseven| has been removed.
+
+The banner has been removed when the |devsim| module is imported.
+
+The ``symdiff`` python module is now part of the |devsim| release.  This module has additional features not available using the :meth:`devsim.symdiff` command from |devsim|.  By first setting the ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution, ``symdiff`` is loaded by using
+
+.. code-block:: python
+
+  import symdiff
+
+Documentation is available in the ``doc`` directory of this distribution.  Examples are available in the ``examples/symdiff`` directory.
+
+Release 1.1.0 (April 30, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Bernoulli function, :math:`B(x)`,
 
