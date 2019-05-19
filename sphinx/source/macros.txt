@@ -29,6 +29,7 @@
 .. |genius| replace:: ``Genius``
 .. |geniusds| replace:: ``Genius Device Simulator``
 .. |gmsh| replace:: ``Gmsh``
+.. |intelmklpardiso| replace:: ``Intel MKL Pardiso``
 .. |intelmkl| replace:: ``Intel Math Kernel Library``
 .. |intelmklce| replace:: |intelmkl| Community Edition
 .. |linux| replace:: ``Linux``

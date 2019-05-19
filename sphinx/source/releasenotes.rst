@@ -9,6 +9,35 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.3.0 (May 18, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|pythonthree| Examples
+^^^^^^^^^^^^^^^^^^^^^^
+
+All of the |tcl| regression tests in the ``testing`` directory have been converted to |pythonthree|.  These tests serve as examples for features that were previously only tested using |tcl| scripting.
+
+|tcl| Support Deprecated
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+|tcl| support is deprecated and will be removed in a future release of the software.
+
+Binary Releases
+^^^^^^^^^^^^^^^
+
+Scripting Languages
+"""""""""""""""""""
+
+|pythonthree| is now the only scripting language in the releases available from:
+
+|devsimgithubrelease|
+
+Math Library
+""""""""""""
+
+The |mswindows| version now uses |intelmklpardiso| for direct matrix factorization.  Both |linux| and |macosx| have been using |intelmklpardiso| since :ref:`release_11012015`.  Binary releases for all operating systems use BLAS/LAPACK routines from |intelmkl|.
+
+
 Release 1.2.0 (May 8, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -248,6 +277,9 @@ Manual Updates
 ^^^^^^^^^^^^^^
 
 The manual has been updated so that commands are easier to find in the index.  Every command now has a short description.  Cross references have been fixed.  The date has been added to the front page.
+
+
+.. _release_11012015:
 
 November 1, 2015
 ~~~~~~~~~~~~~~~~
