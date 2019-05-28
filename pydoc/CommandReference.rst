@@ -71,7 +71,7 @@ Commands for defining and evaluating models
 
 
 .. automodule:: devsim
-   :members: contact_edge_model, contact_node_model, cylindrical_edge_couple, cylindrical_node_volume, cylindrical_surface_area, debug_triangle_models, delete_edge_model, delete_element_model, delete_interface_model, delete_node_model, edge_average_model, edge_from_node_model, edge_model, element_from_edge_model, element_from_node_model, element_model, get_edge_model_list, get_edge_model_values, get_element_model_list, get_element_model_values, get_interface_model_list, get_interface_model_values, get_node_model_list, get_node_model_values, interface_model, interface_normal_model, node_model, node_solution, print_edge_values, print_element_values, print_node_values, register_function, set_node_value, set_node_values, symdiff, vector_element_model, vector_gradient
+   :members: contact_edge_model, contact_node_model, cylindrical_edge_couple, cylindrical_node_volume, cylindrical_surface_area, debug_triangle_models, delete_edge_model, delete_element_model, delete_interface_model, delete_node_model, edge_average_model, edge_from_node_model, edge_model, edge_solution, element_from_edge_model, element_from_node_model, element_model, element_solution, get_edge_model_list, get_edge_model_values, get_element_model_list, get_element_model_values, get_interface_model_list, get_interface_model_values, get_node_model_list, get_node_model_values, interface_model, interface_normal_model, node_model, node_solution, print_edge_values, print_element_values, print_node_values, register_function, set_edge_values, set_element_values, set_node_value, set_node_values, symdiff, vector_element_model, vector_gradient
 
 
 .. _SolverCommands:

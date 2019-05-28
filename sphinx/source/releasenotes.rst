@@ -9,6 +9,19 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.0 (May 27, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :meth:`devsim.custom_equation` and :meth:`devsim.register_function` commands take |python| functions, instead of the a string with the function name.
+
+The following commands are available to store data on edges and element edges:
+
+- :meth:`edge_solution`
+- :meth:`set_edge_values`
+- :meth:`element_solution`
+- :meth:`set_element_values`
+ 
+
 Release 1.3.0 (May 18, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

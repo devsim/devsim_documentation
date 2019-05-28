@@ -411,6 +411,24 @@ where ``iname`` is the name of the interface.  The normals are of the closest no
 )
 },
 {
+"name" : "edge_solution",
+"description" : "Create node model whose values are set.",
+"parameters" : (
+("device", device_option_text, required, string, None, None),
+("region", region_option_text, required, string, None, None),
+("name", name_option("solution", "created"), required, string, None, None),
+)
+},
+{
+"name" : "element_solution",
+"description" : "Create node model whose values are set.",
+"parameters" : (
+("device", device_option_text, required, string, None, None),
+("region", region_option_text, required, string, None, None),
+("name", name_option("solution", "created"), required, string, None, None),
+)
+},
+{
 "name" : "print_node_values",
 "description" : "Print node values for debugging.",
 "parameters" : (
@@ -443,6 +461,7 @@ where ``iname`` is the name of the interface.  The normals are of the closest no
 "parameters" : (
 ("name", "Name of the function", required, string, None, None),
 ("nargs", "Number of arguments to the function", required, string, None, None),
+("procedure", "The procedure to be called", required, string, None, None),
 )
 },
 {
@@ -465,6 +484,28 @@ where ``iname`` is the name of the interface.  The normals are of the closest no
 ("name", name_option("node model", "initialized"), required, string, None, None),
 ("init_from", "Node model we are using to initialize the node solution", optional, string, None, None),
 ("values", "List of values for each node in the region.", optional, List, None, None),
+)
+},
+{
+"name" : "set_edge_values",
+"description" : "Set edge model values from another edge model, or a list of values.",
+"parameters" : (
+("device", device_option_text, required, string, None, None),
+("region", region_option_text, required, string, None, None),
+("name", name_option("edge model", "initialized"), required, string, None, None),
+("init_from", "Node model we are using to initialize the edge solution", optional, string, None, None),
+("values", "List of values for each edge in the region.", optional, List, None, None),
+)
+},
+{
+"name" : "set_element_values",
+"description" : "Set element model values from another element model, or a list of values.",
+"parameters" : (
+("device", device_option_text, required, string, None, None),
+("region", region_option_text, required, string, None, None),
+("name", name_option("element model", "initialized"), required, string, None, None),
+("init_from", "Node model we are using to initialize the element solution", optional, string, None, None),
+("values", "List of values for each element in the region.", optional, List, None, None),
 )
 },
 {

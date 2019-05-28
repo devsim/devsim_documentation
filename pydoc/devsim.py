@@ -1488,6 +1488,23 @@ def edge_model (**kwargs):
     '''
     pass
 
+def edge_solution (**kwargs):
+    '''
+    devsim.edge_solution (device, region, name)
+
+    Create node model whose values are set.
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    region : str
+       The selected region
+    name : str
+       Name of the solution being created
+    '''
+    pass
+
 def element_from_edge_model (**kwargs):
     '''
     devsim.element_from_edge_model (device, region, edge_model, derivative)
@@ -1590,6 +1607,23 @@ def element_model (**kwargs):
        Equation used to describe the element edge model being created
     display_type : str, optional
        Option for output display in graphical viewer (default 'scalar')
+    '''
+    pass
+
+def element_solution (**kwargs):
+    '''
+    devsim.element_solution (device, region, name)
+
+    Create node model whose values are set.
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    region : str
+       The selected region
+    name : str
+       Name of the solution being created
     '''
     pass
 
@@ -1858,7 +1892,7 @@ def print_node_values (**kwargs):
 
 def register_function (**kwargs):
     '''
-    devsim.register_function (name, nargs)
+    devsim.register_function (name, nargs, procedure)
 
     This command is used to register a new Python procedure for evaluation by SYMDIFF.
 
@@ -1868,6 +1902,50 @@ def register_function (**kwargs):
        Name of the function
     nargs : str
        Number of arguments to the function
+    procedure : str
+       The procedure to be called
+    '''
+    pass
+
+def set_edge_values (**kwargs):
+    '''
+    devsim.set_edge_values (device, region, name, init_from, values)
+
+    Set edge model values from another edge model, or a list of values.
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    region : str
+       The selected region
+    name : str
+       Name of the edge model being initialized
+    init_from : str, optional
+       Node model we are using to initialize the edge solution
+    values : list, optional
+       List of values for each edge in the region.
+    '''
+    pass
+
+def set_element_values (**kwargs):
+    '''
+    devsim.set_element_values (device, region, name, init_from, values)
+
+    Set element model values from another element model, or a list of values.
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    region : str
+       The selected region
+    name : str
+       Name of the element model being initialized
+    init_from : str, optional
+       Node model we are using to initialize the element solution
+    values : list, optional
+       List of values for each element in the region.
     '''
     pass
 
