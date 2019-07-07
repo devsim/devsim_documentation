@@ -15,7 +15,7 @@ Release 1.4.1 (July 7, 2019)
 Math Functions
 ^^^^^^^^^^^^^^
 
-The ``cosh``, ``sinh``, ``tanh``, are now available math functions.  Please see :numref:`symdiff__functions`.  In addition, all of the functions in the table, except for Fermi and inverse Fermi functions, are evaluate in extended precision mode.  This mode may be enabled using the parameters discussed in :numref:`_release_extended`.
+The ``cosh``, ``sinh``, ``tanh``, are now available math functions.  Please see :numref:`symdiff__functions`.  In addition, all of the functions in the table, except for Fermi and inverse Fermi functions, are evaluate in extended precision mode.  This mode may be enabled using the parameters discussed in :numref:`release_extended`.
 
 Element Model Memory Leak
 ^^^^^^^^^^^^^^^^^^^^^^^^^
