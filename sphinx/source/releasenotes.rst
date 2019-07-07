@@ -9,6 +9,26 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.1 (July 7, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Math Functions
+^^^^^^^^^^^^^^
+
+The ``cosh``, ``sinh``, ``tanh``, are now available math functions.  Please see :numref:`symdiff__functions`.  In addition, all of the functions in the table, except for Fermi and inverse Fermi functions, are evaluate in extended precision mode.  This mode may be enabled using the parameters discussed in :numref:`_release_extended`.
+
+Element Model Memory Leak
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A large memory leak was occurring during the evaluation of element edge models created with :meth:`devsim.element_from_edge_model`.  It is now fixed and memory usage is now stable when these models are evaluated.
+
+|pythonthree| API Memory Leak
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A small memory leak could occur when :py:mod:`devsim` functions where called, or when data was returned.  These reference counting issues are now fixed.
+
+
+
 Release 1.4.0 (May 27, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -16,10 +36,10 @@ The :meth:`devsim.custom_equation` and :meth:`devsim.register_function` commands
 
 The following commands are available to store data on edges and element edges:
 
-- :meth:`edge_solution`
-- :meth:`set_edge_values`
-- :meth:`element_solution`
-- :meth:`set_element_values`
+- :meth:`devsim.edge_solution`
+- :meth:`devsim.set_edge_values`
+- :meth:`devsim.element_solution`
+- :meth:`devsim.set_element_values`
  
 
 Release 1.3.0 (May 18, 2019)
@@ -216,7 +236,7 @@ Extended Precision
 
 The following new parameters are available:
 
-- ``extended_solver``, extended precision matrix for Newton and linear Solver
+- ``extended_solver``, extended precision matrix for Newton and linear solver
 - ``extended_model``, extended precision model evaluation
 - ``extended_equation``, extended precision equation assembly
 
