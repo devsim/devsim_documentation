@@ -9,6 +9,15 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.2 (September 12, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this release there are the following improvements.
+
+* Errors due to floating point exceptions and failed matrix factorization are not fatal.
+* The |macosx| release fixes runtime issues with |macosxhighsierra|.
+* The provided binary releases utilize more libraries from |anaconda|.
+
 Release 1.4.1 (July 7, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
