@@ -2,7 +2,7 @@
 .. include:: <isonum.txt>
 
 .. |devsim| replace:: ``DEVSIM``
-.. |mycopyright| replace:: Copyright |copy| 2009--2018 DEVSIM LLC
+.. |mycopyright| replace:: Copyright |copy| 2009--2019 DEVSIM LLC
 
 .. |anaconda| replace:: ``Anaconda``
 .. |redhatfive| replace:: ``Red Hat 5``

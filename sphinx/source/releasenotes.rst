@@ -9,6 +9,16 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.3 (Novermber 16, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fix failures with the following commands:
+
+- :meth:`devsim.delete_edge_model`
+- :meth:`devsim.delete_element_model`
+- :meth:`devsim.delete_interface_model`
+- :meth:`devsim.delete_node_model`
+
 Release 1.4.2 (September 12, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
