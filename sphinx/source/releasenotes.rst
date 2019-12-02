@@ -9,6 +9,27 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.4 (December 1, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Bug Fixes
+^^^^^^^^^
+
+An intermittent crash on |mswindowsten| was occuring at the end of the program.  It is now fixed.
+
+Documentation
+^^^^^^^^^^^^^
+
+A file named ``CHANGES.md`` is now distributed with |devsim|, detailing changes to the program.
+
+Internal changes
+^^^^^^^^^^^^^^^^
+- Regression system script refactored to Python
+- Refactored threading code using |cpluspluseleven| function
+- Refactored timing functions for verbose mode using |cpluspluseleven| functions
+- Refactored FPE detection code to |cpluspluseleven| standard
+
+
 Release 1.4.3 (Novermber 16, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
