@@ -9,6 +9,21 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.6
+~~~~~~~~~~~~~
+
+|mswindowsten| is supported and is now compiled using Microsoft Visual Studio 2019.
+
+|mswindowsseven| is no longer supported.
+
+Support for reading meshes from |geniusds| has been completely removed from the |devsim|.
+
+
+Release 1.4.5 (December 18, 2019)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An MSYS2/Mingw-w64 build is available for 64-bit Windows.  This build, labeled ``devsim_msys_v1.4.5``, enables the use of the 128-bit floating point precision already available on the macOS and Linux platforms.
+
 Release 1.4.4 (December 1, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -540,7 +555,7 @@ External Meshing
 Please see :ref:`sec__externalmesher` for more information about importing meshes from other tools.
 
 |genius| **Mesh Import**
-|devsim| can now read meshes written from |geniusds|.  More information about |genius| is in :ref:`sec__geniusintro`.
+|devsim| can now read meshes written from |geniusds|.  *Support is no longer available in recent versions releases*.
 
 |gmsh| **Mesh Import**
 |devsim| reads version ``2.1`` and ``2.2`` meshes from |gmsh|.  Version ``2.0`` is no longer supported.  Please see :ref:`sec__gmshintro` for more information.

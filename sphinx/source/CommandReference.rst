@@ -59,7 +59,7 @@ Commands for reading and writing meshes
 
 
 .. automodule:: devsim
-   :members: add_1d_contact, add_1d_interface, add_1d_mesh_line, add_1d_region, add_2d_contact, add_2d_interface, add_2d_mesh_line, add_2d_region, add_genius_contact, add_genius_interface, add_genius_region, add_gmsh_contact, add_gmsh_interface, add_gmsh_region, create_1d_mesh, create_2d_mesh, create_contact_from_interface, create_device, create_genius_mesh, create_gmsh_mesh, finalize_mesh, load_devices, write_devices
+   :members: add_1d_contact, add_1d_interface, add_1d_mesh_line, add_1d_region, add_2d_contact, add_2d_interface, add_2d_mesh_line, add_2d_region, add_gmsh_contact, add_gmsh_interface, add_gmsh_region, create_1d_mesh, create_2d_mesh, create_contact_from_interface, create_device, create_gmsh_mesh, finalize_mesh, load_devices, write_devices
 
 
 .. _ModelCommands:

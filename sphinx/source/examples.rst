@@ -24,13 +24,6 @@ bioapp1
 
 This is a biosensor application.
 
-.. _examples__geniusdir:
-
-genius
-~~~~~~
-
-This directory has examples importing meshes from |geniusds|.
-
 vector_potential
 ~~~~~~~~~~~~~~~~
 

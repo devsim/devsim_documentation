@@ -25,13 +25,6 @@ SYMDIFF
 External Software Tools
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _geniusAvailability:
-
-Genius
-^^^^^^
-
-|genius| is available in commercial and open source versions from http://www.cogenda.com.
-
 .. _gmshAvailability:
 
 Gmsh
@@ -68,13 +61,6 @@ BLAS and LAPACK
 ^^^^^^^^^^^^^^^
 
 These are the basic linear algebra routines used directly by |devsim| and by |superlu|. Reference versions are available from http://www.netlib.org.  There are optimized versions available from other vendors.
-
-.. _additional__cgns:
-
-CGNS
-^^^^
-
-|cgns| (CFD Generalized Notation System) is an open source library, which implements the storage format used to read |geniusds| meshes.  It is available from http://www.cgns.org.
 
 .. _additional__python:
 
@@ -124,11 +110,6 @@ SuperLU
   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Tcl
-^^^
-
-|tcl| is the original parser for |devsim| and is superseded by |python|.  It is still used for some of the tests.  |tcl| is available from http://www.tcl.tk.
 
 zlib
 ^^^^

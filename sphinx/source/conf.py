@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'DEVSIM Manual'
-copyright = u'2009-2019, DEVSIM LLC.  All Rights Reserved.  DEVSIM® is registered trademark of DEVSIM LLC'
+copyright = u'2009-2020, DEVSIM LLC.  All Rights Reserved.  DEVSIM® is registered trademark of DEVSIM LLC'
 author = u'DEVSIM LLC'
 
 # The version info for the project you're documenting, acts as replacement for

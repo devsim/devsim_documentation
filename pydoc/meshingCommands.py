@@ -6,53 +6,6 @@ Command = {
   "commands" : (
 
 {
-"name" : "create_genius_mesh",
-"description" : "This command reads in a Genius mesh written in the CGNS format",
-"long_description" : r'''
-If successful, this command will return a dictionary containing information about the regions and boundaries in the mesh.  Please see the example in :ref:`sec__geniusintro` for an example of how this information can be used for adding contacts and interfaces to the structure being created.
-
-  If the CGNS file was created with HDF as the underlying storage format, it may be necessary to convert it to ADF using the ``hdf2adf`` command before reading it into DEVSIM.  This command is available as part of the CGNS library when it is compiled with HDF support.  Please :ref:`additional__cgns` for availablility. }
-''',
-"parameters" : (
-("file", "name of the Genius mesh file being read into DEVSIM", required, string, None, None),
-("mesh", "name of the mesh being generated", required, string, None, None),
-)
-},
-{
-"name" : "add_genius_contact",
-"description" : "Create a contact for an imported Genius mesh",
-"parameters" : (
-("genius_name", "boundary condition name in the Genius CGNS file", required, string, None, None),
-("material", "material for the contact being created", required, string, None, None),
-("mesh", "name of the mesh being generated", required, string, None, None),
-("name", "name of the contact begin created", required, string, None, None),
-("region", "region that the contact is attached to", required, string, None, None),
-)
-},
-{
-"name" : "add_genius_interface",
-"description" : "Create an interface for an imported Genius mesh",
-"parameters" : (
-("genius_name", "boundary condition name in the Genius CGNS file", required, string, None, None),
-("mesh", "name of the mesh being generated", required, string, None, None),
-("name", "name of the interface begin created", required, string, None, None),
-("region0", "first region that the interface is attached to", required, string, None, None),
-("region1", "second region that the interface is attached to", required, string, None, None),
-)
-},
-
-{
-"name" : "add_genius_region",
-"description" : "Create a region for an imported Genius  mesh",
-"parameters" : (
-("genius_name", "region name in the Genius CGNS file", required, string, None, None),
-("mesh", "name of the mesh being generated", required, string, None, None),
-("region", "name of the region begin created", required, string, None, None),
-("material", "material for the region being created", required, string, None, None),
-)
-},
-
-{
 "name" : "create_gmsh_mesh",
 "description" : "Create a mesh to import a Gmsh mesh",
 "parameters" : (

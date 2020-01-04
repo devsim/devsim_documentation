@@ -74,51 +74,7 @@ Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` 
 Using an external mesher
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-|devsim| supports reading meshes from |gmsh|.   Support for |geniusds| is deprecated and will be removed from a future release.  In addition, meshes may be input directly using the |python| interface.  These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
-
-.. _sec__geniusintro:
-
-Genius
-^^^^^^
-
-Meshes from the |geniusds| software (see :ref:`geniusAvailability`) can be imported using the |cgns| format.  In this example, :meth:`devsim.create_genius_mesh` returns region and boundary information which can be used to setup the device.
-
-.. code-block:: python
-
-  mesh_name = "nmos_iv"
-  result = create_genius_mesh(file="nmos_iv.cgns", mesh=mesh_name)
-
-  contacts = {}
-  for region_name, region_info in result['mesh_info']['regions'].iteritems():
-    add_genius_region(mesh=mesh_name, genius_name=region_name,
-                     region=region_name, material=region_info['material'])
-    for boundary, is_electrode in region_info['boundary_info'].iteritems():
-      if is_electrode:
-        if boundary in contacts:
-          contacts[boundary].append(region_name)
-        else:
-          contacts[boundary] = [region_name, ]
-
-  for contact, regions in contacts.iteritems():
-    if len(regions) == 1:
-      add_genius_contact(mesh=mesh_name, genius_name=contact, name=contact,
-        region=regions[0], material='metal')
-    else:
-      for region in regions:
-        add_genius_contact(mesh=mesh_name, genius_name=contact,
-          name=contact+'@'+region, region=region, material='metal')
-
-
-
-  for boundary_name, regions in result['mesh_info']['boundaries'].iteritems():
-    if (len(regions) == 2):
-      add_genius_interface(mesh=mesh_name, genius_name=boundary_name,
-        name=boundary_name, region0=regions[0], region1=regions[1])
-
-  finalize_mesh(mesh=mesh_name)
-  create_device(mesh=mesh_name, device=mesh_name)
-
-Example locations are available on :ref:`examples__geniusdir`.
+|devsim| supports reading meshes from |gmsh|.   In addition, meshes may be input directly using the |python| interface.  These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
 
 .. _sec__gmshintro:
 
