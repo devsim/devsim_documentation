@@ -12,11 +12,27 @@ Introduction
 Release 1.4.6
 ~~~~~~~~~~~~~
 
+Parameter "info" can be queried for getting version information.  The file ``testing/info.py`` contains an example.
+
+.. code-block:: none
+
+  python info.py
+  {'copyright': 'DEVSIM LLC Copyright 2009-2020', 'direct_solver': 'mkl_pardiso', 'extended_precision': True, 'version': '1.4.6'}
+
+
+The example ``examples/diode/gmsh_diode3d_float128`` provides an example where extended precision is enabled.
+
+Platforms
+^^^^^^^^^
+
 |mswindowsten| is supported and is now compiled using Microsoft Visual Studio 2019.
 
 |mswindowsseven| is no longer supported.
 
-Support for reading meshes from |geniusds| has been completely removed from the |devsim|.
+External Meshing
+^^^^^^^^^^^^^^^^
+
+Support for reading meshes from |geniusds| has been completely removed from |devsim|.
 
 
 Release 1.4.5 (December 18, 2019)
