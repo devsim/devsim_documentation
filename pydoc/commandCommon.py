@@ -13,7 +13,7 @@ integer="INTEGER"
 anytype="ANY"
 
 pymap = {
-  string : "str",
+    string : "str",
   Float  : "Float",
   integer : "int",
   anytype : "any",

@@ -14,13 +14,13 @@ import solverCommands
 #### replace expanded strings with macros wherever possible
 # enforce use of option
 Commands= (
-circuitCommands.Command,
-equationCommands.Command,
-geometryCommands.Command,
-materialCommands.Command,
-meshingCommands.Command,
-modelCommands.Command,
-solverCommands.Command,
+    circuitCommands.Command,
+    equationCommands.Command,
+    geometryCommands.Command,
+    materialCommands.Command,
+    meshingCommands.Command,
+    modelCommands.Command,
+    solverCommands.Command,
 )
 
 
@@ -218,7 +218,7 @@ def CppEscape(s):
 
 def printCppDoc(ofh, command):
   mydict = {
-    "sectionname" : command["name"],
+      "sectionname" : command["name"],
     "sectionlcname" : command["name"].lower(),
     "sectiondescription" : command["description"],
   }
@@ -312,7 +312,7 @@ def printPyCommand(ofh, sectionname, command, print_def):
     commandname = command["name"].lower()
     if print_def:
       mydict = {
-        "commandname" : commandname,
+          "commandname" : commandname,
       }
       ofh.write("\ndef %(commandname)s (**kwargs):\n" % mydict)
     csb = io.StringIO()
@@ -341,7 +341,7 @@ Notes
 
 def printPyDoc(ofh, command):
   mydict = {
-    "sectionname" : command["name"],
+      "sectionname" : command["name"],
     "sectionlcname" : command["name"].lower(),
     "sectiondescription" : command["description"],
   }
@@ -372,7 +372,7 @@ Command Reference
 
   for command in Commands:
     mydict = {
-      "sectionname" : command["name"],
+        "sectionname" : command["name"],
       "sectionlcname" : command["name"].lower(),
       "sectiondescription" : command["description"],
     }
