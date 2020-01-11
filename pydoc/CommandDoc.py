@@ -161,29 +161,29 @@ Commands= (
 #''' % (mydict)
 
 def printCppMultiline(ofh, csb):
-  s = CppEscape(csb.getvalue())
-  for l in s.splitlines():
-    print(r'"%s\n"' % l, file=ofh) 
+    s = CppEscape(csb.getvalue())
+    for l in s.splitlines():
+        print(r'"%s\n"' % l, file=ofh) 
 
 
 def printCppCommand(ofh, sectionname, command):
-  for k in list(command.keys()):
-    if k not in ("name", "description", "long_description", "parameters"):
-      raise RuntimeError("Unexpected key: " + k)
-  try:
-    commandname = command["name"].lower()
+    for k in list(command.keys()):
+        if k not in ("name", "description", "long_description", "parameters"):
+            raise RuntimeError("Unexpected key: " + k)
+    try:
+        commandname = command["name"].lower()
 
-    print("\nstatic const char %s_doc[] =" % commandname, file=ofh)
-    csb = io.StringIO()
-    printPyCommand(csb, sectionname, command, False)
-    printCppMultiline(ofh, csb)
-    print(";", file=ofh)
-  except Exception as e:
-    #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
-    raise
+        print("\nstatic const char %s_doc[] =" % commandname, file=ofh)
+        csb = io.StringIO()
+        printPyCommand(csb, sectionname, command, False)
+        printCppMultiline(ofh, csb)
+        print(";", file=ofh)
+    except Exception as e:
+        #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
+        raise
 
 def CppEscape(s):
-  return s.replace('\\', '').replace('"', '\\\"')
+    return s.replace('\\', '').replace('"', '\\\"')
 
 #def printCppCommandTable(ofh, command):
 #  #print >>ofh, r'\begin{commandTable}'
@@ -217,136 +217,136 @@ def CppEscape(s):
 #  #print >>ofh, r'\end{commandTable}'
 
 def printCppDoc(ofh, command):
-  mydict = {
-      "sectionname" : command["name"],
-    "sectionlcname" : command["name"].lower(),
-    "sectiondescription" : command["description"],
-  }
-  for i in sorted(command["commands"], key=lambda x : x["name"]):
-    printCppCommand(ofh, mydict["sectionname"], i)
+    mydict = {
+        "sectionname" : command["name"],
+      "sectionlcname" : command["name"].lower(),
+      "sectiondescription" : command["description"],
+    }
+    for i in sorted(command["commands"], key=lambda x : x["name"]):
+        printCppCommand(ofh, mydict["sectionname"], i)
 
 def PyEscape(s):
-  return s.replace('\\', '').replace('"', '\'')
+    return s.replace('\\', '').replace('"', '\'')
 
 def printPyCommandString(ofh, command):
-  commandname = command["name"]
-  ofh.write("devsim."+commandname + " (")
-  ofh.write(", ".join([p[0] for p in command['parameters']]))
-  ofh.write(")\n")
+    commandname = command["name"]
+    ofh.write("devsim."+commandname + " (")
+    ofh.write(", ".join([p[0] for p in command['parameters']]))
+    ofh.write(")\n")
 
 def printPyDescription(ofh, command):
-  ofh.write("\n" + PyEscape(command["description"]) + "\n")
+    ofh.write("\n" + PyEscape(command["description"]) + "\n")
 
 def printPyParameters(ofh, command):
-  if not command["parameters"]:
-    return
-  ofh.write('''
+    if not command["parameters"]:
+        return
+    ofh.write('''
 Parameters
 ----------
 ''')
-  # TODO handle strings in quotes
-  # escape params
-  # put all default values for optional
-  # put descriptions
-  # put long descriptions
-  for param in command["parameters"]:
-    ofh.write(param[0] + " : ")
-    if param[3] == commandCommon.option:
-      default_value = None
-      if param[2] == commandCommon.optional:
-        default_value = param[4]
-        if not param[4]:
-          raise RuntimeError("ISSUE")
-      options = [p[0] for p in param[5] if p[0] != default_value]
-      if default_value:
-        options[:0] = (default_value,)
-      options = ["'" + p + "'" for p in options]
-      ofh.write('{' + ", ".join(options) + "}")
-      if not default_value:
-        ofh.write(' required')
-      #pass
-      #if param[2] == commandCommon.optional:
-      #  ofh.write(""
-      #if param[2] == commandCommon.required:
-      #  raise RuntimeError("2")
-      #else:
-      #  raise RuntimeError("3")
-    else:
-      ofh.write(commandCommon.pymap[param[3]])
-      if param[2] == commandCommon.optional:
-        ofh.write(', optional')
-    ofh.write('\n')
-    ofh.write('   ' + PyEscape(param[1]))
-    if param[2] == commandCommon.optional and param[3] != commandCommon.option:
-      pt = param[3]
-      pv = param[4]
-      if pv is not None:
-        dv = None
-        if not pt:
-          raise RuntimeError("ISSUE 2 " + str(param))
-        if pt == commandCommon.string:
-          dv = "'" + pv + "'"
-        elif pt in (commandCommon.Float, commandCommon.integer):
-          dv = pv
-        elif pt == commandCommon.boolean:
-          dv = str(pv)
+    # TODO handle strings in quotes
+    # escape params
+    # put all default values for optional
+    # put descriptions
+    # put long descriptions
+    for param in command["parameters"]:
+        ofh.write(param[0] + " : ")
+        if param[3] == commandCommon.option:
+            default_value = None
+            if param[2] == commandCommon.optional:
+                default_value = param[4]
+                if not param[4]:
+                    raise RuntimeError("ISSUE")
+            options = [p[0] for p in param[5] if p[0] != default_value]
+            if default_value:
+                options[:0] = (default_value,)
+            options = ["'" + p + "'" for p in options]
+            ofh.write('{' + ", ".join(options) + "}")
+            if not default_value:
+                ofh.write(' required')
+            #pass
+            #if param[2] == commandCommon.optional:
+            #  ofh.write(""
+            #if param[2] == commandCommon.required:
+            #  raise RuntimeError("2")
+            #else:
+            #  raise RuntimeError("3")
         else:
-          raise RuntimeError("missing type " + str(param))
-        ofh.write(" (default %s)" % dv)
-      
-    ofh.write('\n')
-    #if param[2] == commandCommon.required:
-    #  pass
-    #elif param[2] == commandCommon.optional:
-    #  pass
-    #else:
-    #  raise RuntimeError("Issue! " + str(param))
+            ofh.write(commandCommon.pymap[param[3]])
+            if param[2] == commandCommon.optional:
+                ofh.write(', optional')
+        ofh.write('\n')
+        ofh.write('   ' + PyEscape(param[1]))
+        if param[2] == commandCommon.optional and param[3] != commandCommon.option:
+            pt = param[3]
+            pv = param[4]
+            if pv is not None:
+                dv = None
+                if not pt:
+                    raise RuntimeError("ISSUE 2 " + str(param))
+                if pt == commandCommon.string:
+                    dv = "'" + pv + "'"
+                elif pt in (commandCommon.Float, commandCommon.integer):
+                    dv = pv
+                elif pt == commandCommon.boolean:
+                    dv = str(pv)
+                else:
+                    raise RuntimeError("missing type " + str(param))
+                ofh.write(" (default %s)" % dv)
+
+        ofh.write('\n')
+        #if param[2] == commandCommon.required:
+        #  pass
+        #elif param[2] == commandCommon.optional:
+        #  pass
+        #else:
+        #  raise RuntimeError("Issue! " + str(param))
 
 # Follow guide from https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 # TODO return values
 def printPyCommand(ofh, sectionname, command, print_def):
-  for k in list(command.keys()):
-    if k not in ("name", "description", "long_description", "parameters"):
-      raise RuntimeError("Unexpected key: " + k)
-  try:
-    commandname = command["name"].lower()
-    if print_def:
-      mydict = {
-          "commandname" : commandname,
-      }
-      ofh.write("\ndef %(commandname)s (**kwargs):\n" % mydict)
-    csb = io.StringIO()
-    if print_def:
-      csb.write("'''\n")
-    printPyCommandString(csb, command)
-    printPyDescription(csb, command)
-    printPyParameters(csb, command)
-    if "long_description" in command:
-      csb.write('''
+    for k in list(command.keys()):
+        if k not in ("name", "description", "long_description", "parameters"):
+            raise RuntimeError("Unexpected key: " + k)
+    try:
+        commandname = command["name"].lower()
+        if print_def:
+            mydict = {
+                "commandname" : commandname,
+            }
+            ofh.write("\ndef %(commandname)s (**kwargs):\n" % mydict)
+        csb = io.StringIO()
+        if print_def:
+            csb.write("'''\n")
+        printPyCommandString(csb, command)
+        printPyDescription(csb, command)
+        printPyParameters(csb, command)
+        if "long_description" in command:
+            csb.write('''
 Notes
 -----
 ''')
-      for line in command['long_description'].splitlines():
-        csb.write(line + "\n")
-    if print_def:
-      csb.write("'''\n")
-      csb.write("pass\n")
-    for line in csb.getvalue().splitlines():
-      if line:
-        ofh.write("    " + line)
-      ofh.write("\n")
-  except Exception as e:
-    #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
-    raise
+            for line in command['long_description'].splitlines():
+                csb.write(line + "\n")
+        if print_def:
+            csb.write("'''\n")
+            csb.write("pass\n")
+        for line in csb.getvalue().splitlines():
+            if line:
+                ofh.write("    " + line)
+            ofh.write("\n")
+    except Exception as e:
+        #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
+        raise
 
 def printPyDoc(ofh, command):
-  mydict = {
-      "sectionname" : command["name"],
-    "sectionlcname" : command["name"].lower(),
-    "sectiondescription" : command["description"],
-  }
-  for i in sorted(command["commands"], key=lambda x : x["name"]):
-    printPyCommand(ofh, mydict["sectionname"], i, print_def=True)
+    mydict = {
+        "sectionname" : command["name"],
+      "sectionlcname" : command["name"].lower(),
+      "sectiondescription" : command["description"],
+    }
+    for i in sorted(command["commands"], key=lambda x : x["name"]):
+        printPyCommand(ofh, mydict["sectionname"], i, print_def=True)
 
 #for command in Commands:
 #  filename=command["name"].lower() + "Commands.tex"
@@ -355,42 +355,42 @@ def printPyDoc(ofh, command):
 
 filename="DevsimDoc.cc"
 with open(filename, "w") as ofh:
-  for command in Commands:
-    printCppDoc(ofh, command)
+    for command in Commands:
+        printCppDoc(ofh, command)
 
 filename="devsim.py"
 with open(filename, "w") as ofh:
-  for command in Commands:
-    printPyDoc(ofh, command)
+    for command in Commands:
+        printPyDoc(ofh, command)
 
 filename="CommandReference.rst"
 with open(filename, "w") as ofh:
-  ofh.write('''
+    ofh.write('''
 Command Reference
 -----------------
 ''')
 
-  for command in Commands:
-    mydict = {
-        "sectionname" : command["name"],
-      "sectionlcname" : command["name"].lower(),
-      "sectiondescription" : command["description"],
-    }
+    for command in Commands:
+        mydict = {
+            "sectionname" : command["name"],
+          "sectionlcname" : command["name"].lower(),
+          "sectiondescription" : command["description"],
+        }
 
 
-  for command in Commands:
-    refname = '\n.. _' + command["name"] + "Commands:"
-    ofh.write(refname + '\n\n')
-    head = command["name"] + " Commands"
-    head = head + '\n' + '~' * len(head) + '\n\n'
-    ofh.write(head)
-    ofh.write(command["description"] + "\n\n")
-    methods = ', '.join([i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])])
-    #print methods
-    ofh.write('''
+    for command in Commands:
+        refname = '\n.. _' + command["name"] + "Commands:"
+        ofh.write(refname + '\n\n')
+        head = command["name"] + " Commands"
+        head = head + '\n' + '~' * len(head) + '\n\n'
+        ofh.write(head)
+        ofh.write(command["description"] + "\n\n")
+        methods = ', '.join([i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])])
+        #print methods
+        ofh.write('''
 .. automodule:: devsim
    :members: ''' + methods)
-    ofh.write('\n\n')
+        ofh.write('\n\n')
 
 
 

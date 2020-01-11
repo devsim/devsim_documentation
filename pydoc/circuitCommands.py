@@ -25,7 +25,7 @@ Command={
               ("name", name_option("circuit node", "created"), required, string, None, None),
               ("param", "parameter being modified", optional, string, "value", None),
               ("value", "value for the parameter", required, Float, None, None),
-        
+
           )
       },
     {

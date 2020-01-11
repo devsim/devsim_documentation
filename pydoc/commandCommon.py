@@ -28,10 +28,10 @@ yh_option = ("yh", "y position for corner of bounding box", optional, Float, "+M
 bloat_option = ("bloat", "Extend bounding box by this amount when search for mesh to include in region", optional, Float, "1e-10", None)
 
 def name_option(thing, verb):
-  return "Name of the " + thing + " being " + verb
+    return "Name of the " + thing + " being " + verb
 
 def equation_option(what):
-  return "Equation used to describe the " + what
+    return "Equation used to describe the " + what
 
 device_option_required = ("device", device_option_text, required, string, None, None)
 device_option_optional = ("device", device_option_text, optional, string, None, None)
