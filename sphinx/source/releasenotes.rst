@@ -9,11 +9,11 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Release 1.4.6
-~~~~~~~~~~~~~
+Release 1.4.6 (January 14, 2020)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version Information (January 14, 2020)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Version Information
+^^^^^^^^^^^^^^^^^^^
 
 Parameter ``info`` can be queried for getting version information.  The file ``testing/info.py`` contains an example.
 
