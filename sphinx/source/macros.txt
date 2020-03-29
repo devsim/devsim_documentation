@@ -36,6 +36,7 @@
 .. |macosx| replace:: ``Apple macOS``
 .. |macosxyosemite| replace:: ``macOS 10.10 (Yosemite)``
 .. |macosxhighsierra| replace:: ``macOS 10.13 (High Sierra)``
+.. |msys| replace:: ``MSYS2/Mingw-w64``
 .. |mswindows| replace:: ``Microsoft Windows``
 .. |mswindowsseven| replace:: ``Microsoft Windows 7``
 .. |mswindowsten| replace:: ``Microsoft Windows 10``

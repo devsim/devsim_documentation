@@ -9,6 +9,22 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.7 (March 29, 2020)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Models
+^^^^^^
+
+In the simple physics models, the sign for time-derivative terms was wrong for the electron and hole continuity equations.  This affects small-signal and noise simulations.  The example at ``examples/diode/ssac_diode.py`` was updated to reflect the change.
+
+Platforms
+^^^^^^^^^
+
+Fix build script issue for |macosx| on Travis CI, updated the compiler to ``g++-9``.
+
+Update |centossix| build from ``devtoolset-6`` to ``devtoolset-8``.
+
+
 Release 1.4.6 (January 14, 2020)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -48,7 +64,7 @@ Support for reading meshes from |geniusds| has been completely removed from |dev
 Release 1.4.5 (December 18, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An MSYS2/Mingw-w64 build is available for 64-bit Windows.  This build, labeled ``devsim_msys_v1.4.5``, enables the use of the 128-bit floating point precision already available on the macOS and Linux platforms.
+An |msys| build is available for 64-bit |mswindows|.  This build, labeled ``devsim_msys_v1.4.5``, enables the use of the 128-bit floating point precision already available on the |macosx| and |linux| platforms.
 
 Release 1.4.4 (December 1, 2019)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
