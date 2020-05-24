@@ -9,7 +9,7 @@ before_install:
   - set -e
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
     sudo apt-get --yes install curl bzip2 make latexmk texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra;
-    curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh;
+    curl -O https://repo.repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh;
     bash Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/anaconda;
     fi
 
