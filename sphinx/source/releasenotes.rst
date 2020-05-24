@@ -9,6 +9,11 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.8 (May 24, 2020)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In transient mode, the convergence test was flawed so that the ``charge_error`` was the only convergence check required for convergence.  The software now ensures all convergence criteria are met.
+
 Release 1.4.7 (March 29, 2020)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
