@@ -9,6 +9,11 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.8 (June 5, 2020)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for loading mesh files containing element edge data.
+
 Release 1.4.8 (May 24, 2020)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
