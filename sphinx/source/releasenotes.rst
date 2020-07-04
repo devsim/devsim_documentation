@@ -9,6 +9,13 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.10 (July 4, 2020)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fixed crash when evaluating element edge model in 3D.
+
+Fixed potential error using ``delete_node_model`` and similar deletion commands.
+
 Release 1.4.9 (June 5, 2020)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
