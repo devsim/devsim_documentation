@@ -78,7 +78,7 @@ Note that the device and region options are optional.  If the region is not spec
           "description" : "Open a database storing material properties",
           "parameters" : (
               ("filename", "filename to create for the db", required, string, None, None),
-              ("permissions", "permissions on the db", optional, string, "readonly", (
+              ("permissions", "permissions on the db", optional, option, "readonly", (
                   ("readwrite", "Open file for reading and writing"),
                   ("readonly", "Open file for read only"),
               )

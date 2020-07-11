@@ -265,8 +265,8 @@ def equation (**kwargs):
        Name of the element_model being integrated over each edge in the device volume
     volume_model : str, optional
        Name of the element_model being integrated over the volume of each edge in the device volume
-    variable_update : str, optional
-       update type for circuit variable (default 'default')
+    variable_update : {'default', 'log_damp', 'positive'}
+       update type for circuit variable
 
     Notes
     -----
@@ -420,7 +420,7 @@ def interface_equation (**kwargs):
        The variable name is used to determine the bulk equation we are coupling this interface to (deprecated)
     interface_model : str
        When specified, the bulk equations on both sides of the interface are integrated together.  This model is then used to specify how nodal quantities on both sides of the interface are balanced
-    type : str
+    type : {'continuous', 'fluxterm', 'hybrid'} required
        Specifies the type of boundary condition
     '''
     pass
@@ -639,8 +639,8 @@ def open_db (**kwargs):
     ----------
     filename : str
        filename to create for the db
-    permissions : str, optional
-       permissions on the db (default 'readonly')
+    permissions : {'readonly', 'readwrite'}
+       permissions on the db
     '''
     pass
 
@@ -1026,14 +1026,14 @@ def create_gmsh_mesh (**kwargs):
 
     ``coordinates`` is a float list of positions in the mesh.  Each coordinate adds an x, y, and z position so that the coordinate list length is 3 times the number of coordinates.
 
-    ``physical_names`` is a list of contact, interface, and region names.  It is referenced by index by the ``elements`` list. 
+    ``physical_names`` is a list of contact, interface, and region names.  It is referenced by index by the ``elements`` list.
 
     ``elements`` is a list of elements.  Each element adds
 
     * Element Type (float)
 
       - 0 node
-      - 1 edge 
+      - 1 edge
       - 2 triangle
       - 3 tetrahedron
 
@@ -1326,8 +1326,8 @@ def edge_average_model (**kwargs):
        The edge model name being created.  If ``derivative`` is specified, the edge models created are ``edgeModel:derivativeModel@n0`` ``edgeModel:derivativeModel@n1``, which are the derivatives with respect to the derivative model on each side of the edge
     derivative : str, optional
        The node model of the variable for which the derivative is being taken.  The node model ``nodeModel:derivativeModel`` is used to create the resulting edge models.
-    average_type : str, optional
-       The node models on both sides of the edge are averaged together to create one of the following types of averages. (default 'arithmetic')
+    average_type : {'arithmetic', 'geometric', 'gradient', 'negative_gradient'}
+       The node models on both sides of the edge are averaged together to create one of the following types of averages.
 
     Notes
     -----
@@ -1389,8 +1389,8 @@ def edge_model (**kwargs):
        Name of the edge model being created
     equation : str
        Equation used to describe the edge model being created
-    display_type : str, optional
-       Option for output display in graphical viewer (default 'scalar')
+    display_type : {'scalar', 'nodisplay', 'vector'}
+       Option for output display in graphical viewer
 
     Notes
     -----
@@ -1456,7 +1456,7 @@ def element_from_edge_model (**kwargs):
     - ``emodel_x:variable@en2``
     - ``emodel_y:variable@en2``
 
-    in 2D for each node on a triangular element. and 
+    in 2D for each node on a triangular element. and
 
     - ``emodel_x:variable@en0``
     - ``emodel_y:variable@en0``
@@ -1495,7 +1495,7 @@ def element_from_node_model (**kwargs):
     Notes
     -----
 
-    This command creates an element edge model from a node model so that each corner of the element is represented.  A node model, ``nmodel``, would be be accessible as 
+    This command creates an element edge model from a node model so that each corner of the element is represented.  A node model, ``nmodel``, would be be accessible as
 
     - ``nmodel@en0``
     - ``nmodel@en1``
@@ -1522,8 +1522,85 @@ def element_model (**kwargs):
        Name of the element edge model being created
     equation : str
        Equation used to describe the element edge model being created
-    display_type : str, optional
-       Option for output display in graphical viewer (default 'scalar')
+    display_type : {'scalar', 'nodisplay'}
+       Option for output display in graphical viewer
+    '''
+    pass
+
+def element_pair_from_edge_model (**kwargs):
+    '''
+    devsim.element_pair_from_edge_model (device, region, edge_model, derivative)
+
+    Creates element edge models from an edge model
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    region : str
+       The selected region
+    edge_model : str
+       The edge model from which we are creating the element model
+    derivative : str, optional
+       The variable we are taking with respect to edge_model
+
+    Notes
+    -----
+
+    For an edge model ``emodel``, creates an element models referring to the directional components on each edge of the element:
+
+    - ``emodel_node0_x``
+    - ``emodel_node0_y``
+    - ``emodel_node1_x``
+    - ``emodel_node1_y``
+
+    If the ``derivative`` ``variable`` option is specified, the ``emodel@n0`` and ``emodel@n1`` are used to create:
+
+    - ``emodel_node0_x:variable@en0``
+    - ``emodel_node0_y:variable@en0``
+    - ``emodel_node0_x:variable@en1``
+    - ``emodel_node0_y:variable@en1``
+    - ``emodel_node0_x:variable@en2``
+    - ``emodel_node0_y:variable@en2``
+    - ``emodel_node1_x:variable@en0``
+    - ``emodel_node1_y:variable@en0``
+    - ``emodel_node1_x:variable@en1``
+    - ``emodel_node1_y:variable@en1``
+    - ``emodel_node1_x:variable@en2``
+    - ``emodel_node1_y:variable@en2``
+
+    in 2D for each node on a triangular element. and
+
+    - ``emodel_node0_x:variable@en0``
+    - ``emodel_node0_y:variable@en0``
+    - ``emodel_node0_z:variable@en0``
+    - ``emodel_node0_x:variable@en1``
+    - ``emodel_node0_y:variable@en1``
+    - ``emodel_node0_z:variable@en1``
+    - ``emodel_node0_x:variable@en2``
+    - ``emodel_node0_y:variable@en2``
+    - ``emodel_node0_z:variable@en2``
+    - ``emodel_node0_x:variable@en3``
+    - ``emodel_node0_y:variable@en3``
+    - ``emodel_node0_z:variable@en3``
+    - ``emodel_node1_x:variable@en0``
+    - ``emodel_node1_y:variable@en0``
+    - ``emodel_node1_z:variable@en0``
+    - ``emodel_node1_x:variable@en1``
+    - ``emodel_node1_y:variable@en1``
+    - ``emodel_node1_z:variable@en1``
+    - ``emodel_node1_x:variable@en2``
+    - ``emodel_node1_y:variable@en2``
+    - ``emodel_node1_z:variable@en2``
+    - ``emodel_node1_x:variable@en3``
+    - ``emodel_node1_y:variable@en3``
+    - ``emodel_node1_z:variable@en3``
+
+    in 3D for each node on a tetrahedral element.
+
+    The label ``node0`` and ``node1`` refer to the node on the edge for which the element field average was performed.  For example, ``node0`` signifies that all edges connected to ``node0`` where used to calculate the element field.
+
+    The suffix ``en0`` refers to the first node on the edge of the element and ``en1`` refers to the second node.  ``en2`` and ``en3`` specifies the derivatives with respect the variable at the nodes opposite the edges on the element being considered.
     '''
     pass
 
@@ -1734,8 +1811,8 @@ def node_model (**kwargs):
        Name of the node model being created
     equation : str
        Equation used to describe the node model being created
-    display_type : str, optional
-       Option for output display in graphical viewer (default 'scalar')
+    display_type : {'scalar', 'nodisplay'}
+       Option for output display in graphical viewer
     '''
     pass
 
@@ -1963,8 +2040,8 @@ def vector_gradient (**kwargs):
        The selected region
     node_model : str
        The node model from which we are creating the edge model
-    calc_type : str, optional
-       The node model from which we are creating the edge model (default 'default')
+    calc_type : {'default', 'avoidzero'}
+       The node model from which we are creating the edge model
 
     Notes
     -----

@@ -14,6 +14,7 @@ DEVSIM Manual
 
 .. toctree::
    :maxdepth: 3
+   :numbered:
 
    frontmatter
 

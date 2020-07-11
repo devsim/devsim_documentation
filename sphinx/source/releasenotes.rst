@@ -9,25 +9,38 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Release 1.4.10 (July 4, 2020)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.11
+~~~~~~~~~~~~~~
+
+The :meth:`devsim.element_pair_from_edge_model` command is available to calculate element edge components averaged onto each node of the element edge.  This makes it possible to create an edge weighting scheme different from those used in :meth:`devsim.element_from_edge_model`.  The examples ``examples/diode/laux2d.py`` (2D) and ``examples/diode/laux3d.py`` (3D) compare the built-in implementations of these commands with equivalent implementations written in |python|
+
+Fixed issue where command option names where not always shown in the documentation.
+
+The platform specific notes now clarify that any version of Python 3 (3.6 or higher) is supported.
+
+- ``linux.txt``
+- ``windows.txt``
+- ``macos.txt``
+
+Release 1.4.10
+~~~~~~~~~~~~~~
 
 Fixed crash when evaluating element edge model in 3D.
 
-Fixed potential error using ``delete_node_model`` and similar deletion commands.
+Fixed potential error using :meth:`devsim.delete_node_model` and similar deletion commands.
 
-Release 1.4.9 (June 5, 2020)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.9
+~~~~~~~~~~~~~
 
 Support for loading mesh files containing element edge data.
 
-Release 1.4.8 (May 24, 2020)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.8
+~~~~~~~~~~~~~
 
 In transient mode, the convergence test was flawed so that the ``charge_error`` was the only convergence check required for convergence.  The software now ensures all convergence criteria are met.
 
-Release 1.4.7 (March 29, 2020)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.7
+~~~~~~~~~~~~~
 
 Models
 ^^^^^^
@@ -42,8 +55,8 @@ Fix build script issue for |macosx| on Travis CI, updated the compiler to ``g++-
 Update |centossix| build from ``devtoolset-6`` to ``devtoolset-8``.
 
 
-Release 1.4.6 (January 14, 2020)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.6
+~~~~~~~~~~~~~
 
 Version Information
 ^^^^^^^^^^^^^^^^^^^
@@ -78,13 +91,13 @@ External Meshing
 Support for reading meshes from |geniusds| has been completely removed from |devsim|.
 
 
-Release 1.4.5 (December 18, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.5
+~~~~~~~~~~~~~
 
 An |msys| build is available for 64-bit |mswindows|.  This build, labeled ``devsim_msys_v1.4.5``, enables the use of the 128-bit floating point precision already available on the |macosx| and |linux| platforms.
 
-Release 1.4.4 (December 1, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.4
+~~~~~~~~~~~~~
 
 Bug Fixes
 ^^^^^^^^^
@@ -104,8 +117,8 @@ Internal changes
 - Refactored FPE detection code to |cpluspluseleven| standard
 
 
-Release 1.4.3 (Novermber 16, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.3
+~~~~~~~~~~~~~
 
 Fix failures with the following commands:
 
@@ -114,8 +127,8 @@ Fix failures with the following commands:
 - :meth:`devsim.delete_interface_model`
 - :meth:`devsim.delete_node_model`
 
-Release 1.4.2 (September 12, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.2
+~~~~~~~~~~~~~
 
 In this release there are the following improvements.
 
@@ -123,8 +136,8 @@ In this release there are the following improvements.
 * The |macosx| release fixes runtime issues with |macosxhighsierra|.
 * The provided binary releases utilize more libraries from |anaconda|.
 
-Release 1.4.1 (July 7, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.1
+~~~~~~~~~~~~~
 
 Math Functions
 ^^^^^^^^^^^^^^
@@ -143,8 +156,8 @@ A small memory leak could occur when :py:mod:`devsim` functions where called, or
 
 
 
-Release 1.4.0 (May 27, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.4.0
+~~~~~~~~~~~~~
 
 The :meth:`devsim.custom_equation` and :meth:`devsim.register_function` commands take |python| functions, instead of the a string with the function name.
 
@@ -156,8 +169,8 @@ The following commands are available to store data on edges and element edges:
 - :meth:`devsim.set_element_values`
  
 
-Release 1.3.0 (May 18, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.3.0
+~~~~~~~~~~~~~
 
 |pythonthree| Examples
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -185,8 +198,8 @@ Math Library
 The |mswindows| version now uses |intelmklpardiso| for direct matrix factorization.  Both |linux| and |macosx| have been using |intelmklpardiso| since :ref:`release_11012015`.  Binary releases for all operating systems use BLAS/LAPACK routines from |intelmkl|.
 
 
-Release 1.2.0 (May 8, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.2.0
+~~~~~~~~~~~~~
 
 |devsim| releases have better support for |pythonthree|.  Using the stable ABI, the software is able to run newer |pythonthree| releases, without rebuilding the software.
 
@@ -202,8 +215,8 @@ The ``symdiff`` python module is now part of the |devsim| release.  This module 
 
 Documentation is available in the ``doc`` directory of this distribution.  Examples are available in the ``examples/symdiff`` directory.
 
-Release 1.1.0 (April 30, 2019)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.1.0
+~~~~~~~~~~~~~
 
 The Bernoulli function, :math:`B(x)`,
 
@@ -224,8 +237,8 @@ In addition, these functions are evaluated with extended precision, when this mo
 
 Users should expect that simulation results should change in the number of solver iterations and small differences in simulation results.  This and other functions are listed in :ref:`symdiff__functions`.
 
-Release 1.0.0 (December 18, 2018)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release 1.0.0
+~~~~~~~~~~~~~
 
 Documentation
 ^^^^^^^^^^^^^

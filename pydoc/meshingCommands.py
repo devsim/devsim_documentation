@@ -20,14 +20,14 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
 
 ``coordinates`` is a float list of positions in the mesh.  Each coordinate adds an x, y, and z position so that the coordinate list length is 3 times the number of coordinates.
 
-``physical_names`` is a list of contact, interface, and region names.  It is referenced by index by the ``elements`` list. 
+``physical_names`` is a list of contact, interface, and region names.  It is referenced by index by the ``elements`` list.
 
 ``elements`` is a list of elements.  Each element adds
 
 * Element Type (float)
 
   - 0 node
-  - 1 edge 
+  - 1 edge
   - 2 triangle
   - 3 tetrahedron
 

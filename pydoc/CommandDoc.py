@@ -161,10 +161,12 @@ Commands= (
 #''' % (mydict)
 
 def printCppMultiline(ofh, csb):
-    s = CppEscape(csb.getvalue())
-    for l in s.splitlines():
-        print(r'"%s\n"' % l, file=ofh) 
-
+    #s = CppEscape(csb.getvalue())
+    #for l in s.splitlines():
+    #    print(r'"%s\n"' % l, file=ofh) 
+    ofh.write('R"(');
+    ofh.write(csb.getvalue())
+    ofh.write(')"');
 
 def printCppCommand(ofh, sectionname, command):
     for k in list(command.keys()):
@@ -182,8 +184,8 @@ def printCppCommand(ofh, sectionname, command):
         #raise RuntimeError("Error while processing commmand: " + commandname + "\n" + str(e))
         raise
 
-def CppEscape(s):
-    return s.replace('\\', '').replace('"', '\\\"')
+#def CppEscape(s):
+#    return s.replace('\\', '').replace('"', '\\\"')
 
 #def printCppCommandTable(ofh, command):
 #  #print >>ofh, r'\begin{commandTable}'
@@ -251,6 +253,8 @@ Parameters
     # put long descriptions
     for param in command["parameters"]:
         ofh.write(param[0] + " : ")
+        if param[3] != commandCommon.option and param[5] != None:
+            raise RuntimeError('Set option for "%s" "%s"' % (command["name"], param[0],))
         if param[3] == commandCommon.option:
             default_value = None
             if param[2] == commandCommon.optional:
@@ -369,6 +373,10 @@ with open(filename, "w") as ofh:
 Command Reference
 -----------------
 ''')
+    ofh.write('''
+.. automodule:: devsim
+   :no-members:
+''')
 
     for command in Commands:
         mydict = {
@@ -385,11 +393,15 @@ Command Reference
         head = head + '\n' + '~' * len(head) + '\n\n'
         ofh.write(head)
         ofh.write(command["description"] + "\n\n")
-        methods = ', '.join([i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])])
+        # https://stackoverflow.com/questions/61374995/sphinx-with-autodoc-duplicate-object-description-warning-when-grouping-members
+        methods = [i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])]
+        #methods = ', '.join([i['name'] for i in sorted(command["commands"], key=lambda x : x["name"])])
         #print methods
         ofh.write('''
-.. automodule:: devsim
-   :members: ''' + methods)
+.. currentmodule:: devsim
+''')
+        for method in methods:
+            ofh.write(".. autofunction:: %s\n" % (method,))
         ofh.write('\n\n')
 
 

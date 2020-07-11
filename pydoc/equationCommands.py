@@ -57,7 +57,7 @@ In order to set the node volumes for integration of the ``edge_volume_model``, i
               ("time_node_model", "Name of the time dependent node_model being integrated at each node in the device volume", optional, string, None, None),
               ("element_model", "Name of the element_model being integrated over each edge in the device volume", optional, string, None, None),
               ("volume_model", "Name of the element_model being integrated over the volume of each edge in the device volume", optional, string, None, None),
-              ("variable_update", "update type for circuit variable", optional, string, "default", (
+              ("variable_update", "update type for circuit variable", optional, option, "default", (
                   ("default", "Variable can be positive or negative"),
                   ("log_damp", "Variable update is damped"),
                   ("positive", "Solution update results in positive quantity"),
@@ -164,7 +164,7 @@ In order to set the node volumes for integration of the ``edge_volume_model``, i
               ("name1", name_option("equation coupling in region 1", "created"), optional, string, "name", None),
               ("variable_name", "The variable name is used to determine the bulk equation we are coupling this interface to (deprecated)", optional, string, None, None),
               ("interface_model", "When specified, the bulk equations on both sides of the interface are integrated together.  This model is then used to specify how nodal quantities on both sides of the interface are balanced", required, string, None, None),
-              ("type", "Specifies the type of boundary condition", required, string, None, (
+              ("type", "Specifies the type of boundary condition", required, option, None, (
                   ("continuous", r"Equations of the same name in the two regions are added.  The ``interface_model`` is an additional equation is created to specify how quantities across the interface are solved"),
                   ("fluxterm", r"The ``interface_model`` is added to the bulk equation in the first region, and subtracted from the second"),
                   ("hybrid", r"Flux in the second region is added to the flux in the first region.  The ``interface_model`` is subtracted from the net flux in the second region"),

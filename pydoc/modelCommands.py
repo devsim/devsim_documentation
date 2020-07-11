@@ -141,7 +141,7 @@ The :meth:`devsim.set_parameter` must be used to set
       },
       {
           "name" : "edge_average_model",
-          "description" : "Creates an edge model based on the node model values", 
+          "description" : "Creates an edge model based on the node model values",
           "long_description" : r'''
 For a node model, creates 2 edge models referring to the node model value at both ends of the edge.  For example, to calculate electric field:
 
@@ -161,7 +161,7 @@ and the derivatives ``ElectricField:Potential@n0`` and ``ElectricField:Potential
               ("node_model", "The node model from which we are creating the edge model.  If ``derivative`` is specified, the edge model is created from ``nodeModel:derivativeModel``", required, string, None, None),
               ("edge_model", "The edge model name being created.  If ``derivative`` is specified, the edge models created are ``edgeModel:derivativeModel@n0`` ``edgeModel:derivativeModel@n1``, which are the derivatives with respect to the derivative model on each side of the edge", required, string, None, None),
               ("derivative", "The node model of the variable for which the derivative is being taken.  The node model ``nodeModel:derivativeModel`` is used to create the resulting edge models.", optional, string, None, None),
-              ("average_type", "The node models on both sides of the edge are averaged together to create one of the following types of averages.", optional, string, "arithmetic", (
+              ("average_type", "The node models on both sides of the edge are averaged together to create one of the following types of averages.", optional, option, "arithmetic", (
                   ("arithmetic", "The edge model is the average of the node model on both sides"),
                   ("geometric", "The edge model is the square root of the product of the node model evaluated on each side"),
                   ("gradient", "The edge model is the gradient along the edge with respect to the distance between the two nodes."),
@@ -204,7 +204,7 @@ This averaging scheme does not produce accurate results, and it is recommended t
               ("region", region_option_text, required, string, None, None),
               ("name", name_option("edge model", "created"), required, string, None, None),
               ("equation", equation_option("edge model being created"), required, string, None, None),
-              ("display_type", "Option for output display in graphical viewer", optional, string, "scalar", (
+              ("display_type", "Option for output display in graphical viewer", optional, option, "scalar", (
                   ("nodisplay", "Data on edge will not be displayed"),
                   ("scalar", "Data on edge is a scalar quantity"),
                   ("vector", "Data on edge is a vector quantity (deprecated)"),
@@ -220,7 +220,7 @@ This averaging scheme does not produce accurate results, and it is recommended t
               ("region", region_option_text, required, string, None, None),
               ("name", name_option("element edge model", "created"), required, string, None, None),
               ("equation", equation_option("element edge model being created"), required, string, None, None),
-              ("display_type", "Option for output display in graphical viewer", optional, string, "scalar", (
+              ("display_type", "Option for output display in graphical viewer", optional, option, "scalar", (
                   ("nodisplay", "Data on edge will not be displayed"),
                   ("scalar", "Data on edge is a scalar quantity"),
               )
@@ -245,7 +245,7 @@ If the ``derivative`` ``variable`` option is specified, the ``emodel@n0`` and ``
 - ``emodel_x:variable@en2``
 - ``emodel_y:variable@en2``
 
-in 2D for each node on a triangular element. and 
+in 2D for each node on a triangular element. and
 
 - ``emodel_x:variable@en0``
 - ``emodel_y:variable@en0``
@@ -272,10 +272,76 @@ The suffix ``en0`` refers to the first node on the edge of the element and ``en1
           )
       },
       {
+          "name" : "element_pair_from_edge_model",
+          "description" : "Creates element edge models from an edge model",
+          "long_description" : r'''
+For an edge model ``emodel``, creates an element models referring to the directional components on each edge of the element:
+
+- ``emodel_node0_x``
+- ``emodel_node0_y``
+- ``emodel_node1_x``
+- ``emodel_node1_y``
+
+If the ``derivative`` ``variable`` option is specified, the ``emodel@n0`` and ``emodel@n1`` are used to create:
+
+- ``emodel_node0_x:variable@en0``
+- ``emodel_node0_y:variable@en0``
+- ``emodel_node0_x:variable@en1``
+- ``emodel_node0_y:variable@en1``
+- ``emodel_node0_x:variable@en2``
+- ``emodel_node0_y:variable@en2``
+- ``emodel_node1_x:variable@en0``
+- ``emodel_node1_y:variable@en0``
+- ``emodel_node1_x:variable@en1``
+- ``emodel_node1_y:variable@en1``
+- ``emodel_node1_x:variable@en2``
+- ``emodel_node1_y:variable@en2``
+
+in 2D for each node on a triangular element. and
+
+- ``emodel_node0_x:variable@en0``
+- ``emodel_node0_y:variable@en0``
+- ``emodel_node0_z:variable@en0``
+- ``emodel_node0_x:variable@en1``
+- ``emodel_node0_y:variable@en1``
+- ``emodel_node0_z:variable@en1``
+- ``emodel_node0_x:variable@en2``
+- ``emodel_node0_y:variable@en2``
+- ``emodel_node0_z:variable@en2``
+- ``emodel_node0_x:variable@en3``
+- ``emodel_node0_y:variable@en3``
+- ``emodel_node0_z:variable@en3``
+- ``emodel_node1_x:variable@en0``
+- ``emodel_node1_y:variable@en0``
+- ``emodel_node1_z:variable@en0``
+- ``emodel_node1_x:variable@en1``
+- ``emodel_node1_y:variable@en1``
+- ``emodel_node1_z:variable@en1``
+- ``emodel_node1_x:variable@en2``
+- ``emodel_node1_y:variable@en2``
+- ``emodel_node1_z:variable@en2``
+- ``emodel_node1_x:variable@en3``
+- ``emodel_node1_y:variable@en3``
+- ``emodel_node1_z:variable@en3``
+
+in 3D for each node on a tetrahedral element.
+
+The label ``node0`` and ``node1`` refer to the node on the edge for which the element field average was performed.  For example, ``node0`` signifies that all edges connected to ``node0`` where used to calculate the element field.
+
+The suffix ``en0`` refers to the first node on the edge of the element and ``en1`` refers to the second node.  ``en2`` and ``en3`` specifies the derivatives with respect the variable at the nodes opposite the edges on the element being considered.
+''',
+          "parameters" : (
+              ("device", device_option_text, required, string, None, None),
+              ("region", region_option_text, required, string, None, None),
+              ("edge_model", "The edge model from which we are creating the element model", required, string, None, None),
+              ("derivative", "The variable we are taking with respect to edge_model", optional, string, None, None),
+          )
+      },
+      {
           "name" : "element_from_node_model",
           "description" : "Creates element edge models from a node model",
           "long_description" : r'''
-This command creates an element edge model from a node model so that each corner of the element is represented.  A node model, ``nmodel``, would be be accessible as 
+This command creates an element edge model from a node model so that each corner of the element is represented.  A node model, ``nmodel``, would be be accessible as
 
 - ``nmodel@en0``
 - ``nmodel@en1``
@@ -394,7 +460,7 @@ where ``iname`` is the name of the interface.  The normals are of the closest no
               ("region", region_option_text, required, string, None, None),
               ("name", name_option("node model", "created"), required, string, None, None),
               ("equation", equation_option("node model being created"), required, string, None, None),
-              ("display_type", "Option for output display in graphical viewer", optional, string, "scalar", (
+              ("display_type", "Option for output display in graphical viewer", optional, option, "scalar", (
                   ("nodisplay", "Data on node will not be displayed"),
                   ("scalar", "Data on node is a scalar quantity"),
               )
@@ -549,7 +615,7 @@ It is important not to use these models for simulation, since DEVSIM, does not h
               ("device", device_option_text, required, string, None, None),
               ("region", region_option_text, required, string, None, None),
               ("node_model", "The node model from which we are creating the edge model", required, string, None, None),
-              ("calc_type", "The node model from which we are creating the edge model", optional, string, "default", (
+              ("calc_type", "The node model from which we are creating the edge model", optional, option, "default", (
                   ("default", "Consider all nodes for calculating the gradient field"),
                   ("avoidzero", "Do not take gradient at nodes where the node_model is zero"),
               ),
