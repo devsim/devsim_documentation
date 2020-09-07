@@ -8,6 +8,11 @@ Example Overview
 In the following chapters, examples are presented for the use of |devsim| to solve some simulation problems.
 Examples are also located in the |devsim| distribution and their location is mentioned in :ref:`installation__directories`.
 
+Additional examples are available online, and listed here:
+
+- `https://devsim.org/introduction.html#examples <https://devsim.org/introduction.html#examples>`__
+
+
 The following example directories are contained in the distribution.
 
 capacitance

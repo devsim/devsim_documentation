@@ -9,6 +9,18 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.12
+~~~~~~~~~~~~~~
+
+Element assembly for calculation of current and charges from the device into the circuit equation are fixed.  These tests are added:
+
+- ``testing/cap_2d_edge.py``
+- ``testing/cap_2d_element.py``
+- ``testing/cap_3d_edge.py``
+- ``testing/cap_3d_element.py``
+
+The ``edge`` variant is using standard edge based assembly, and the ``element`` variant is using element-based assembly.
+
 Release 1.4.11
 ~~~~~~~~~~~~~~
 
