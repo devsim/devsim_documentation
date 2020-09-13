@@ -276,6 +276,7 @@ def equation (**kwargs):
     In order to set the node volumes for integration of the ``edge_volume_model``, it is possible to do something like this:
 
     ..
+
       devsim.edge_model(device="device", region="region", name="EdgeNodeVolume", equation="0.5*SurfaceArea*EdgeLength")
       devsim.set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
       devsim.set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
