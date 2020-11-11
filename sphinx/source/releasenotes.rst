@@ -9,6 +9,19 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.4.14
+~~~~~~~~~~~~~~
+
+Platforms
+^^^^^^^^^
+
+Windows 32 bit is no longer supported.  Binary releases of the ``Visual Studio 2019`` ``MSYS2/Mingw-w64`` 64-bit builds are still available online for |mswindowsten|.
+
+On Linux, the releases are now on |centosseven|, as |centossix| has reached its end of life on November 30, 2020.
+
+Please see :ref:`sec__supportedplatforms` for more information.
+
+
 Release 1.4.13
 ~~~~~~~~~~~~~~
 

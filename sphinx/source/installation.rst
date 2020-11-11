@@ -23,8 +23,8 @@ Supported platforms
   :header: "Platform", "Bits", "OS Version"
   :widths: 10, 10, 10
 
-  "|mswindows|", "32, 64", "|mswindowsten|"
-  "|linux|", "64", "|rhelsix| (|centossix| compatible)"
+  "|mswindows|", "64", "|mswindowsten|"
+  "|linux|", "64", "|rhelseven| (|centosseven| compatible)"
   "|macosx|", "64", "|macosxhighsierra|"
 
 

@@ -5,9 +5,13 @@
 .. |mycopyright| replace:: Copyright |copy| 2009--2020 DEVSIM LLC
 
 .. |anaconda| replace:: ``Anaconda``
-.. |redhatfive| replace:: ``Red Hat 5``
 .. |centosfive| replace:: ``Centos 5``
+.. |centosseven| replace:: ``Centos 7``
 .. |centossix| replace:: ``Centos 6``
+.. |redhatfive| replace:: ``Red Hat 5``
+.. |rhelseven| replace:: ``Red Hat Enterprise Linux 7``
+.. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
+.. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``
 .. |cpluspluseleven| replace:: ``C++11``
 .. |visit| replace:: ``VisIt``
 .. |paraview| replace:: ``ParaView``
@@ -44,8 +48,6 @@
 .. |pythontwoseven| replace:: ``Python 2.7``
 .. |pythonthree| replace:: ``Python 3``
 .. |pythonthreeseven| replace:: ``Python 3.7``
-.. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
-.. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``
 .. |symdiff| replace:: ``SYMDIFF``
 .. |tcl| replace:: ``Tcl``
 .. |ubuntuprecise| replace:: ``Ubuntu 12.04 (LTS)``
