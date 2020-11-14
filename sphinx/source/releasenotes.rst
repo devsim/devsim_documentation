@@ -21,6 +21,7 @@ On Linux, the releases are now on |centosseven|, as |centossix| has reached its 
 
 Please see :ref:`sec__supportedplatforms` for more information.
 
+For future development, |cplusplusseventeen| is now the recommended C++ compiler standard.
 
 Release 1.4.13
 ~~~~~~~~~~~~~~

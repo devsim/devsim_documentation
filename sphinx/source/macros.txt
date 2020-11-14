@@ -13,6 +13,7 @@
 .. |rhelfive| replace:: ``Red Hat Enterprise Linux 5``
 .. |rhelsix| replace:: ``Red Hat Enterprise Linux 6``
 .. |cpluspluseleven| replace:: ``C++11``
+.. |cplusplusseventeen| replace:: ``C++17``
 .. |visit| replace:: ``VisIt``
 .. |paraview| replace:: ``ParaView``
 .. |postmini| replace:: ``Postmini``
