@@ -316,16 +316,16 @@ where :math:`i` is the integrated current and :math:`q` is the integrated charge
 
 .. _models__customequation:
 
-Custom matrix assembly
+Custom Matrix assembly
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The :meth:`devsim.custom_equation` command is used to register callbacks to be called during matrix and right hand side assembly.  The |python| procedure must expect to receive two arguments and return two lists.  For example a procedure named ``myassemble`` registered with
+The :meth:`devsim.custom_equation` command is used to register callbacks to be called during matrix and right hand side assembly.  The |python| procedure should expect to receive two arguments and return two lists and a boolean value.  For example a procedure named ``myassemble`` registered with
 
 .. code-block:: python
 
   devsim.custom_equation(name="test1", procedure="myassemble")
 
-must expect to receive two arguments
+expects two arguments
 
 .. code-block:: python
 
@@ -333,7 +333,7 @@ must expect to receive two arguments
     .
     .
     .
-    return [rcv, rv]
+    return rcv, rv, True
 
 where ``what`` may be passed as one of
 
@@ -353,17 +353,21 @@ and ``timemode`` may be passed as one of
 When ``timemode`` is ``DC``, the time-independent part of the equation is returned.
 When ``timemode`` is ``TIME``, the time-derivative part of the equation is returned.  The simulator will scale the time-derivative terms with the proper frequency or time scale.
 
-The return value from the procedure must return two lists of the form
+The return value from the procedure must return two lists and a boolean value of the form
 
 ..
 
-  | [1 1 1.0 2 2 1.0 1 2 -1.0 2 1 -1.0 2 2 1.0] [1 1.0 2 1.0 2 -1.0]
+  | [1 1 1.0 2 2 1.0 1 2 -1.0 2 1 -1.0 2 2 1.0], [1 1.0 2 1.0 2 -1.0], True
 
-where the length of the first list is divisible by 3 and contains the row, column, and value to be assembled into the matrix.  The second list is divisible by 2 and contains the right-hand side entries.  Either list may be empty.
+where the length of the first list is divisible by 3 and contains the row, column, and value to be assembled into the matrix.  The second list is divisible by 2 and contains the right hand side entries.  Either list may be empty.
+
+The boolean value denotes whether the matrix and right hand side entries should be row permutated.  A value of ``True`` should be used for assembling bulk equations, and a value of ``False`` should be used for aseembling contact and interface boundary conditions.
 
 The :meth:`devsim.get_circuit_equation_number` may be used to get the equation numbers corresponding to circuit node names.  The :meth:`devsim.get_equation_numbers` may be used to find the equation number corresponding to each node index in a region.
 
-The matrix and right hand side entries should be scaled by the ``NodeVolume`` if they are assembled into locations in a device region.  Row permutations, required for contact and interface boundary conditions, are automatically applied to the row numbers returned by the |python| procedure.
+The matrix and right hand side entries should be scaled by the ``NodeVolume`` if they are assembled into locations in a device region as volume integration.
+
+.. Row permutations, required for contact and interface boundary conditions, are automatically applied to the row numbers returned by the |python| procedure.
 
 .. _sec__cylindrical:
 

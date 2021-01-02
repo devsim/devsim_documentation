@@ -9,6 +9,16 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+
+Release 1.4.15
+~~~~~~~~~~~~~~
+
+The :meth:`devsim.custom_equation` command has been modified to require a third return value.  This boolean value denotes whether the matrix entries should be row permutated or not.  For the bulk equations this value should be ``True``.  For interface and contact boundary conditions, this value should be ``False``.  More information is available in :ref:`models__customequation`.
+
+It is now possible to replace an existing ``custom_equation``.
+
+The file ``examples/diode/diode_1d_custom.py`` demonstrates custom matrix assembly and can be directly compared to ``examples/diode/diode_1d.py``.
+
 Release 1.4.14
 ~~~~~~~~~~~~~~
 
