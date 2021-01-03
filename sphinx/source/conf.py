@@ -38,6 +38,10 @@ extensions = [
     'sphinx.ext.napoleon',
 ]
 
+#see https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html
+bibtex_bibfiles = ['devsim.bib']
+#bibtex_default_style = 'unsrt'
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
