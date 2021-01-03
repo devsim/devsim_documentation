@@ -21,7 +21,7 @@ The file ``examples/diode/diode_1d_custom.py`` demonstrates custom matrix assemb
 
 The ``EdgeNodeVolume`` model is now available for the volume contained by an edge and is referenced in :ref:`models__edgemodel`.
 
-The :meth:`devsim.contact_equation` now suppports the following options:
+The :meth:`devsim.contact_equation` now supports the following options:
 
 - ``edge_volume_model``
 - ``volume_model``
