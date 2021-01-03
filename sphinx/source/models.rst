@@ -133,6 +133,7 @@ Edge models automatically created for a region are listed in :numref:`models__ed
    ``unity``,               "y component of the unit vector along an edge (2D and 3D)"
    ``unitz``,               "z component of the unit vector along an edge (3D only)"
 
+.. _models_element_edge:
 
 Element edge models
 ^^^^^^^^^^^^^^^^^^^

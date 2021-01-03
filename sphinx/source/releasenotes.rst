@@ -10,7 +10,7 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
 
-Release 1.4.15
+Release 1.5.0
 ~~~~~~~~~~~~~~
 
 The :meth:`devsim.custom_equation` command has been modified to require a third return value.  This boolean value denotes whether the matrix entries should be row permutated or not.  For the bulk equations this value should be ``True``.  For interface and contact boundary conditions, this value should be ``False``.  More information is available in :ref:`models__customequation`.
@@ -18,6 +18,44 @@ The :meth:`devsim.custom_equation` command has been modified to require a third 
 It is now possible to replace an existing ``custom_equation``.
 
 The file ``examples/diode/diode_1d_custom.py`` demonstrates custom matrix assembly and can be directly compared to ``examples/diode/diode_1d.py``.
+
+
+The :meth:`devsim.contact_equation` now suppports the following options:
+
+- ``edge_volume_model``
+- ``volume_model``
+
+This makes it possible to integrate edge and element edge quantities with respect to the volume on nodes of the edge at the contact.  Similar to the case of :meth:`devsim.equation`, described in :ref:`sec__06072015`.
+
+The integration parameters for ``edge_volume_model`` are set with
+
+- ``edge_node0_volume_model``
+- ``edge_node1_volume_model``
+
+and for ``volume_model`` with:
+
+- ``element_node0_volume_model``
+- ``element_node1_volume_model``
+
+These parameters are applicable to both :meth:`devsim.equation` :meth:`devsim.contact_equation`.
+
+Reasonable volume model and parameter values are:
+
+.. code-block:: python
+
+  if dimension == 2:
+    devsim.edge_model(device=device, region=region, name="EdgeNodeVolume",
+      equation="0.25 * EdgeCouple * EdgeLength")
+  elif dimension == 3:
+    devsim.edge_model(device=device, region=region, name="EdgeNodeVolume",
+      equation="EdgeCouple*EdgeLength/6.0")
+  set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
+  set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
+  set_parameter(name="element_node0_volume_model", value="ElementNodeVolume")
+  set_parameter(name="element_node1_volume_model", value="ElementNodeVolume")
+
+where ``ElementNodeVolume`` is available from :ref:`models_element_edge`.
+
 
 Release 1.4.14
 ~~~~~~~~~~~~~~
@@ -569,6 +607,8 @@ July 16, 2015
 ~~~~~~~~~~~~~
 
 The :meth:`devsim.set_node_value` was not properly setting the value.  This issue is now resolved.
+
+.. _sec__06072015:
 
 June 7, 2015
 ~~~~~~~~~~~~

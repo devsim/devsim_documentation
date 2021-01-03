@@ -134,7 +134,7 @@ def set_circuit_node_value (**kwargs):
 
 def contact_equation (**kwargs):
     '''
-    devsim.contact_equation (device, contact, name, variable_name, circuit_node, edge_charge_model, edge_current_model, edge_model, element_charge_model, element_current_model, element_model, node_charge_model, node_current_model, node_model)
+    devsim.contact_equation (device, contact, name, variable_name, circuit_node, edge_charge_model, edge_current_model, edge_model, edge_volume_model, element_charge_model, element_current_model, element_model, volume_model, node_charge_model, node_current_model, node_model)
 
     Create a contact equation on a device
 
@@ -156,18 +156,22 @@ def contact_equation (**kwargs):
        Name of the edge model used to determine the current flowing out of this contact
     edge_model : str, optional
        Name of the edge model being integrated at each edge at this contact
+    edge_volume_model : str, optional
+       Name of the edge model being integrated over the volume of each edge on the contact
     element_charge_model : str, optional
        Name of the element edge model used to determine the charge at this contact
     element_current_model : str, optional
        Name of the element edge model used to determine the current flowing out of this contact
     element_model : str, optional
        Name of the element edge model being integrated at each edge at this contact
+    volume_model : str, optional
+       Name of the element model being integrated over the volume of each edge on the contact
     node_charge_model : str, optional
        Name of the node model used to determine the charge at this contact
     node_current_model : str, optional
        Name of the node model used to determine the current flowing out of this contact
     node_model : str, optional
-       Name of the node_model being integrated at each node at this contact
+       Name of the node model being integrated at each node at this contact
     '''
     pass
 
@@ -252,9 +256,9 @@ def equation (**kwargs):
     name : str
        Name of the equation being created
     variable_name : str
-       Name of the node_solution being solved
+       Name of the node solution being solved
     node_model : str, optional
-       Name of the node_model being integrated at each node in the device volume
+       Name of the node model being integrated at each node in the device volume
     edge_model : str, optional
        Name of the edge model being integrated over each edge in the device volume
     edge_volume_model : str, optional
@@ -262,9 +266,9 @@ def equation (**kwargs):
     time_node_model : str, optional
        Name of the time dependent node_model being integrated at each node in the device volume
     element_model : str, optional
-       Name of the element_model being integrated over each edge in the device volume
+       Name of the element model being integrated over each edge in the device volume
     volume_model : str, optional
-       Name of the element_model being integrated over the volume of each edge in the device volume
+       Name of the element model being integrated over the volume of each edge in the device volume
     variable_update : {'default', 'log_damp', 'positive'}
        update type for circuit variable
 
