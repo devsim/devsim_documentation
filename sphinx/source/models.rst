@@ -126,6 +126,7 @@ Edge models automatically created for a region are listed in :numref:`models__ed
   :widths: 10, 20
 
    ``EdgeCouple``,          "The length of the perpendicular bisector of an element edge. Used to perform surface integration of edge models on edges in mesh."
+   ``EdgeNodeVolume``,      "The volume for each node on an edge. Used to perform volume integration of edge models on edges in mesh."
    ``EdgeInverseLength``,   "Inverse of the EdgeLength."
    ``EdgeLength``,          "The distance between the two nodes of an edge"
    ``edge_index``,          "Index of the edge on the region"

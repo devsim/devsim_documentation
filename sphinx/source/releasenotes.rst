@@ -19,42 +19,27 @@ It is now possible to replace an existing ``custom_equation``.
 
 The file ``examples/diode/diode_1d_custom.py`` demonstrates custom matrix assembly and can be directly compared to ``examples/diode/diode_1d.py``.
 
+The ``EdgeNodeVolume`` model is now available for the volume contained by an edge and is referenced in :ref:`models__edgemodel`.
 
 The :meth:`devsim.contact_equation` now suppports the following options:
 
 - ``edge_volume_model``
 - ``volume_model``
 
-This makes it possible to integrate edge and element edge quantities with respect to the volume on nodes of the edge at the contact.  Similar to the case of :meth:`devsim.equation`, described in :ref:`sec__06072015`.
+This makes it possible to integrate edge and element edge quantities with respect to the volume on nodes of the edge at the contact.  This is similar to :meth:`devsim.equation`, described in :ref:`sec__06072015`.
+
 
 The integration parameters for ``edge_volume_model`` are set with
 
-- ``edge_node0_volume_model``
-- ``edge_node1_volume_model``
+- ``edge_node0_volume_model`` (default ``EdgeNodeVolume`` :ref:`models__edgemodel` )
+- ``edge_node1_volume_model`` (default ``EdgeNodeVolume``)
 
 and for ``volume_model`` with:
 
-- ``element_node0_volume_model``
-- ``element_node1_volume_model``
+- ``element_node0_volume_model`` (default ``ElementNodeVolume`` :ref:`models__elementedge`)
+- ``element_node1_volume_model`` (default ``ElementNodeVolume``)
 
 These parameters are applicable to both :meth:`devsim.equation` :meth:`devsim.contact_equation`.
-
-Reasonable volume model and parameter values are:
-
-.. code-block:: python
-
-  if dimension == 2:
-    devsim.edge_model(device=device, region=region, name="EdgeNodeVolume",
-      equation="0.25 * EdgeCouple * EdgeLength")
-  elif dimension == 3:
-    devsim.edge_model(device=device, region=region, name="EdgeNodeVolume",
-      equation="EdgeCouple*EdgeLength/6.0")
-  set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
-  set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
-  set_parameter(name="element_node0_volume_model", value="ElementNodeVolume")
-  set_parameter(name="element_node1_volume_model", value="ElementNodeVolume")
-
-where ``ElementNodeVolume`` is available from :ref:`models_element_edge`.
 
 
 Release 1.4.14
