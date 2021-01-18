@@ -21,10 +21,19 @@ The file ``examples/diode/diode_1d_custom.py`` demonstrates custom matrix assemb
 
 The ``EdgeNodeVolume`` model is now available for the volume contained by an edge and is referenced in :ref:`models__edgemodel`.
 
+The :meth:`devsim.equation` command has removed support for the ``volume_model`` option.  It has been replaced with:
+
+- ``volume_node0_model``
+- ``volume_node1_model``
+
+This makes it possible to better integrate nodal quantities on the volumes of element edges.  For example, a field dependent generation-recombination rate can be volume integrated separately for each node of an element edge.
+
+
 The :meth:`devsim.contact_equation` now supports the following options:
 
 - ``edge_volume_model``
-- ``volume_model``
+- ``volume_node0_model``
+- ``volume_node1_model``
 
 This makes it possible to integrate edge and element edge quantities with respect to the volume on nodes of the edge at the contact.  This is similar to :meth:`devsim.equation`, described in :ref:`sec__06072015`.
 

@@ -189,7 +189,7 @@ Equation assembly
 
 Bulk equations are specified in terms of the node, edge, and element edge models using the :meth:`devsim.equation`.  Node models are integrated with respect to the node volume.  Edge models are integrated with the perpendicular bisectors along the edge onto the nodes on either end.
 
-Element edge models are treated as flux terms and are integrated with respect to ``ElementEdgeCouple`` using the ``element_model`` option.  Alternatively, they may be treated as source terms and are integrated with respect to ``ElementNodeVolume`` using the ``volume_model`` option.
+Element edge models are treated as flux terms and are integrated with respect to ``ElementEdgeCouple`` using the ``element_model`` option.  Alternatively, they may be treated as source terms and are integrated with respect to ``ElementNodeVolume`` using the ``volume_node0_model`` and ``volume_node1_model`` option.
 
 In this example, we are specifying the Potential Equation in the region to consist of a flux term named ``PotentialEdgeFlux`` and to not have any node volume terms.
 
