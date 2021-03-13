@@ -99,76 +99,121 @@ Functions
 
 .. _symdiff__functions:
 
-.. table:: Predefined Functions.
+.. list-table:: Predefined Functions
+    :widths: 20 30
+    :header-rows: 1
 
-  +---------------------------------------+---------------------------------------------------------------+
-  | Function                              |   Description                                                 |
-  +=======================================+===============================================================+
-  | ``acosh(exp1)``                       | Inverse Hyperbolic Cosine                                     |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``asinh(exp1)``                       | Inverse Hyperbolic Sine                                       |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``atanh(exp1)``                       | Inverse Hyperbolic Tangent                                    |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``cosh(exp1)``                        | Hyperbolic Cosine                                             |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``sinh(exp1)``                        | Hyperbolic Sine                                               |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``tanh(exp1)``                        | Hyperbolic Tangent                                            |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``B(exp1)``                           | Bernoulli Function                                            |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``dBdx(exp1)``                        | derivative of Bernoulli function                              |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``derfcdx(exp1)``                     | derivative of complementary error function                    |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``derfdx(exp1)``                      | derivative error function                                     |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``dFermidx(exp1)``                    | derivative of Fermi Integral                                  |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``dInvFermidx(exp1)``                 | derivative of InvFermi Integral                               |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``dot2d(exp1x, exp1y, exp2x, exp2y)`` | ``exp1x*exp2x+exp1y*exp2y``                                   |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``erfc(exp1)``                        | complementary error function                                  |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``erf(exp1)``                         | error function                                                |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``exp(exp1)``                         | exponent                                                      |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``Fermi(exp1)``                       | Fermi Integral                                                |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``ifelse(test, exp1, exp2)``          | if test is true, then evaluate exp1, otherwise exp2           |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``if(test, exp)``                     | if test is true, then evaluate exp, otherwise 0               |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``InvFermi(exp1)``                    | inverse of the Fermi Integral                                 |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``log(exp1)``                         | natural log                                                   |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``max(exp1, exp2)``                   | maximum of the two arguments                                  |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``min(exp1, exp2)``                   | minimum of the two arguments                                  |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``pow(exp1, exp2)``                   | take exp1 to the power of exp2                                |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``sgn(exp1)``                         | sign function                                                 |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``step(exp1)``                        | unit step function                                            |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``kahan3(exp1, exp2, exp3)``          | Extended precision addition of arguments                      |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``kahan4(exp1, exp2, exp3, exp4)``    | Extended precision addition of arguments                      |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``vec_max``                           | maximum of all the values over the entire region or interface |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``vec_min``                           | minimum of all the values over the entire region or interface |
-  +---------------------------------------+---------------------------------------------------------------+
-  | ``vec_sum``                           | sum of all the values over the entire region or interface     |
-  +---------------------------------------+---------------------------------------------------------------+
+    * - Function
+      -   Description
+    * - ``acosh(exp1)``
+      - Inverse Hyperbolic Cosine
+    * - ``asinh(exp1)``
+      - Inverse Hyperbolic Sine
+    * - ``atanh(exp1)``
+      - Inverse Hyperbolic Tangent
+    * - ``cosh(exp1)``
+      - Hyperbolic Cosine
+    * - ``sinh(exp1)``
+      - Hyperbolic Sine
+    * - ``tanh(exp1)``
+      - Hyperbolic Tangent
+    * - ``B(exp1)``
+      - Bernoulli Function
+    * - ``dBdx(exp1)``
+      - derivative of Bernoulli function
+    * - ``dot2d(exp1x, exp1y, exp2x, exp2y)``
+      - ``exp1x*exp2x+exp1y*exp2y``
+    * - ``exp(exp1)``
+      - exponent
+    * - ``ifelse(test, exp1, exp2)``
+      - if test is true, then evaluate exp1, otherwise exp2
+    * - ``if(test, exp)``
+      - if test is true, then evaluate exp, otherwise 0
+    * - ``log(exp1)``
+      - natural log
+    * - ``max(exp1, exp2)``
+      - maximum of the two arguments
+    * - ``min(exp1, exp2)``
+      - minimum of the two arguments
+    * - ``pow(exp1, exp2)``
+      - take exp1 to the power of exp2
+    * - ``sgn(exp1)``
+      - sign function
+    * - ``step(exp1)``
+      - unit step function
+    * - ``kahan3(exp1, exp2, exp3)``
+      - Extended precision addition of arguments
+    * - ``kahan4(exp1, exp2, exp3, exp4)``
+      - Extended precision addition of arguments
+    * - ``vec_max``
+      - maximum of all the values over the entire region or interface
+    * - ``vec_min``
+      - minimum of all the values over the entire region or interface
+    * - ``vec_sum``
+      - sum of all the values over the entire region or interface
+
+.. _error__functions:
+
+.. list-table:: Error Functions
+    :widths: 20 30
+    :header-rows: 1
+
+    * - Function
+      -   Description
+    * - ``erfc(exp1)``
+      - complementary error function
+    * - ``derfcdx(exp1)``
+      - derivative of complementary error function
+    * - ``erfc_inv(exp1)``
+      - inverse complementary error function
+    * - ``derfc_invdx(exp1)``
+      - derivative of inverse complementary error function
+    * - ``erf(exp1)``
+      - error function
+    * - ``derfdx(exp1)``
+      - derivative error function
+    * - ``erf_inv(exp1)``
+      - inverse error function
+    * - ``derf_invdx(exp1)``
+      - derivative of inverse error function
 
 
-In :numref:`symdiff__functions` are the built in functions of |symdiff|.  Note that the ``pow`` function uses the ``,`` operator to separate arguments.  In addition an expression like ``pow(a,b+y)`` is equivalent to an expression like ``a^(b+y)``.  Both ``exp`` and ``log`` are provided since many derivative expressions can be expressed in terms of these two functions.  It is possible to nest expressions within functions and vice-versa.
+.. _fermi__functions:
+
+.. list-table:: Fermi Integral Functions
+    :widths: 20 30
+    :header-rows: 1
+
+    * - Function
+      -   Description
+    * - ``Fermi(exp1)``
+      - Fermi Integral
+    * - ``dFermidx(exp1)``
+      - derivative of Fermi Integral
+    * - ``InvFermi(exp1)``
+      - inverse of the Fermi Integral
+    * - ``dInvFermidx(exp1)``
+      - derivative of InvFermi Integral
+
+.. _gaussfermi__functions:
+
+.. list-table:: Gauss-Fermi Integral Functions
+    :widths: 20 30
+    :header-rows: 1
+
+    * - ``gfi(exp1, exp2)``
+      - Gauss-Fermi Integral
+    * - ``dgfidx(exp1, exp2)``
+      - Derivative of Gauss-Fermi Integral with respect to first argument
+    * - ``igfi(exp1, exp2)``
+      - Inverse Gauss-Fermi Integral
+    * - ``digfidx(exp1, exp2)``
+      - Derivative of Inverse Gauss-Fermi Integral with respect to first argument
+
+
+
+
+In :numref:`symdiff__functions` are the built in functions of |symdiff|.  Note that the ``pow`` function uses the ``,`` operator to separate arguments.  In addition an expression like ``pow(a,b+y)`` is equivalent to an expression like ``a^(b+y)``.  Both ``exp`` and ``log`` are provided since many derivative expressions can be expressed in terms of these two functions.  It is possible to nest expressions within functions and vice-versa.  :numref:`error__functions` lists the error functions, derivatives, and inverses.  :numref:`fermi__functions` lists the Fermi functions, and are based on the Joyce-Dixon Approximation :cite:`joycedixon`. The Gauss-Fermi functions are listed in :numref:`gaussfermi__functions`, based on :cite:`paasch:2010`.
 
 Commands
 ^^^^^^^^

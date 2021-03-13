@@ -9,6 +9,84 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.5.1
+~~~~~~~~~~~~~~
+
+.. _sec__installation_script:
+
+Installation Script
+^^^^^^^^^^^^^^^^^^^
+
+A new installation script is in the base directory of the package.
+It provides instructions of completing the installation to the ``python`` environment without having to set the ``PYTHONPATH`` environment variable.
+It notifies the user of missing components to finish the installation within an ``Anaconda`` or ``Miniconda`` environment.
+
+
+To use the script, use the following command inside of the ``devsim`` directory.
+
+.. code-block:: none
+
+    python install.py
+
+The install script will write a file named ``lib/setup.py``, which can be used to complete the installation using ``pip``.  The script provides instructions for the installation and deinstallation of ``devsim``.
+
+.. code-block:: none
+
+    INFO: Writing setup.py
+    INFO:
+    INFO: Please type the following command to install devsim:
+    INFO: pip install -e lib
+    INFO:
+    INFO: To remove the file, type:
+    INFO: pip uninstall devsim
+
+Math Functions Table
+^^^^^^^^^^^^^^^^^^^^
+The list of available math functions, :numref:`symdiff__functions`, has been reformatted, and parts have been split into the tables referenced in the next few sections.
+
+Error Functions
+^^^^^^^^^^^^^^^
+
+The following inverse functions and their derivatives are now available in the model interpreter, and also listed in :numref:`error__functions`.
+
+- ``erf_inv`` Inverse Error Function
+- ``erfc_inv`` Inverse Complimentary Error Function
+- ``derf_invdx`` Derivative of Inverse Error Function
+- ``derfc_invdx`` Derivative of Complimentary Inverse Error Function
+
+Fermi Integral
+^^^^^^^^^^^^^^
+
+The Joyce-Dixon approximation :cite:`joycedixon` for the Fermi integral and its inverse are now calculated with extended floating point precision, when extended precision is enabled.  These functions are now listed in :numref:`fermi__functions`.
+
+- ``Fermi`` Fermi integral
+- ``dFermidx`` Derivative of Fermi integral
+- ``InvFermi`` Inverse Fermi integral
+- ``dInvFermidx`` Derivative of inverse Fermi Integral
+
+The following examples are available:
+
+- ``testing/Fermi1.py`` Fermi integral
+- ``testing/Fermi1_float128.py`` Fermi integral in extended floating point precision
+
+Gauss-Fermi Integral
+^^^^^^^^^^^^^^^^^^^^
+
+The Gauss-Fermi Integral, using Paasch's equations :cite:`paasch:2010` are now available, and are listed in :numref:`gaussfermi__functions`..
+
+- ``gfi`` Gauss-Fermi Integral
+- ``dgfidx`` Derivative of Gauss-Fermi Integral
+- ``igfi`` Inverse Gauss-Fermi Integral
+- ``digfidx`` Derivative of Inverse Gauss-Fermi Integral
+
+Each of these functions take two arguments, ``zeta`` and ``s``.  The derivatives with respect to the first argument are provided.
+
+The following examples are available:
+
+- ``testing/GaussFermi.py`` Gauss-Fermi integral
+- ``testing/GaussFermi.py`` Gauss-Fermi integral with extended floating point precision
+
+
 
 Release 1.5.0
 ~~~~~~~~~~~~~~

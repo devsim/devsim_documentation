@@ -10,7 +10,10 @@ Starting DEVSIM
 
 Refer to :ref:`sec__installation` for instructions on how to install |devsim|.  Once installed, |devsim| may be invoked using the following command
 
-By first setting the ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution, ``devsim`` is loaded by using
+
+It is necessary to first ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution.  As an alternative, an experimental installation script is available to make the process easier.  Please see :ref:`sec__installation_script` for more information.
+
+``devsim`` is loaded by calling
 
 .. code-block:: python
 
