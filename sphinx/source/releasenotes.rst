@@ -12,7 +12,15 @@ Introduction
 Next Release
 ~~~~~~~~~~~~
 
-The :ref:`sec__citation` section has been added to the manual with information on how to cite the manual and the simulator.  The license terms have been changed in :ref:`sec__documentationlicense` so that derivative works are allowed.
+Citation
+^^^^^^^^
+
+The :ref:`sec__citation` section has been added with information on how to cite the manual and the simulator.
+
+Documentation License
+^^^^^^^^^^^^^^^^^^^^^
+
+The license terms have been changed in :ref:`sec__documentationlicense` so that derivative works are allowed.
 
 Release 1.5.1
 ~~~~~~~~~~~~~~
