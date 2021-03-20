@@ -9,6 +9,11 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Next Release
+~~~~~~~~~~~~
+
+The :ref:`sec__citation` section has been added to the manual with information on how to cite the manual and the simulator.  The license terms have been changed in :ref:`sec__documentationlicense` so that derivative works are allowed.
+
 Release 1.5.1
 ~~~~~~~~~~~~~~
 

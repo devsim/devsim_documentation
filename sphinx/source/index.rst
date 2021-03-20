@@ -8,7 +8,7 @@ DEVSIM Manual
 
 .. only:: html
 
-  This is the manual for the DEVSIM TCAD Semiconductor Device Simulator.  For more information, please visit `https://devsim.org <https://devsim.org>`__.  Links to the PDF version and other documents is available from `https://devsim.org/introduction.html#documentation <https://devsim.org/introduction.html#documentation>`__.  Please cite this work using the instructions at `https://doi.org/10.5281/zenodo.4583208 <https://doi.org/10.5281/zenodo.4583208>`__.
+  This is the manual for the DEVSIM TCAD Semiconductor Device Simulator.  For more information, please visit `https://devsim.org <https://devsim.org>`__.  Links to the PDF version and other documents are available from `https://devsim.org/introduction.html#documentation <https://devsim.org/introduction.html#documentation>`__.  *Please cite the manual or simulator using the instructions in* :ref:`sec__citation`.
 
   Contents:
 
