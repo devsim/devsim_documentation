@@ -189,6 +189,7 @@ Commands for simulation
 .. currentmodule:: devsim
 .. autofunction:: get_contact_charge
 .. autofunction:: get_contact_current
+.. autofunction:: get_matrix_and_rhs
 .. autofunction:: solve
 
 

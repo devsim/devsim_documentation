@@ -9,8 +9,37 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Next Release
-~~~~~~~~~~~~
+Release 1.6.0
+~~~~~~~~~~~~~
+
+Array Type Input and Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In most circumstances, the software now returns numerical data using the Python ``array`` class.  This is more efficient than using standard lists, as it encapsulates a contiguous block of memory.  More information about this class can be found at `https://docs.python.org/3/library/array.html <https://docs.python.org/3/library/array.html>`__.  The representation can be easily converted to lists and ``numpy`` arrays for efficient manipulation.
+
+When accepting user input involving lists of homogenous data, such as :meth:`devsim.set_node_values` the user may enter data using either a list, string of bytes, or the ``array`` class.  It may also be used to input ``numpy`` arrays or any other class with a ``tobytes`` method.
+
+Get Matrix and RHS for External Use
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :meth:`devsim.get_matrix_and_rhs` command has been added to assemble the static and dynamic matrices, as well as their right hand sides, based on the current state of the device being simulated.  The ``format`` option is used to specify the sparse matrix format, which may be either in the compressed column or compressed row formats, ``csc`` or ``csr``.
+
+Maximum Divergence Count
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the Newton iteration errors keep increasing for 20 iterations in a row, then the simulator stops.  This limit was previously 5.  This gives a chance for a solution to be found, when there is a poor initial guess.
+
+Mesh Visualization Element Orientation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Elements written to the ``tecplot`` format in 2d and 3d have node orderings compatible with the element connectivity in visualization formats.  Specifying the ``reorder=True`` option in :meth:`get_element_node_list` will result in node ordering compatible with meshing and visualization software.
+
+
+Figure annotation
+^^^^^^^^^^^^^^^^^
+
+:numref:`edgecell` has been updated, showing the ``EdgeNodeVolume``.
+
 
 Citation
 ^^^^^^^^
@@ -21,6 +50,13 @@ Documentation License
 ^^^^^^^^^^^^^^^^^^^^^
 
 The license terms have been changed in :ref:`sec__documentationlicense` so that derivative works are allowed.
+
+
+Online Forum
+^^^^^^^^^^^^
+
+The online forum for discussion about the software has moved to |devsimforum|. This has been updated in :ref:`Contact`.
+
 
 Release 1.5.1
 ~~~~~~~~~~~~~~

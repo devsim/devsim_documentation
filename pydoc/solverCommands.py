@@ -52,6 +52,17 @@ Command = {
               ("info", "Solve command return convergence information", optional, boolean, False, None),
           )
       },
+      {
+          "name" : "get_matrix_and_rhs",
+          "description" : "Returns matrices and rhs vectors.",
+          "parameters" : (
+              ("format", "Option for returned matrix format.", required, option, None, (
+                  ("csc", "Compressed Sparse Column Format"),
+                  ("csr", "Compressed Sparse Row Format"),
+                  ),
+              ),
+          )
+      },
   )
 }
 

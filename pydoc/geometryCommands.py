@@ -41,6 +41,7 @@ Command = {
               ("region", region_option_text, required, string, None, None),
               ("contact", "If specified, gets the element nodes for the contact on the specified region", optional, string, None, None),
               ("interface", "If specified, gets the element nodes for the interface on the specified region", optional, string, None, None),
+              ("reorder", "If specified, reorders the element nodes in a manner compatible in meshing software", optional, boolean, False, None),
           )
       },
   )

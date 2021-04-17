@@ -406,7 +406,7 @@ R"(    devsim.get_device_list ()
 )";
 
 static const char get_element_node_list_doc[] =
-R"(    devsim.get_element_node_list (device, region, contact, interface)
+R"(    devsim.get_element_node_list (device, region, contact, interface, reorder)
 
     Gets a list of nodes for each element on a device, region, contact, or interface.
 
@@ -420,6 +420,8 @@ R"(    devsim.get_element_node_list (device, region, contact, interface)
        If specified, gets the element nodes for the contact on the specified region
     interface : str, optional
        If specified, gets the element nodes for the interface on the specified region
+    reorder : bool, optional
+       If specified, reorders the element nodes in a manner compatible in meshing software (default False)
 )";
 
 static const char get_interface_list_doc[] =
@@ -1891,6 +1893,17 @@ R"(    devsim.get_contact_current (device, contact, equation)
        Contact on which to apply this command
     equation : str
        Name of the contact equation from which we are retrieving the current
+)";
+
+static const char get_matrix_and_rhs_doc[] =
+R"(    devsim.get_matrix_and_rhs (format)
+
+    Returns matrices and rhs vectors.
+
+    Parameters
+    ----------
+    format : {'csc', 'csr'} required
+       Option for returned matrix format.
 )";
 
 static const char solve_doc[] =

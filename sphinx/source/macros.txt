@@ -27,7 +27,7 @@
 .. |devsimorg| replace:: `https://devsim.org <https://devsim.org>`__
 .. |devsimnet| replace:: `https://devsim.net <https://devsim.net>`__
 .. |devsimllc| replace:: DEVSIM LLC
-.. |devsimforum| replace:: `https://groups.google.com/d/forum/devsim <https://groups.google.com/d/forum/devsim>`__
+.. |devsimforum| replace:: `https://forum.devsim.org <https://forum.devsim.org>`__
 .. |symdiffurl| replace:: `https://symdiff.org <https://symdiff.org>`__
 
 .. |cgns| replace:: ``CGNS``
