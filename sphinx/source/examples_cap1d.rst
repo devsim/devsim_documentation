@@ -37,7 +37,7 @@ where :math:`\psi_i` is the potential at the contact node and :math:`V_{c}` is t
 Creating the mesh
 ^^^^^^^^^^^^^^^^^
 
-The following statements create a one-dimensional mesh which is :math:`1` m long with a :math:`0.1` m spacing.  A contact is placed at :math:`0` and :math:`1` and are named ``contact1`` and ``contact2`` respectively.
+The following statements create a one-dimensional mesh which is :math:`1` cm long with a :math:`0.1` cm spacing.  A contact is placed at :math:`0` and :math:`1` and are named ``contact1`` and ``contact2`` respectively.
 
 .. code-block:: python
 

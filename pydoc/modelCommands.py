@@ -596,7 +596,7 @@ The primary use of these components are for visualization.
           "parameters" : (
               ("device", device_option_text, required, string, None, None),
               ("region", region_option_text, required, string, None, None),
-              ("element_model", "The element model for which we are calculating the vector compoenents", required, string, None, None),
+              ("element_model", "The element model for which we are calculating the vector components", required, string, None, None),
           )
       },
       {

@@ -9,6 +9,14 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 1.6.1
+~~~~~~~~~~~~~
+
+Documentation
+^^^^^^^^^^^^^
+
+Fixed unit in description for example in :ref:`sec__cap1d`.
+
 Release 1.6.0
 ~~~~~~~~~~~~~
 
