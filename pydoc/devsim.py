@@ -2022,7 +2022,7 @@ def vector_element_model (**kwargs):
     region : str
        The selected region
     element_model : str
-       The element model for which we are calculating the vector compoenents
+       The element model for which we are calculating the vector components
 
     Notes
     -----
@@ -2116,7 +2116,7 @@ def get_matrix_and_rhs (**kwargs):
 
 def solve (**kwargs):
     '''
-    devsim.solve (type, solver_type, absolute_error, relative_error, charge_error, gamma, tdelta, maximum_iterations, frequency, output_node, info)
+    devsim.solve (type, solver_type, absolute_error, relative_error, maximum_error, charge_error, gamma, tdelta, maximum_iterations, maximum_divergence, frequency, output_node, info)
 
     Call the solver.  A small-signal AC source is set with the circuit voltage source.
 
@@ -2130,6 +2130,8 @@ def solve (**kwargs):
        Required update norm in the solve (default 0.0)
     relative_error : Float, optional
        Required relative update in the solve (default 0.0)
+    maximum_error : Float, optional
+       Maximum absolute error before solve stops (default MAXDOUBLE)
     charge_error : Float, optional
        Relative error between projected and solved charge during transient simulation (default 0.0)
     gamma : Float, optional
@@ -2138,6 +2140,8 @@ def solve (**kwargs):
        time step (default 0.0)
     maximum_iterations : int, optional
        Maximum number of iterations in the DC solve (default 20)
+    maximum_divergence : int, optional
+       Maximum number of diverging iterations during solve (default 20)
     frequency : Float, optional
        Frequency for small-signal AC simulation (default 0.0)
     output_node : str, optional
