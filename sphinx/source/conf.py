@@ -231,6 +231,10 @@ latex_elements = {
     #'preamble': r'''
     #\addtocontents{toc}{\protect\hypertarget{toc}{}}
     #''',
+'preamble': r'''
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+''',
 
     # Latex figure (float) alignment
     #'figure_align': 'htbp',

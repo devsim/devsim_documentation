@@ -15,7 +15,67 @@ Release 1.6.1
 Documentation
 ^^^^^^^^^^^^^
 
+Manual
+""""""
+
 Fixed unit in description for example in :ref:`sec__cap1d`.
+
+
+Documentation Files
+"""""""""""""""""""
+
+Some out of date files (e.g. RELEASE, INSTALL, . . .) have been removed.  The ``README.md`` has been updated and the ``INSTALL.md`` has been added.
+
+
+Python Packages
+^^^^^^^^^^^^^^^
+
+The ``rampbias`` function in the ``devsim.python_packages.ramp`` module has been fixed to properly reduce the bias when there is a convergence failure.
+
+Solver
+^^^^^^
+
+Transient Simulation
+""""""""""""""""""""
+
+* Fixed bug with ``transient_tr`` (trapezoidal) time integration method in the :meth:`devsim.solve` command where the wrong sign was used to integrate previous time steps.
+* Fixed bug in the charge error calculation, which calculates the simulation result with that a forward difference projection.
+* Added ``testing/transient_rc.py`` test which compares simulation with analytic result for RC circuit.
+
+
+Convergence Tests
+"""""""""""""""""
+
+The ``maximum_error`` and ``maximum_divergence`` options where added to the :meth:`devsim.solve` command.  If the absolute error of any iteration goes above ``maximum_error``, the simulation stops with a convergence failure.  The ``maximum_divergence`` is the maximum number of iterations that the simulator error may increase before stopping.
+
+Verbosity
+"""""""""
+
+During the :meth:`devsim.solve`, circuit node and circuit solution information is no longer printed to the screen for the default verbosity level.  In addition, the number of equations per device and region is no longer displayed at the start of the first iteration.
+
+
+Intel Math Kernel Library
+"""""""""""""""""""""""""
+
+The Intel Math Kernel Library now uses versioned library names.  Binary releases are now updated against the latest versioned dll names from MKL available in the Anaconda Python distribution.
+
+
+SuperLU
+"""""""
+
+The code now supports newer versions of ``SuperLU``.  The release version is still using SuperLU 4.3 for the iterative solution method, and the Intel MKL Pardiso for the direct solve method.
+
+Simulation Matrix
+"""""""""""""""""
+
+The :meth:`devsim.get_matrix_and_rhs` command was not properly accepting the ``format`` parameter, and was always returning the same type.
+
+Build Scripts
+^^^^^^^^^^^^^
+
+The build scripts have been updated on all platforms to be less dependent on specific Python 3 versions.
+
+An updated Fedora build script has been added.  It uses the system installed ``SuperLU`` as the direct solver.
 
 Release 1.6.0
 ~~~~~~~~~~~~~
@@ -40,7 +100,7 @@ If the Newton iteration errors keep increasing for 20 iterations in a row, then 
 Mesh Visualization Element Orientation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Elements written to the ``tecplot`` format in 2d and 3d have node orderings compatible with the element connectivity in visualization formats.  Specifying the ``reorder=True`` option in :meth:`get_element_node_list` will result in node ordering compatible with meshing and visualization software.
+Elements written to the ``tecplot`` format in 2d and 3d have node orderings compatible with the element connectivity in visualization formats.  Specifying the ``reorder=True`` option in :meth:`devsim.get_element_node_list` will result in node ordering compatible with meshing and visualization software.
 
 
 Figure annotation
