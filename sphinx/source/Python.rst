@@ -27,7 +27,7 @@ Many of the examples in the distribution rely on the ``python_packages`` module,
 
   import devsim.python_packages
 
-The supported versions of |python| for use in scripts is 3.6 or higher.  |python| 2.7 is no longer supported.
+The supported versions of |python| for use in scripts is 3.6 or higher.
 
 .. _sec__python:
 

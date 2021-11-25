@@ -18,7 +18,9 @@ Documentation
 Manual
 """"""
 
-Fixed unit in description for example in :ref:`sec__cap1d`.
+* Fixed unit in description for example in :ref:`sec__cap1d`.
+* Added DOI to referenced papers and updated bibliography style in biblography.
+* Added reference to :ref:`sec__models` with additional information about element assembly.
 
 
 Documentation Files
@@ -31,6 +33,8 @@ Python Packages
 ^^^^^^^^^^^^^^^
 
 The ``rampbias`` function in the ``devsim.python_packages.ramp`` module has been fixed to properly reduce the bias when there is a convergence failure.
+
+|python| 2.7 specific instructions in :ref:`ch__scripting` has been removed.
 
 Solver
 ^^^^^^

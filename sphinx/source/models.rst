@@ -21,6 +21,8 @@ Internally, it transforms the PDE's into an integral form.
 
 Equations involving the divergence operators are converted into surface integrals, while other components are integrated over the device volume.
 
+Additional detail concerning the discussion that follows is available in :cite:`sanchez:ieee,sanchez:techrxiv`.
+
 In :numref:`meshcell`, 2D mesh elements are depicted.  The shaded area around the center node is referred to as the node volume, and it is used for the volume integration.  The lines from the center node to other nodes are referred to as edges.  The flux through the edge are integrated with respect to the perpendicular bisectors (dashed lines) crossing each triangle edge.
 
 .. _meshcell:
