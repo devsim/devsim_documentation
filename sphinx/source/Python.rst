@@ -27,7 +27,7 @@ Many of the examples in the distribution rely on the ``python_packages`` module,
 
   import devsim.python_packages
 
-The default version of |python| for use in scripts is 3.7, however scripts written for earlier versions of |python| 3 should work.  |python| 2.7 is deprecated for future development.
+The supported versions of |python| for use in scripts is 3.6 or higher.  |python| 2.7 is no longer supported.
 
 .. _sec__python:
 
@@ -100,11 +100,15 @@ In this manual, more advanced usage of the |python| language may be used.  The r
 Unicode Support
 ^^^^^^^^^^^^^^^
 
-Internally, |devsim| uses UTF-8 encoding, and expects model equations and saved mesh files to be written using this encoding.  Users are encouraged to use the standard ASCII character set if they do not wish to use this feature.  Python 3 interpreters handle UTF-8 encoding well.  For the deprecated Python 2 interpreter, it is necessary to put the following line at the beginning of the python script.
+Internally, |devsim| uses UTF-8 encoding, and expects model equations and saved mesh files to be written using this encoding.  Users are encouraged to use the standard ASCII character set if they do not wish to use this feature.  Python 3 interpreters handle UTF-8 encoding well.
 
-.. code-block:: none
+..
+  For the deprecated Python 2 interpreter, it is necessary to put the following line at the beginning of the python script.
 
-  # -*- coding: utf-8 -*-
+..
+  .. code-block:: none
+
+    # -*- coding: utf-8 -*-
 
 
 ..
