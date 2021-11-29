@@ -11,7 +11,6 @@ Command={
               ("device", device_option_text, required, string, None, None),
               ("contact", contact_option_text, required, string, None, None),
               ("name", name_option("contact equation", "created"), required, string, None, None),
-              ("variable_name", "The variable name is used to determine the bulk equation we are replacing at this contact (deprecated)", optional, string, None, None),
               ("circuit_node", "Name of the circuit we integrate the flux into", optional, string, None, None),
               ("edge_charge_model", "Name of the edge model used to determine the charge at this contact", optional, string, None, None),
               ("edge_current_model", "Name of the edge model used to determine the current flowing out of this contact", optional, string, None, None),
@@ -167,7 +166,6 @@ In order to set the node volumes for integration of the ``edge_volume_model``, i
               ("name", name_option("interface equation", "created"), required, string, None, None),
               ("name0", name_option("equation coupling in region 0", "created"), optional, string, "name", None),
               ("name1", name_option("equation coupling in region 1", "created"), optional, string, "name", None),
-              ("variable_name", "The variable name is used to determine the bulk equation we are coupling this interface to (deprecated)", optional, string, None, None),
               ("interface_model", "When specified, the bulk equations on both sides of the interface are integrated together.  This model is then used to specify how nodal quantities on both sides of the interface are balanced", required, string, None, None),
               ("type", "Specifies the type of boundary condition", required, option, None, (
                   ("continuous", r"Equations of the same name in the two regions are added.  The ``interface_model`` is an additional equation is created to specify how quantities across the interface are solved"),

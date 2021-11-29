@@ -134,7 +134,7 @@ def set_circuit_node_value (**kwargs):
 
 def contact_equation (**kwargs):
     '''
-    devsim.contact_equation (device, contact, name, variable_name, circuit_node, edge_charge_model, edge_current_model, edge_model, edge_volume_model, element_charge_model, element_current_model, element_model, volume_node0_model, volume_node1_model, node_charge_model, node_current_model, node_model)
+    devsim.contact_equation (device, contact, name, circuit_node, edge_charge_model, edge_current_model, edge_model, edge_volume_model, element_charge_model, element_current_model, element_model, volume_node0_model, volume_node1_model, node_charge_model, node_current_model, node_model)
 
     Create a contact equation on a device
 
@@ -146,8 +146,6 @@ def contact_equation (**kwargs):
        Contact on which to apply this command
     name : str
        Name of the contact equation being created
-    variable_name : str, optional
-       The variable name is used to determine the bulk equation we are replacing at this contact (deprecated)
     circuit_node : str, optional
        Name of the circuit we integrate the flux into
     edge_charge_model : str, optional
@@ -409,7 +407,7 @@ def get_interface_equation_list (**kwargs):
 
 def interface_equation (**kwargs):
     '''
-    devsim.interface_equation (device, interface, name, name0, name1, variable_name, interface_model, type)
+    devsim.interface_equation (device, interface, name, name0, name1, interface_model, type)
 
     Command to specify an equation at an interface
 
@@ -425,8 +423,6 @@ def interface_equation (**kwargs):
        Name of the equation coupling in region 0 being created (default 'name')
     name1 : str, optional
        Name of the equation coupling in region 1 being created (default 'name')
-    variable_name : str, optional
-       The variable name is used to determine the bulk equation we are coupling this interface to (deprecated)
     interface_model : str
        When specified, the bulk equations on both sides of the interface are integrated together.  This model is then used to specify how nodal quantities on both sides of the interface are balanced
     type : {'continuous', 'fluxterm', 'hybrid'} required

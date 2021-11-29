@@ -9,7 +9,7 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Release 1.6.1
+Release 1.7.0
 ~~~~~~~~~~~~~
 
 Documentation
@@ -45,6 +45,7 @@ Transient Simulation
 * Fixed bug with ``transient_tr`` (trapezoidal) time integration method in the :meth:`devsim.solve` command where the wrong sign was used to integrate previous time steps.
 * Fixed bug in the charge error calculation, which calculates the simulation result with that a forward difference projection.
 * Added ``testing/transient_rc.py`` test which compares simulation with analytic result for RC circuit.
+* Added :meth:`devsim.set_initial_condition` to set initial transient condition as alternative to using the ``transient_dc`` option to the :meth:`devsim.solve` command.  Suitable options for this command may be provided from the :meth:`get_matrix_and_rhs` command.
 
 
 Convergence Tests
@@ -74,12 +75,23 @@ Simulation Matrix
 
 The :meth:`devsim.get_matrix_and_rhs` command was not properly accepting the ``format`` parameter, and was always returning the same type.
 
+
+Add Interface supporting Periodic Boundary Conditions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :meth:`devsim.create_interface_from_nodes` command makes it possible to create an interface with non coincident nodes.  This enables the use of periodic boundary conditions.
+
 Build Scripts
 ^^^^^^^^^^^^^
 
 The build scripts have been updated on all platforms to be less dependent on specific Python 3 versions.
 
 An updated Fedora build script has been added.  It uses the system installed ``SuperLU`` as the direct solver.
+
+Contact and Interface Equation Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The previously deprecated ``variable_name`` option is no longer accepted by the :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation` command.
 
 Release 1.6.0
 ~~~~~~~~~~~~~
