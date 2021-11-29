@@ -1059,6 +1059,29 @@ def create_gmsh_mesh (**kwargs):
     '''
     pass
 
+def create_interface_from_nodes (**kwargs):
+    '''
+    devsim.create_interface_from_nodes (device, name, region0, region1, nodes0, nodes1)
+
+    Creates an interface from lists of nodes
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    name : str
+       name of the interface begin created
+    region0 : str
+       first region that the interface is attached to
+    region1 : str
+       second region that the interface is attached to
+    nodes0 : str
+       list of nodes for the interface in the first region
+    nodes1 : str
+       list of nodes for the interface in the second region
+    '''
+    pass
+
 def finalize_mesh (**kwargs):
     '''
     devsim.finalize_mesh (mesh)
@@ -2111,6 +2134,21 @@ def get_matrix_and_rhs (**kwargs):
     ----------
     format : {'csc', 'csr'} required
        Option for returned matrix format.
+    '''
+    pass
+
+def set_initial_condition (**kwargs):
+    '''
+    devsim.set_initial_condition (static_rhs, dynamic_rhs)
+
+    Sets the initial condition for subsequent transient solver steps.
+
+    Parameters
+    ----------
+    static_rhs : list, optional
+       List of double values for non time-displacement terms in right hand side.
+    dynamic_rhs : list, optional
+       List of double values for time-displacement terms in right hand side.
     '''
     pass
 

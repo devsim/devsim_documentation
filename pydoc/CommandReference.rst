@@ -118,6 +118,7 @@ Commands for reading and writing meshes
 .. autofunction:: create_contact_from_interface
 .. autofunction:: create_device
 .. autofunction:: create_gmsh_mesh
+.. autofunction:: create_interface_from_nodes
 .. autofunction:: finalize_mesh
 .. autofunction:: load_devices
 .. autofunction:: write_devices
@@ -190,6 +191,7 @@ Commands for simulation
 .. autofunction:: get_contact_charge
 .. autofunction:: get_contact_current
 .. autofunction:: get_matrix_and_rhs
+.. autofunction:: set_initial_condition
 .. autofunction:: solve
 
 

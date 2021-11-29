@@ -231,7 +231,18 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
               ("name", "name of the contact begin created", required, string, None, None),
           )
       },
-
+      {
+          "name" : "create_interface_from_nodes",
+          "description" : "Creates an interface from lists of nodes",
+          "parameters" : (
+              ("device", device_option_text, required, string, None, None),
+              ("name", "name of the interface begin created", required, string, None, None),
+              ("region0", "first region that the interface is attached to", required, string, None, None),
+              ("region1", "second region that the interface is attached to", required, string, None, None),
+              ("nodes0", "list of nodes for the interface in the first region", required, string, None, None),
+              ("nodes1", "list of nodes for the interface in the second region", required, string, None, None),
+          )
+      },
   )
 }
 

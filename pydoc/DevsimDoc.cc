@@ -947,6 +947,27 @@ R"(    devsim.create_gmsh_mesh (mesh, file, coordinates, elements, physical_name
 
 )";
 
+static const char create_interface_from_nodes_doc[] =
+R"(    devsim.create_interface_from_nodes (device, name, region0, region1, nodes0, nodes1)
+
+    Creates an interface from lists of nodes
+
+    Parameters
+    ----------
+    device : str
+       The selected device
+    name : str
+       name of the interface begin created
+    region0 : str
+       first region that the interface is attached to
+    region1 : str
+       second region that the interface is attached to
+    nodes0 : str
+       list of nodes for the interface in the first region
+    nodes1 : str
+       list of nodes for the interface in the second region
+)";
+
 static const char finalize_mesh_doc[] =
 R"(    devsim.finalize_mesh (mesh)
 
@@ -1904,6 +1925,19 @@ R"(    devsim.get_matrix_and_rhs (format)
     ----------
     format : {'csc', 'csr'} required
        Option for returned matrix format.
+)";
+
+static const char set_initial_condition_doc[] =
+R"(    devsim.set_initial_condition (static_rhs, dynamic_rhs)
+
+    Sets the initial condition for subsequent transient solver steps.
+
+    Parameters
+    ----------
+    static_rhs : list, optional
+       List of double values for non time-displacement terms in right hand side.
+    dynamic_rhs : list, optional
+       List of double values for time-displacement terms in right hand side.
 )";
 
 static const char solve_doc[] =

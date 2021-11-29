@@ -65,6 +65,14 @@ Command = {
               ),
           )
       },
+      {
+          "name" : "set_initial_condition",
+          "description" : "Sets the initial condition for subsequent transient solver steps.",
+          "parameters" : (
+              ("static_rhs", "List of double values for non time-displacement terms in right hand side.", optional, List, None, None),
+              ("dynamic_rhs", "List of double values for time-displacement terms in right hand side.", optional, List, None, None),
+          )
+      },
   )
 }
 
