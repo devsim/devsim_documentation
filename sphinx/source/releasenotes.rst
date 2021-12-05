@@ -22,7 +22,7 @@ Based on the change in the sections :ref:`sec__contact_and_interface_equation_2_
 Contact and Interface Equation Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The previously deprecated ``variable_name`` option is no longer accepted by the :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation` command.  This has been updated in the documentation.
+The previously deprecated ``variable_name`` option is no longer accepted by the :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation` commands.  This has been updated in the documentation.
 
 
 Documentation
