@@ -265,8 +265,7 @@ In the first form, ``continuous``, the equations for the nodes on both sides of 
 .. code-block:: python
 
   devsim.interface_equation(device="device", interface="interface", name="PotentialEquation",
-                  variable_name="Potential", interface_model="continuousPotential",
-                  type="continuous")
+                  interface_model="continuousPotential", type="continuous")
 
 In the second form, ``fluxterm``, a flux term is integrated over the surface area of the interface and added to the first region, and subtracted from the second.
 
@@ -305,8 +304,7 @@ As an example
 .. code-block:: python
 
   devsim.contact_equation(device="device", contact="contact", name="PotentialEquation",
-    variable_name="Potential", node_model="contact_bc",
-    edge_charge_model="DField")
+    node_model="contact_bc", edge_charge_model="DField")
 
 Current models refer to the instantaneous current flowing into the device.  Charge models refer to the instantaneous charge at the contact.
 

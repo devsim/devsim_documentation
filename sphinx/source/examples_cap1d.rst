@@ -157,7 +157,6 @@ We then create the contact models and equations.  We use the |python| ``for`` lo
                equation="1")
 
     contact_equation(device=device, contact=c, name="PotentialEquation",
-               variable_name="Potential",
                node_model="%s_bc" % c, edge_charge_model="DField")
 
 In this example, the contact bias is applied through parameters named ``contact1_bias`` and ``contact2_bias``. When applying the boundary conditions through circuit nodes, models with respect to their names and their derivatives would be required.
@@ -352,7 +351,6 @@ Setting up the models
                equation="1")
 
     contact_equation(device=device, contact=c, name="PotentialEquation",
-               variable_name="Potential",
                node_model="%s_bc" % c, edge_charge_model="DField")
 
   ###

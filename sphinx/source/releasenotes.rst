@@ -9,8 +9,21 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
-Release 1.7.0
+Release 2.0.0
 ~~~~~~~~~~~~~
+
+New Major Version
+^^^^^^^^^^^^^^^^^
+
+Based on the change in the sections :ref:`sec__contact_and_interface_equation_2_0_0` and :ref:`sec__transient_fixes_2_0_0`.  The major version of the software has been updated to 2.  Existing scripts may need to be updated for this change.
+
+.. _sec__contact_and_interface_equation_2_0_0:
+
+Contact and Interface Equation Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The previously deprecated ``variable_name`` option is no longer accepted by the :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation` command.  This has been updated in the documentation.
+
 
 Documentation
 ^^^^^^^^^^^^^
@@ -21,6 +34,7 @@ Manual
 * Fixed unit in description for example in :ref:`sec__cap1d`.
 * Added DOI to referenced papers and updated bibliography style in biblography.
 * Added reference to :ref:`sec__models` with additional information about element assembly.
+* Updated :ref:`sec__models` and :ref:`sec__cap1d` to remove ``variable_name`` option from :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation`.
 
 
 Documentation Files
@@ -38,6 +52,9 @@ The ``rampbias`` function in the ``devsim.python_packages.ramp`` module has been
 
 Solver
 ^^^^^^
+
+
+.. _sec__transient_fixes_2_0_0:
 
 Transient Simulation
 """"""""""""""""""""
@@ -87,11 +104,6 @@ Build Scripts
 The build scripts have been updated on all platforms to be less dependent on specific Python 3 versions.
 
 An updated Fedora build script has been added.  It uses the system installed ``SuperLU`` as the direct solver.
-
-Contact and Interface Equation Commands
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The previously deprecated ``variable_name`` option is no longer accepted by the :meth:`devsim.contact_equation` and :meth:`devsim.interface_equation` command.
 
 Release 1.6.0
 ~~~~~~~~~~~~~
