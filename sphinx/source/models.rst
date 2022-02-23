@@ -363,7 +363,7 @@ The return value from the procedure must return two lists and a boolean value of
 
 where the length of the first list is divisible by 3 and contains the row, column, and value to be assembled into the matrix.  The second list is divisible by 2 and contains the right hand side entries.  Either list may be empty.
 
-The boolean value denotes whether the matrix and right hand side entries should be row permutated.  A value of ``True`` should be used for assembling bulk equations, and a value of ``False`` should be used for aseembling contact and interface boundary conditions.
+The boolean value denotes whether the matrix and right hand side entries should be row permutated.  A value of ``True`` should be used for assembling bulk equations, and a value of ``False`` should be used for assembling contact and interface boundary conditions.
 
 The :meth:`devsim.get_circuit_equation_number` may be used to get the equation numbers corresponding to circuit node names.  The :meth:`devsim.get_equation_numbers` may be used to find the equation number corresponding to each node index in a region.
 
