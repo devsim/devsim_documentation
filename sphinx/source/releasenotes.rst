@@ -9,6 +9,92 @@ Introduction
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 
+Release 2.1.0
+~~~~~~~~~~~~~
+
+Explicit math library loading
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since the Intel Math Kernel Library started versioning the names of their dynamic link libraries, it has been difficult to maintain a proper Anaconda Python environment when the version has been updated.  With this release, it is possible to use any recent version of the Intel MKL.  In addition, the user is able to load alternative BLAS/LAPACK math libraries.
+
+Intel MKL
+"""""""""
+
+From DEVSIM Version 2.1.0 onward, a specific version is not required when loading the Intel MKL.  If the Intel MKL is not found, the import of the ``devsim`` module will fail, and an error message will be printed.  This method is the default, and should work when using an Anaconda Python environment with the ``mkl`` package installed.
+
+When using a different Python distribution, or having an installation in a different place, it is possible to specify the location by modifying the ``LD_LIBRARY_PATH`` environment variable on |linux|, or using ``DYLD_LIBRARY_PATH`` on |macosx|.  The explicit path may be set to the MKL math libraries may be set using the method in the next section.
+
+Loading other math libraries
+""""""""""""""""""""""""""""
+
+It is possible to load alternative implementations of the BLAS/LAPACK used by the software.  The ``DEVSIM_MATH_LIBS`` environment variable may be used to set a ``:`` separated list of libraries.  These names may be based on relative or absolute paths.  The program will load the libraries in order, and stop when all of the necessary math symbols are supplied.  If symbols for the Intel MKL are detected, then the Pardiso direct solver will be enabled.
+
+|linux| example:
+
+.. code-block:: none
+
+  export DEVSIM_MATH_LIBS=libblas.so:liblapack.so
+
+|macosx| example:
+
+.. code-block:: none
+
+  export DEVSIM_MATH_LIBS=libblas.dylib:liblapack.dylib
+
+Direct solver selection
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The direct solver may be selected by using the ``direct_solver`` parameter.
+
+.. code-block:: none
+
+  devsim.set_parameter(name='direct_solver', value='mkl_pardiso')
+
+The following options are available:
+
+- ``mkl_pardiso`` Intel MKL Pardiso
+- ``superlu`` SuperLU 4.3
+
+The default is ``mkl_pardiso`` when the Intel MKL is loaded.  Otherwise, the default will switch to ``superlu``.
+
+Kahan summation in extended precision mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``kahan3`` and ``kahan4`` functions are now using the Kahan summation algorithm for extended precision model evaluation.  Previously, this algorithm was replaced with 128-bit floating point addition and subtraction in releases that support extended precision mode.  With this change, better than 128-bit floating precision is available when extended precision is enabled.
+
+.. code-block:: none
+
+  devsim.set_parameter(name = "extended_model", value=True)
+
+The ``testing/kahan_float128.py`` test has been added.
+
+Visual Studio 2022
+^^^^^^^^^^^^^^^^^^
+
+The Microsoft Windows``win64`` release version is now built using the Visual Studio 2022 compiler.  For users needing extended precision on the Windows platform, the ``msys`` build is recommended.
+
+
+Release 2.0.1
+~~~~~~~~~~~~~
+
+Update documentation files
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following files were updated in the text documentation distributed with the software.
+
+* ``CONTRIBUTING.md``
+* ``INSTALL.md``
+* ``README.md``
+
+This was done to create a version to coincide with this paper in the Journal of Open Source Software.
+
+  Sanchez, J. E., (2022). DEVSIM: A TCAD Semiconductor Device Simulator. Journal of Open Source Software, 7(70), 3898, `https://doi.org/10.21105/joss.03898 <https://doi.org/10.21105/joss.03898>`__.
+
+Update MKL Version
+^^^^^^^^^^^^^^^^^^
+
+The release version of this software is build against version 2 of the Intel MKL, which corresponds to the latest version of Anaconda Python.
+
 Release 2.0.0
 ~~~~~~~~~~~~~
 
@@ -282,7 +368,7 @@ Platforms
 
 Windows 32 bit is no longer supported.  Binary releases of the ``Visual Studio 2019`` ``MSYS2/Mingw-w64`` 64-bit builds are still available online for |mswindowsten|.
 
-On Linux, the releases are now on |centosseven|, as |centossix| has reached its end of life on November 30, 2020.
+On |linux|, the releases are now on |centosseven|, as |centossix| has reached its end of life on November 30, 2020.
 
 Please see :ref:`sec__supportedplatforms` for more information.
 
