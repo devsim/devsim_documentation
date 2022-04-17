@@ -71,7 +71,7 @@ The ``testing/kahan_float128.py`` test has been added.
 Visual Studio 2022
 ^^^^^^^^^^^^^^^^^^
 
-The Microsoft Windows``win64`` release version is now built using the Visual Studio 2022 compiler.  For users needing extended precision on the Windows platform, the ``msys`` build is recommended.
+The Microsoft Windows ``win64`` release version is now built using the Visual Studio 2022 compiler.  For users needing extended precision on the Windows platform, the ``msys`` build is recommended.
 
 
 Release 2.0.1
