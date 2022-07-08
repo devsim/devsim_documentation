@@ -10,7 +10,7 @@ This is the future location for the DEVSIM Manual and related documentation.  It
 
 If you are interested in helping improve the documentation for DEVSIM.  Please contact us in our forum.
 
-https://groups.google.com/d/forum/devsim
+https://forum.devsim.org
 
 ## Building
 
