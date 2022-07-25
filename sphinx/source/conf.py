@@ -76,7 +76,10 @@ release = u'2.1.0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = None
+html_baseurl = 'https://devsim.net/'
+sitemap_url_scheme = "{link}"
+#sitemap_url_scheme = "{lang}{version}subdir/{link}"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
