@@ -8,6 +8,33 @@ Introduction
 ~~~~~~~~~~~~
 
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
+A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
+
+Release 2.2.0
+~~~~~~~~~~~~~
+
+Device and mesh deletion commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :meth:`devsim.delete_device` command makes it possible to delete devices so they will no longer be solved in the simulation.  Any parameters set on the device are also removed from the system.
+
+The :meth:`devsim.delete_mesh` command makes it possible to delete meshes.  Once a mesh has been deleted, it is no longer possible to create devices from it using the :meth:`devsim.create_device` command.
+
+
+Extended Precision
+^^^^^^^^^^^^^^^^^^
+
+Extended precision is now available on Windows builds using the Visual Studio Compiler.  Note that this precision is not as accurate as the float128 type used on other systems.
+
+Direct Solver
+^^^^^^^^^^^^^
+
+SuperLU has been updated from version 4.3 to version 5.3.  It is the solver used when the Intel MKL is not available.
+
+Code Quality
+^^^^^^^^^^^^
+
+Fixed defects found in Coverity scanning.
 
 Release 2.1.0
 ~~~~~~~~~~~~~

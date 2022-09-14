@@ -119,6 +119,8 @@ Commands for reading and writing meshes
 .. autofunction:: create_device
 .. autofunction:: create_gmsh_mesh
 .. autofunction:: create_interface_from_nodes
+.. autofunction:: delete_device
+.. autofunction:: delete_mesh
 .. autofunction:: finalize_mesh
 .. autofunction:: load_devices
 .. autofunction:: write_devices

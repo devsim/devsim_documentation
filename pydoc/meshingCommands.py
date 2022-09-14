@@ -88,6 +88,13 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
           )
       },
       {
+          "name" : "delete_mesh",
+          "description" : "Delete a mesh so devices can no longer be instantiated from it.",
+          "parameters" : (
+              ("mesh", "Mesh to delete", required, string, None, None),
+          )
+      },
+      {
           "name" : "add_1d_mesh_line",
           "description" : "Add a mesh line to a 1D mesh",
           "parameters" : (
@@ -195,6 +202,13 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
           "parameters" : (
               ("mesh", "name of the mesh being used to create a device", required, string, None, None),
               ("device", "name of the device being created", required, string, None, None),
+          )
+      },
+      {
+          "name" : "delete_device",
+          "description" : "Delete a device and its parameters",
+          "parameters" : (
+              ("device", "name of the device being deleted", required, string, None, None),
           )
       },
       {

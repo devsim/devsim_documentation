@@ -1078,6 +1078,32 @@ def create_interface_from_nodes (**kwargs):
     '''
     pass
 
+def delete_device (**kwargs):
+    '''
+    devsim.delete_device (device)
+
+    Delete a device and its parameters
+
+    Parameters
+    ----------
+    device : str
+       name of the device being deleted
+    '''
+    pass
+
+def delete_mesh (**kwargs):
+    '''
+    devsim.delete_mesh (mesh)
+
+    Delete a mesh so devices can no longer be instantiated from it.
+
+    Parameters
+    ----------
+    mesh : str
+       Mesh to delete
+    '''
+    pass
+
 def finalize_mesh (**kwargs):
     '''
     devsim.finalize_mesh (mesh)
