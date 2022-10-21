@@ -10,6 +10,34 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+
+Release 2.3.0
+~~~~~~~~~~~~~
+
+Python PIP Package
+^^^^^^^^^^^^^^^^^^
+
+DEVSIM is now available via ``pip`` for macOS, Linux, and Microsoft Windows.  To install this package for your platform:
+
+.. code-block:: none
+
+    pip install devsim
+
+Please see the ``INSTALL.md`` file in the distribution for more information.  These files may be found in the ``devsim_data`` directory in the ``$CONDA_PREFIX`` of your |Anaconda| environment.  If you are using ``venv``, it may be found in the ``devsim_data`` directory found in your virtual environment.
+
+
+Remove Windows MSYS Build
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``msys`` build is removed as an available binary package.  Windows is still supported through the use of the Visual C++ compiler build.
+
+Build Notes
+^^^^^^^^^^^
+
+The compiler for the Linux build are now upgraded to ``devtoolset-10`` and is now built on ``manylinux2014``.
+
+Boost is now added as a submodule, instead of using system libraries or Anaconda Python versions.  The Linux build no longer requires Anaconda Python.
+
 Release 2.2.0
 ~~~~~~~~~~~~~
 
