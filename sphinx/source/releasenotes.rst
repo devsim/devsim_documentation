@@ -11,7 +11,7 @@ Introduction
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
 
-Release 2.3.0
+Release 2.3.1
 ~~~~~~~~~~~~~
 
 Python PIP Package
@@ -23,7 +23,7 @@ DEVSIM is now available via ``pip`` for macOS, Linux, and Microsoft Windows.  To
 
     pip install devsim
 
-Please see the ``INSTALL.md`` file in the distribution for more information.  These files may be found in the ``devsim_data`` directory in the ``$CONDA_PREFIX`` of your |Anaconda| environment.  If you are using ``venv``, it may be found in the ``devsim_data`` directory found in your virtual environment.
+Please see the ``INSTALL.md`` file in the distribution for more information.  These files may be found in the ``$CONDA_PREFIX/devsim_data`` directory of your |Anaconda| environment.  If you are using ``venv``, it may be found in the ``$VIRTUAL_ENV/devsim_data`` of your virtual environment.
 
 
 Remove Windows MSYS Build
