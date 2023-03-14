@@ -10,6 +10,73 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.4.0
+~~~~~~~~~~~~~
+
+Python solver
+
+The global parameter ``math_libraries`` provides a list of loaded dlls.
+
+Version 2.3.8
+~~~~~~~~~~~~~
+
+Bugs
+^^^^
+
+[@ryan3141](https://github.com/ryan3141) fixed an issue where math functions added with ``devsim.register_function`` were not available in extended precision model evaluation.  The ``testing/testfunc_extended.py`` test is added to validate the fix.
+
+Update NOTICE with the license files from the various dependencies.
+
+Version 2.3.7
+~~~~~~~~~~~~~
+
+Apple M1 Support
+^^^^^^^^^^^^^^^^
+
+Intel MKL Pardiso not available, so using system BLAS/LAPACK or openblas by default.  In addition, SuperLU, is used instead of the MKL Pardiso.  This results in some test failures, based on the use of a different solver, and not the OS architecture.
+
+Extended precision is enabled.
+
+Enabled by running pip install.
+
+The regression results are in this newly created repo:
+
+* [devsim_tests_macos_arm64](https://github.com/devsim/devsim_tests_macos_arm64)
+
+
+Python Notebook Example With 3D Visualization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A plotting example using ``pyvista`` is presented in ``examples/plotting/visualization.ipynb``.  This example was provided by [@simbilod](https://github.com/simbilod).
+
+Bugs
+^^^^
+
+When instantiating a mesh from Gmsh, contact and interface related errors to dimensionality have an improved error message.
+
+
+Version 2.3.6
+~~~~~~~~~~~~~
+
+On Windows the ``DEVSIM_MATH_LIBS`` now uses the ``;`` as the path separator, while macOS and Linux still use ``:``.
+
+The math library search order is then:
+
+* The math libraries listed in the ``DEVSIM_MATH_LIBS`` environment variable, with the appropriate separator.
+* The Intel Math Kernel Library
+* These dynamic libraries
+  * OpenBLAS (e.g. libopenblas.so)
+  * LAPACK (e.g. liblapack.so)
+  * BLAS (e.g. libblas.so)
+
+All platforms will search for the Intel MKL by trying several version numbers.  When the Intel MKL is not available, the direct solver will switch from Intel MKL Pardiso to SuperLU.
+
+On macOS and Linux, the RPATH has been modified to look in places relative to the `devsim` module, instead of using ``CONDA_PREFIX`` or ``VIRTUAL_ENV``.
+
+* ``macOS`` : ``@loader_path;@loader_path/../lib;@loader_path/../../../../lib;@executable_path/../lib``
+* ``Linux`` : ``$ORIGIN:$ORIGIN/../lib:$ORIGIN/../../../../lib``
+
+
 
 Release 2.3.1
 ~~~~~~~~~~~~~
