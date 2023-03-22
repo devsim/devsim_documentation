@@ -13,9 +13,60 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.4.0
 ~~~~~~~~~~~~~
 
-Python solver
+Determine Loaded Math Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The global parameter ``math_libraries`` provides a list of loaded dlls.
+To determine the loaded math libraries, use
+
+.. code-block:: none
+
+    devsim.get_parameter(name='info')['math_libraries']
+
+UMFPACK 5.1 Solver
+^^^^^^^^^^^^^^^^^^
+
+The ``UMFPACK`` 5.1 solver is now available as a shared library distributed with the software.  It is licensed under the terms of the LGPL 2.1 and our version is hosted here:
+
+[https://github.com/devsim/umfpack_lgpl](https://github.com/devsim/umfpack_lgpl)
+
+Please note that this version uses a scheme to provide the needed math library functions when the library is loaded.
+
+In order to use this library, a shim script is provided to load UMFPACK and set it as the solver.  Please see this example:
+
+.. code-block:: none
+
+    python -mdevsim.umfpack.umfshim ssac_cap.py
+
+Direct Solver Callback
+^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to setup call a custom direct solver.  The direct solver is called from Python and the callback is implemented by setting these parameters:
+
+.. code-block:: none
+
+    devsim.set_parameter(name="direct_solver", value="custom")
+    devsim.set_parameter(name="solver_callback", value=local_solver_callback)
+
+Where the first parameter enables the use of the second parameter to set a callback function.  Please see the ``testing/umfpack_shim.py`` for a sample implementation using UMFPACK 5.1.
+
+Apple M1
+^^^^^^^^
+
+On this platform, the software does not check for floating point exceptions (FPEs) during usage of the direct solver.  During testing, it was discovered that FPEs were occuring during factorization for both the ``SuperLU`` and the ``UMFPACK``.  Removing this check allows more of the tests to run through to completion.
+
+Bugs
+
+Fix issue [#104](https://github.com/devsim/devsim/issues/104) where the 2D MOSFET example was not fully connected across region interfaces.
+
+.. code-block:: none
+
+    testing/mos_2d.py
+    testing/mos_2d_restart.py
+    testing/mos_2d_restart2.py
+
+This was resulting in an FPE during testing on macOS M1.
+
+
 
 Version 2.3.8
 ~~~~~~~~~~~~~
