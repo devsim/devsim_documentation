@@ -55,6 +55,7 @@ Apple M1
 On this platform, the software does not check for floating point exceptions (FPEs) during usage of the direct solver.  During testing, it was discovered that FPEs were occuring during factorization for both the ``SuperLU`` and the ``UMFPACK``.  Removing this check allows more of the tests to run through to completion.
 
 Bugs
+^^^^
 
 Fix issue [#104](https://github.com/devsim/devsim/issues/104) where the 2D MOSFET example was not fully connected across region interfaces.
 
