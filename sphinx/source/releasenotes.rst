@@ -10,6 +10,19 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.5.0
+~~~~~~~~~~~~~
+
+UMFPACK 5.1 is the new default when the Intel MKL is not available, making this the default for the macOS arm64 platform.
+
+SuperLU is removed and no longer available as a solver.
+
+Regression scripts were passing when there were numerical differences in the data diff comparison.  This is now corrected and the regression results have been updated on all platforms.
+
+For those building the software, the ``EXPLICIT_MATH_LOAD`` CMAKE option has been removed, so that the software is not directly linked to any math library.
+
+The license text for the Apache 2.0 license has been replaced with the SPDX format of the license string.  This ensures that the text can be used in a consistent manner across all source files.
+
 Version 2.4.0
 ~~~~~~~~~~~~~
 
