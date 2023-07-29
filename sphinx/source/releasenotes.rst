@@ -36,6 +36,8 @@ Documentation
 
 Fix documentation issue in :ref:`sec__diode1d` where the length of the 1D diode was incorrect.
 
+Fix issue where ``surface_area_model`` was missing from :ref:`parameters__behavior`.
+
 Version 2.5.0
 ~~~~~~~~~~~~~
 

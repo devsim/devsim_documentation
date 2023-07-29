@@ -42,6 +42,7 @@ They may also be used to control program behavior, as listed in :numref:`paramet
   "``extended_solver``", "``value=False`` Extended precision matrix and RHS assembly and error evaluations.  Linear solver and circuit assembly is still double precision``"
   "``extended_model``",  "``value=False`` Extended precision model evaluation"
   "``extended_equation``", "``value=False`` Extended precision equation evaluation"
+  "``surface_area_model``", "Model for integration of flux and hybrid interfaces."
 
 
 Material database entries
