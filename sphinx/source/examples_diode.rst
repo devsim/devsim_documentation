@@ -39,7 +39,7 @@ For this example, ``diode_1d.py``, the following line is used to import the rele
 Creating the mesh
 ^^^^^^^^^^^^^^^^^
 
-This creates a mesh :math:`10^{-6}` cm long with a junction located at the midpoint.  The name of the device is ``MyDevice`` with a single region names ``MyRegion``.  The contacts on either end are called ``top`` and ``bot``.
+This creates a mesh :math:`10^{-5}` cm long with a junction located at the midpoint.  The name of the device is ``MyDevice`` with a single region names ``MyRegion``.  The contacts on either end are called ``top`` and ``bot``.
 
 .. code-block:: python
 

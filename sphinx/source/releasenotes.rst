@@ -31,6 +31,10 @@ Citing DEVSIM
 
 ``CITATION.md`` has been updated with recent articles written about the simulator.
 
+Documentation
+^^^^^^^^^^^^^
+
+Fix documentation issue in :ref:`sec__diode1d` where the length of the 1D diode was incorrect.
 
 Version 2.5.0
 ~~~~~~~~~~~~~
