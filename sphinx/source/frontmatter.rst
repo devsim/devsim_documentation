@@ -29,7 +29,7 @@ Copyright
 Citing this Work
 ~~~~~~~~~~~~~~~~
 
-Please cite this document using the instructions at `https://doi.org/10.5281/zenodo.4583208 <https://doi.org/10.5281/zenodo.4583208>`__.  Instructions for citing the simulator are available from `https://doi.org/10.5281/zenodo.1186952 <https://doi.org/10.5281/zenodo.1186952>`__.  A list of peer review publications concerning the simulator are available at `https://devsim.org/introduction.html#publications <https://devsim.org/introduction.html#publications>`__.
+Please check ``CITATION.md`` in the distribution for suggestions on how to cite this work.
 
 .. _sec__documentationlicense:
 
