@@ -66,6 +66,7 @@ Commands for getting information about the device structure.
 .. autofunction:: get_element_node_list
 .. autofunction:: get_interface_list
 .. autofunction:: get_region_list
+.. autofunction:: reset_devsim
 
 
 

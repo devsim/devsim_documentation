@@ -1,6 +1,8 @@
 
 .. include:: macros.txt
 
+.. _release_notes:
+
 Release Notes
 -------------
 
@@ -18,7 +20,7 @@ Symbolic Factorization Reuse
 
 The Intel MKL solver will now use reuse the symbolic factorization, if the simulation matrix sparse matrix pattern has not changed after the second nonlinear solver iteration.  This reduces simulation time, but can result in numerical differences in the simulation result.
 
-This behavior may be controlled by using this option in the solve command
+This behavior may be controlled by using this option in the :meth:`devsim.solve` command
 
 .. code-block:: none
 
@@ -37,6 +39,8 @@ Documentation
 Fix documentation issue in :ref:`sec__diode1d` where the length of the 1D diode was incorrect.
 
 Fix issue where ``surface_area_model`` was missing from :ref:`parameters__behavior`.
+
+Added table of environment variables controlling program behavior in :ref:`parameters__environment`.
 
 Version 2.5.0
 ~~~~~~~~~~~~~

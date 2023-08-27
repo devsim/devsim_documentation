@@ -502,6 +502,14 @@ def get_region_list (**kwargs):
     '''
     pass
 
+def reset_devsim (**kwargs):
+    '''
+    devsim.reset_devsim ()
+
+    Resets all data for clean restart.
+    '''
+    pass
+
 def add_db_entry (**kwargs):
     '''
     devsim.add_db_entry (material, parameter, value, unit, description)
@@ -2176,7 +2184,7 @@ def set_initial_condition (**kwargs):
 
 def solve (**kwargs):
     '''
-    devsim.solve (type, solver_type, absolute_error, relative_error, maximum_error, charge_error, gamma, tdelta, maximum_iterations, maximum_divergence, frequency, output_node, info)
+    devsim.solve (type, solver_type, absolute_error, relative_error, maximum_error, charge_error, gamma, tdelta, maximum_iterations, maximum_divergence, frequency, output_node, info, symbolic_iteration_limit)
 
     Call the solver.  A small-signal AC source is set with the circuit voltage source.
 
@@ -2208,5 +2216,7 @@ def solve (**kwargs):
        Output circuit node for noise simulation
     info : bool, optional
        Solve command return convergence information (default False)
+    symbolic_iteration_limit : int, optional
+       Reuse symbolic matrix factorization after this number of iterations (default 1)
     '''
     pass

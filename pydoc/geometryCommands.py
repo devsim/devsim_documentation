@@ -5,6 +5,12 @@ Command = {
   "description" : "Commands for getting information about the device structure.",
   "commands" : (
       {
+          "name" : "reset_devsim",
+          "description" : "Resets all data for clean restart.",
+          "parameters" : (
+          )
+      },
+      {
           "name" : "get_device_list",
           "description" : "Gets a list of devices on the simulation.",
           "parameters" : (

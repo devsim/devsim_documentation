@@ -52,6 +52,7 @@ Command = {
               ("frequency", "Frequency for small-signal AC simulation", optional, Float, "0.0", None),
               ("output_node", "Output circuit node for noise simulation", optional, string, None, None),
               ("info", "Solve command return convergence information", optional, boolean, False, None),
+              ("symbolic_iteration_limit", "Reuse symbolic matrix factorization after this number of iterations", optional, integer, "1", None),
           )
       },
       {

@@ -44,6 +44,19 @@ They may also be used to control program behavior, as listed in :numref:`paramet
   "``extended_equation``", "``value=False`` Extended precision equation evaluation"
   "``surface_area_model``", "Model for integration of flux and hybrid interfaces."
 
+Environment Variables
+~~~~~~~~~~~~~~~~~~~~~
+
+Environment variables to control program behavior are listed in :numref:`parameters__environment`:.  Please consult :numref:`release_notes`: for the most up to information concerning their usage.
+
+.. _parameters__environment:
+
+.. csv-table:: Environment controlling program behavior.
+  :header: "Environment Variable", "Description"
+  :widths: 20, 20
+
+  "``DEVSIM_MATH_LIBS``", "List of BLAS/LAPACK libraries to load instead of system defaults"
+  "``DEVSIM_NEW_SYMBOLIC``", "When set, do a new symbolic matrix factorization during direct solve iterations"
 
 Material database entries
 ~~~~~~~~~~~~~~~~~~~~~~~~~
