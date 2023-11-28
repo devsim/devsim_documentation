@@ -12,6 +12,80 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.7.0
+~~~~~~~~~~~~~
+
+Error Handling
+^^^^^^^^^^^^^^
+
+More helpful exception information returned to python if the error is considered fatal.  This can be used to decide if the simulation can be restarted.  Note that if this occurs during a solve, it is necessary for the user to restore the previous circuit and device solutions if a restart is desired.  In addition, model evaluation is reset so that no false cyclic dependencies are reported after an error.
+
+In this example code below, the previously ``DEVSIM_FATAL`` error string will now provide the context that a floating point exception occurred and be handled in Python.
+
+.. code-block:: none
+
+    try:
+        self.solve()
+    except error as msg:
+        m = str(msg)
+        if 'Convergence failure' in m:
+            self.set_vapp(last_bias)
+        elif'floating point exception' in m:
+            self.set_vapp(last_bias)
+            self.restore_callback(self.is_circuit)
+        else:
+            raise
+
+
+Version 2.6.5
+~~~~~~~~~~~~~
+
+Bugs
+^^^^
+Fixed issue [#123](https://github.com/devsim/devsim/issues/123) identified by [@gluek](https://github.com/gluek) This resulted in bad results on Windows and macOS in calculation of 3d mesh areas and volumes.
+
+Version 2.6.4
+~~~~~~~~~~~~~
+
+SuperLU
+^^^^^^^
+
+Use ``MMD_ATA`` preconditioner for SuperLU builds.
+
+Android
+^^^^^^^
+
+Android builds use special implementations for the Bernoulli function to prevent overflow.
+
+Examples
+^^^^^^^^
+
+``testing/pythonmesh1d.py`` demonstrates how to get mesh information using :meth:`devsim.get_element_node_list`.
+
+``examples/diode/tran_diode.py`` demonstrates transient diode simulation.
+
+Version 2.6.3
+~~~~~~~~~~~~~
+
+Allow python threading during long solve operations.
+
+Version 2.6.2
+~~~~~~~~~~~~~
+
+``delete_circuit``
+
+``get_mesh_list``
+
+Version 2.6.1
+~~~~~~~~~~~~~
+
+Bugs
+^^^^
+
+Fix issue [#116](https://github.com/devsim/devsim/issues/116) where the contact current was being calculated incorrectly in transient mode.
+
+
+
 Version 2.6.0
 ~~~~~~~~~~~~~
 
@@ -135,15 +209,13 @@ Fix issue [#104](https://github.com/devsim/devsim/issues/104) where the 2D MOSFE
 
 This was resulting in an FPE during testing on macOS M1.
 
-
-
 Version 2.3.8
 ~~~~~~~~~~~~~
 
 Bugs
 ^^^^
 
-[@ryan3141](https://github.com/ryan3141) fixed an issue where math functions added with ``devsim.register_function`` were not available in extended precision model evaluation.  The ``testing/testfunc_extended.py`` test is added to validate the fix.
+[@ryan3141](https://github.com/ryan3141) fixed an issue where math functions added with :meth:`devsim.register_function` were not available in extended precision model evaluation.  The ``testing/testfunc_extended.py`` test is added to validate the fix.
 
 Update NOTICE with the license files from the various dependencies.
 
@@ -809,7 +881,7 @@ The following commands are available to store data on edges and element edges:
 - :meth:`devsim.set_edge_values`
 - :meth:`devsim.element_solution`
 - :meth:`devsim.set_element_values`
- 
+
 
 Release 1.3.0
 ~~~~~~~~~~~~~
