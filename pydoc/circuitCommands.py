@@ -84,6 +84,12 @@ Command={
               ("value", "new value", optional, Float, "0.0", None),
           ),
       },
+     {
+          "name" : "delete_circuit",
+          "description" : "Deletes any present circuit and its solutions.",
+          "parameters" : (
+          )
+      },
   )
 }
 

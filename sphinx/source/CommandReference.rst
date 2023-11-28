@@ -18,6 +18,7 @@ Commands are for adding circuit elements to the simulation.
 .. autofunction:: circuit_alter
 .. autofunction:: circuit_element
 .. autofunction:: circuit_node_alias
+.. autofunction:: delete_circuit
 .. autofunction:: get_circuit_equation_number
 .. autofunction:: get_circuit_node_list
 .. autofunction:: get_circuit_node_value
@@ -123,6 +124,7 @@ Commands for reading and writing meshes
 .. autofunction:: delete_device
 .. autofunction:: delete_mesh
 .. autofunction:: finalize_mesh
+.. autofunction:: get_mesh_list
 .. autofunction:: load_devices
 .. autofunction:: write_devices
 

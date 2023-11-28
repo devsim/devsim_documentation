@@ -71,6 +71,14 @@ def circuit_node_alias (**kwargs):
     '''
     pass
 
+def delete_circuit (**kwargs):
+    '''
+    devsim.delete_circuit ()
+
+    Deletes any present circuit and its solutions.
+    '''
+    pass
+
 def get_circuit_equation_number (**kwargs):
     '''
     devsim.get_circuit_equation_number (node)
@@ -1122,6 +1130,14 @@ def finalize_mesh (**kwargs):
     ----------
     mesh : str
        Mesh to finalize
+    '''
+    pass
+
+def get_mesh_list (**kwargs):
+    '''
+    devsim.get_mesh_list ()
+
+    Get list of meshes
     '''
     pass
 
