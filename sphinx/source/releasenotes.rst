@@ -18,9 +18,9 @@ Version 2.7.0
 Error Handling
 ^^^^^^^^^^^^^^
 
-More helpful exception information returned to python if the error is considered fatal.  This can be used to decide if the simulation can be restarted.  Note that if this occurs during a solve, it is necessary for the user to restore the previous circuit and device solutions if a restart is desired.  In addition, model evaluation is reset so that no false cyclic dependencies are reported after an error.
+More helpful exception information returned to Python if the error is considered fatal.  This can be used to decide if the simulation can be restarted.  Note that if this occurs during a solve, it is necessary for the user to restore the previous circuit and device solutions if a restart is desired.  In addition, model evaluation is reset so that no false cyclic dependencies are reported after an error.
 
-In this example code below, the previously ``DEVSIM_FATAL`` error string will now provide the context that a floating point exception occurred and be handled in Python.
+In this example code below, the previously ``DEVSIM FATAL`` error string will now provide the context that a floating point exception occurred and be handled in Python.
 
 .. code-block:: none
 
@@ -67,7 +67,7 @@ Examples
 Version 2.6.3
 ~~~~~~~~~~~~~
 
-Allow python threading during long solve operations.
+Allow Python threading during long solve operations.
 
 Version 2.6.2
 ~~~~~~~~~~~~~
