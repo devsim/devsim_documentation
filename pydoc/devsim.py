@@ -1156,7 +1156,7 @@ def load_devices (**kwargs):
 
 def write_devices (**kwargs):
     '''
-    devsim.write_devices (file, device, type)
+    devsim.write_devices (file, device, type, include_test)
 
     Write a device to a file for visualization or restart
 
@@ -1166,8 +1166,10 @@ def write_devices (**kwargs):
        name of the file to write the meshes to
     device : str, optional
        name of the device to write
-    type : {'devsim', 'devsim_data', 'floops', 'tecplot', 'vtk'}
+    type : {'devsim', 'devsim_data', 'tecplot', 'vtk'}
        format to use
+    include_test : str
+       Callback function which tests whether a model should be written to the output
     '''
     pass
 

@@ -227,11 +227,11 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
               ("type", "format to use", optional, option, "devsim", (
                   ("devsim", r"DEVSIM format"),
                   ("devsim_data", r"DEVSIM output format with numerical data for all models"),
-                  ("floops", r"Floops format (for visualization in Postmini)"),
                   ("tecplot", r"Tecplot format (for visualization in Tecplot)"),
                   ("vtk", r"VTK format (for visualization in Paraview and VisIt)"),
               )
               ),
+              ("include_test", "Callback function which tests whether a model should be written to the output", required, string, None, None),
           )
       },
       {

@@ -1027,7 +1027,7 @@ R"(    devsim.load_devices (file)
 )";
 
 static const char write_devices_doc[] =
-R"(    devsim.write_devices (file, device, type)
+R"(    devsim.write_devices (file, device, type, include_test)
 
     Write a device to a file for visualization or restart
 
@@ -1037,8 +1037,10 @@ R"(    devsim.write_devices (file, device, type)
        name of the file to write the meshes to
     device : str, optional
        name of the device to write
-    type : {'devsim', 'devsim_data', 'floops', 'tecplot', 'vtk'}
+    type : {'devsim', 'devsim_data', 'tecplot', 'vtk'}
        format to use
+    include_test : str
+       Callback function which tests whether a model should be written to the output
 )";
 
 static const char contact_edge_model_doc[] =
