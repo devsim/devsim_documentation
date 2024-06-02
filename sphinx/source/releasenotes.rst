@@ -12,6 +12,30 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.8.0
+~~~~~~~~~~~~~
+
+
+Version 2.7.3
+~~~~~~~~~~~~~
+
+Fixed issue [#133](https://github.com/devsim/devsim/issues/133) identified by [@yh-kwok](https://github.com/yh-kwok).
+
+Version 2.7.2
+~~~~~~~~~~~~~
+
+* macOS package is now Universal.  Both ``x86_64`` and ``arm64`` will use ``clang`` compiler and macOS 12.0 is now the minimum supported version.
+* Update Boost version to 1.82
+* Improvements to extended precision complex numbers implementation to work with newer compilers.
+* Script to build for ``manylinux_2_28`` (Centos 8)
+* Build Linux aarch64 from macOS system with docker
+
+Version 2.7.1
+~~~~~~~~~~~~~
+
+* Support for Linux aarch64, which can be run on Amazon AWS 64 bit instances.
+* Better implicit float conversions in parameters.
+
 Version 2.7.0
 ~~~~~~~~~~~~~
 
@@ -72,9 +96,8 @@ Allow Python threading during long solve operations.
 Version 2.6.2
 ~~~~~~~~~~~~~
 
-``delete_circuit``
-
-``get_mesh_list``
+* :meth:`devsim.delete_circuit`
+* :meth:`devsim.get_mesh_list`
 
 Version 2.6.1
 ~~~~~~~~~~~~~
