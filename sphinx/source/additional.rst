@@ -30,22 +30,22 @@ External Software Tools
 Gmsh
 ^^^^
 
-|gmsh| :cite:`Gmsh:2009` is available from http://gmsh.info.
+|gmsh| :cite:`Gmsh:2009` is available from https://gmsh.info.
 
 Paraview
 ^^^^^^^^
 
-|paraview| is an open source visualization tool available at http://www.paraview.org.
+|paraview| is an open source visualization tool available at https://paraview.org.
 
 Tecplot
 ^^^^^^^
 
-|tecplot| is a commercial visualization tool available from http://www.tecplot.com.
+|tecplot| is a commercial visualization tool available from https://tecplot.com.
 
 VisIt
 ^^^^^
 
-|visit| is an open source visualization tool available from https://wci.llnl.gov/codes/visit/.
+|visit| is an open source visualization tool available from https://visit-dav.github.io/visit-website.
 
 
 Library Availablilty
@@ -56,24 +56,24 @@ The following tools are used to build |devsim|.
 BLAS and LAPACK
 ^^^^^^^^^^^^^^^
 
-These are the basic linear algebra routines used directly by |devsim| and by |superlu|. Reference versions are available from http://www.netlib.org.  There are optimized versions available from other vendors.
+These are the basic linear algebra routines used directly by |devsim| and by |superlu|. Reference versions are available from https://netlib.org.  There are optimized versions available from other vendors.
 
 .. _additional__python:
 
 Python
 ^^^^^^
 
-A |python|  distribution is required for using |devsim| and is distributed with many operating system.  Additional information is available at https://www.python.org.  It should be stressed that binary packages must be compatible with the |python| distribution used by |devsim|.
+A |python|  distribution is required for using |devsim| and is distributed with many operating system.  Additional information is available at https://python.org.  It should be stressed that binary packages must be compatible with the |python| distribution used by |devsim|.
 
 SQlite3
 ^^^^^^^
 
-|sqlite| is an open source database engine used for the material database and is available from https://www.sqlite.org.
+|sqlite| is an open source database engine used for the material database and is available from https://sqlite.org.
 
 SuperLU
 ^^^^^^^
 
-|superlu| :cite:`superlu99` is used within |devsim| and and is available from http://crd-legacy.lbl.gov/~xiaoye/SuperLU:
+|superlu| :cite:`superlu99` is used within |devsim| and and is available from https://portal.nersc.gov/project/sparse/superlu/:
 
 ..
 
