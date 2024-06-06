@@ -18,7 +18,7 @@ Version 2.8.0
 Reduction in data file sizes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsim.write_devices` now supports reducing the filesize of data files by allowing users to specify a callback function to reduce data usage.
+Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsim.write_devices` now supports reducing the file size of data files by allowing users to specify a callback function to reduce data usage.
 
 
 FLOOPS Data File Output

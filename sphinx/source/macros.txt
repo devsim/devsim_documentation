@@ -16,7 +16,6 @@
 .. |cplusplusseventeen| replace:: ``C++17``
 .. |visit| replace:: ``VisIt``
 .. |paraview| replace:: ``ParaView``
-.. |postmini| replace:: ``Postmini``
 .. |tecplot| replace:: ``Tecplot``
 
 .. |devsimgithub| replace:: `https://github.com/devsim/devsim <https://github.com/devsim/devsim>`__

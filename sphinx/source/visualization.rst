@@ -19,15 +19,6 @@ The :meth:`devsim.write_devices` is used to create an ASCII file suitable for us
 
   write_devices(file="mos_2d_dd.dat", type="tecplot")
 
-Using Postmini
-~~~~~~~~~~~~~~
-
-The :meth:`devsim.write_devices` is used to create an ASCII file suitable for use in |postmini|.  Edge and element edge quantities are interpolated onto the node positions in the resulting structure.
-
-.. code-block:: python
-
-  write_devices(file="mos_2d_dd.flps", type="floops")
-
 Using Paraview
 ~~~~~~~~~~~~~~
 

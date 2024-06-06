@@ -37,10 +37,6 @@ Paraview
 
 |paraview| is an open source visualization tool available at http://www.paraview.org.
 
-..  Postmini
-  ^^^^^^^^
-  |postmini| is available from http://home.comcast.net/~john.faricelli/tcad.htm.
-
 Tecplot
 ^^^^^^^
 
