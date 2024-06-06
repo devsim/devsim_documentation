@@ -138,7 +138,7 @@ where setting the value to ``-1`` will create a new symbolic factorization for a
 Reset Simulator
 ^^^^^^^^^^^^^^^
 
-The ``reset_devsim`` command will clear all simulator data, so that a program restart is not necessary.
+The :meth:`devsim.reset_devsim` command will clear all simulator data, so that a program restart is not necessary.
 
 Build Infrastructure
 ^^^^^^^^^^^^^^^^^^^^
