@@ -231,7 +231,7 @@ This file will import a Gmsh format mesh from a file.  Alternatively, the mesh s
                   ("vtk", r"VTK format (for visualization in Paraview and VisIt)"),
               )
               ),
-              ("include_test", "Callback function which tests whether a model should be written to the output", required, string, None, None),
+              ("include_test", "Callback function which tests whether a model should be written to the tecplot or vtk format", required, string, None, None),
           )
       },
       {

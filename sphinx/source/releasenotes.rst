@@ -15,16 +15,40 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.8.0
 ~~~~~~~~~~~~~
 
-Reduction in data file sizes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Data Output
+^^^^^^^^^^^
 
-Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsim.write_devices` now supports reducing the file size of data files by allowing users to specify a callback function to reduce data usage.
+Reduction in Data file sizes
+""""""""""""""""""""""""""""
 
+Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsim.write_devices` now supports reducing the file size of data files by allowing users to specify a callback function to reduce data usage.  In this example, only the ``NetDoping`` field is written to the Tecplot data file.
+
+.. code-block:: none
+
+    devsim.write_devices(
+        file="mesh2d_reduced.tec",
+        type="tecplot",
+        include_test=lambda x: x in ("NetDoping",),
+    )
 
 FLOOPS Data File Output
-^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""
 
-The `floops` option for :meth:`devsim.write_devices` has been removed.
+The ``floops`` option for :meth:`devsim.write_devices` has been removed.
+
+
+Platform Support
+^^^^^^^^^^^^^^^^
+
+Windows Build Issue
+"""""""""""""""""""
+
+During testing, it was found the Visual Studio 2022 builds were failing a test related to threading.  This was found to be a problem with version ``17.10``, but not version ``17.9``.  This affects the build automation, but should not affect the binary releases.
+
+Centos 7 End of Life
+""""""""""""""""""""
+
+This is the last version to support Centos 7 before its end of life on June 30, 2024.  After this date we will be moving to the AlmaLinux 8 based ``manylinux_2_28``.
 
 Version 2.7.3
 ~~~~~~~~~~~~~

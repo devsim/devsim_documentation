@@ -1040,7 +1040,7 @@ R"(    devsim.write_devices (file, device, type, include_test)
     type : {'devsim', 'devsim_data', 'tecplot', 'vtk'}
        format to use
     include_test : str
-       Callback function which tests whether a model should be written to the output
+       Callback function which tests whether a model should be written to the tecplot or vtk format
 )";
 
 static const char contact_edge_model_doc[] =
