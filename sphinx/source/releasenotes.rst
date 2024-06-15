@@ -44,7 +44,7 @@ The material database has been removed.
 * ``devsim.add_db_entry``
 * ``devsim.get_db_entry``
 
-This feature was not used in any example or well documented.  This also removes the binary dependence on SQLite.
+This feature was only being used in the ``bioapp1`` examples, and those tests have been updated.  This also removes the binary dependence on SQLite.
 
 Version 2.8.0
 ~~~~~~~~~~~~~
