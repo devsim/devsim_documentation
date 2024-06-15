@@ -32,7 +32,7 @@ Version 2.8.0
 Python Scripts
 ^^^^^^^^^^^^^^
 
-Based on a contribution by [@simbilod](https://github.com/simbilod), all of the Python scripts have been reformatted.  The build system was also updated to enforce Python script modifiecations are properly formatted when submitted to the project.
+Based on a contribution by [@simbilod](https://github.com/simbilod), all of the Python scripts have been reformatted.  The build system was also updated to enforce Python script modifications are properly formatted when submitted to the project.
 
 Data Output
 ^^^^^^^^^^^
