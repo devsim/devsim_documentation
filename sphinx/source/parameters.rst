@@ -58,25 +58,9 @@ Environment variables to control program behavior are listed in :numref:`paramet
   "``DEVSIM_MATH_LIBS``", "List of BLAS/LAPACK libraries to load instead of system defaults"
   "``DEVSIM_NEW_SYMBOLIC``", "When set, do a new symbolic matrix factorization during direct solve iterations"
 
-Material database entries
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Alternatively, parameters may be set based on material types.  A database file is used for getting values on the regions of the device.
-
-.. code-block:: python
-
-  devsim.create_db(filename="foodb")
-  devsim.add_db_entry(material="global", parameter="q", value=1.60217646e-19,
-    unit="coul", description="Electron Charge")
-  devsim.add_db_entry(material="Si", parameter="one",
-    value=1, unit="", description="")
-  devsim.close_db
-
-When a database entry is not available for a specific material, the parameter will be looked up on the ``global`` material entry.
-
 Discussion
 ~~~~~~~~~~
 
-Both parameters and material database entries may be used in model expressions.  Parameters have precedence in this situation.  If a parameter is not found, then |devsim| will also look for a circuit node by the name used in the model expression.
+Parameters may be used in model expressions.  If a parameter is not found, then |devsim| will also look for a circuit node by the name used in the model expression.
 
 

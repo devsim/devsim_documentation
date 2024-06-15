@@ -80,16 +80,10 @@ Commands for manipulating parameters and material properties
 
 
 .. currentmodule:: devsim
-.. autofunction:: add_db_entry
-.. autofunction:: close_db
-.. autofunction:: create_db
-.. autofunction:: get_db_entry
 .. autofunction:: get_dimension
 .. autofunction:: get_material
 .. autofunction:: get_parameter
 .. autofunction:: get_parameter_list
-.. autofunction:: open_db
-.. autofunction:: save_db
 .. autofunction:: set_material
 .. autofunction:: set_parameter
 

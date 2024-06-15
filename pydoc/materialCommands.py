@@ -66,57 +66,6 @@ Note that the device and region options are optional.  If the region is not spec
               ("material", "New material name", required, string, None, None),
           )
       },
-      {
-          "name" : "create_db",
-          "description" : "Create a database to store material properties",
-          "parameters" : (
-              ("filename", "filename to create for the db", required, string, None, None),
-          )
-      },
-      {
-          "name" : "open_db",
-          "description" : "Open a database storing material properties",
-          "parameters" : (
-              ("filename", "filename to create for the db", required, string, None, None),
-              ("permissions", "permissions on the db", optional, option, "readonly", (
-                  ("readwrite", "Open file for reading and writing"),
-                  ("readonly", "Open file for read only"),
-              )
-              ),
-          )
-      },
-      {
-          "name" : "close_db",
-          "description" : "Closes the database so that its entries are no longer available",
-          "parameters" : (),
-      },
-      {
-          "name" : "save_db",
-          "description" : "Saves any new or modified db entries to the database file",
-          "parameters" : (),
-      },
-      {
-          "name" : "add_db_entry",
-          "description" : "Adds an entry to the database",
-          "long_description" : r'''
-The :meth:`devsim.save_db` command is used to commit these added entries permanently to the database.
-''',
-          "parameters" : (
-              ("material", "Material name requested. ``global`` refers to all regions whose material does not have the parameter name specified", required, string, None, None),
-              ("parameter", "Parameter name", required, string, None, None),
-              ("value", "Value assigned for the parameter", required, string, None, None),
-              ("unit", "String describing the units for this parameter name", required, string, None, None),
-              ("description", "Description of the parameter for this material type.", required, string, None, None),
-          )
-      },
-      {
-          "name" : "get_db_entry",
-          "description" : "This command returns a list containing the value, unit, and description for the requested material db entry",
-          "parameters" : (
-              ("material", "Material name", required, string, None, None),
-              ("parameter", "Parameter name", required, string, None, None),
-          )
-      }
   )
 }
 

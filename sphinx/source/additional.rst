@@ -65,11 +65,6 @@ Python
 
 A |python|  distribution is required for using |devsim| and is distributed with many operating system.  Additional information is available at https://python.org.  It should be stressed that binary packages must be compatible with the |python| distribution used by |devsim|.
 
-SQlite3
-^^^^^^^
-
-|sqlite| is an open source database engine used for the material database and is available from https://sqlite.org.
-
 SuperLU
 ^^^^^^^
 

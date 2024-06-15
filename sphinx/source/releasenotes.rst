@@ -12,6 +12,20 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.8.1
+~~~~~~~~~~~~~
+
+The material database has been removed.
+
+* ``devsim.create_db``
+* ``devsim.open_db``
+* ``devsim.close_db``
+* ``devsim.save_db``
+* ``devsim.add_db_entry``
+* ``devsim.get_db_entry``
+
+This feature was not used in any example or well documented.
+
 Version 2.8.0
 ~~~~~~~~~~~~~
 

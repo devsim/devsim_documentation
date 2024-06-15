@@ -518,68 +518,6 @@ def reset_devsim (**kwargs):
     '''
     pass
 
-def add_db_entry (**kwargs):
-    '''
-    devsim.add_db_entry (material, parameter, value, unit, description)
-
-    Adds an entry to the database
-
-    Parameters
-    ----------
-    material : str
-       Material name requested. ``global`` refers to all regions whose material does not have the parameter name specified
-    parameter : str
-       Parameter name
-    value : str
-       Value assigned for the parameter
-    unit : str
-       String describing the units for this parameter name
-    description : str
-       Description of the parameter for this material type.
-
-    Notes
-    -----
-
-    The :meth:`devsim.save_db` command is used to commit these added entries permanently to the database.
-    '''
-    pass
-
-def close_db (**kwargs):
-    '''
-    devsim.close_db ()
-
-    Closes the database so that its entries are no longer available
-    '''
-    pass
-
-def create_db (**kwargs):
-    '''
-    devsim.create_db (filename)
-
-    Create a database to store material properties
-
-    Parameters
-    ----------
-    filename : str
-       filename to create for the db
-    '''
-    pass
-
-def get_db_entry (**kwargs):
-    '''
-    devsim.get_db_entry (material, parameter)
-
-    This command returns a list containing the value, unit, and description for the requested material db entry
-
-    Parameters
-    ----------
-    material : str
-       Material name
-    parameter : str
-       Parameter name
-    '''
-    pass
-
 def get_dimension (**kwargs):
     '''
     devsim.get_dimension (device)
@@ -649,29 +587,6 @@ def get_parameter_list (**kwargs):
     -----
 
     Note that the ``device`` and ``region`` options are optional.  If the region is not specified, the parameter is retrieved for the entire device.  If the device is not specified, the parameter is retrieved for all devices.  Unlike the :meth:`devsim.getParameter`, parameter names on the the device are not retrieved if they do not exist on the region.  Similarly, the parameter names over all devices are not retrieved if they do not exist on the device.
-    '''
-    pass
-
-def open_db (**kwargs):
-    '''
-    devsim.open_db (filename, permissions)
-
-    Open a database storing material properties
-
-    Parameters
-    ----------
-    filename : str
-       filename to create for the db
-    permissions : {'readonly', 'readwrite'}
-       permissions on the db
-    '''
-    pass
-
-def save_db (**kwargs):
-    '''
-    devsim.save_db ()
-
-    Saves any new or modified db entries to the database file
     '''
     pass
 
