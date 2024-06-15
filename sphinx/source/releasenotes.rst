@@ -15,6 +15,26 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.8.1
 ~~~~~~~~~~~~~
 
+Help Files
+^^^^^^^^^^
+
+Updated instructions.  Added additional documentation files.
+
+.. list-table:: Title
+   :header-rows: 1
+
+   * - File
+     - Purpose
+   * - ``BUILD.md``
+     - Building from source
+   * - ``CODE_OF_CONDUCT.md``
+     - Code of conduct
+   * - ``TEST.md``
+     - Testing instructions
+
+Database Command Removal
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 The material database has been removed.
 
 * ``devsim.create_db``
@@ -24,7 +44,7 @@ The material database has been removed.
 * ``devsim.add_db_entry``
 * ``devsim.get_db_entry``
 
-This feature was not used in any example or well documented.
+This feature was not used in any example or well documented.  This also removes the binary dependence on SQLite.
 
 Version 2.8.0
 ~~~~~~~~~~~~~
