@@ -1,26 +1,27 @@
-.. include:: macros.txt
-
 .. _ch__diode:
 
 Diode
------
+=====
+
+Overview
+--------
 
 The diode examples are located in the ``examples/diode``.  They demonstrate the use of packages located in the ``python_packages`` directory to simulate drift-diffusion using the Scharfetter-Gummel method :cite:`sgieeeted1969`.
 
 .. _sec__diode1d:
 
 1D diode
-~~~~~~~~
+--------
 
 Using the python packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For these examples, python modules are provided to supply the appropriate model and parameter settings.  A listing is shown in :numref:`ppack`.
+For these examples, python modules are provided to supply the appropriate model and parameter settings.  A listing is shown in :ref:`ppack`.
 The ``devsim.python_packages`` module is part of the distribution.  The example files in the |devsim| distribution set the path properly when loading modules.
 
 .. _ppack:
 
-.. table:: Python package files.
+.. table:: |python| package files
 
   ================== ========================================================
   ``model_create``   Creation of models and their derivatives
@@ -59,8 +60,8 @@ This creates a mesh :math:`10^{-5}` cm long with a junction located at the midpo
 
   createMesh(device, region)
 
-Physical Models and Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Physical models and parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -147,7 +148,7 @@ Physical Models and Parameters
 Plotting the result
 ^^^^^^^^^^^^^^^^^^^
 
-A plot showing the doping profile and carrier densities are shown in :numref:`diodedensity`.  The potential and electric field distribution is shown in :numref:`diodepotential`.  The current distributions are shown in :numref:`diodecurrent`.
+A plot showing the doping profile and carrier densities are shown in :ref:`diodedensity`.  The potential and electric field distribution is shown in :ref:`diodepotential`.  The current distributions are shown in :ref:`diodecurrent`.
 
 .. _diodedensity:
 

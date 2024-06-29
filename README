@@ -1,7 +1,0 @@
-Build steps starting with conda in your path.
-
-preinstall.sh
-source activate devsim_doc
-build.sh
-
-The doc directory contains the pdf, html, and c++ file.

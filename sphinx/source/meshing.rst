@@ -1,12 +1,13 @@
-.. include:: macros.txt
+.. include:: macros.rst
 
 .. _ch__meshing:
 
+*******
 Meshing
--------
+*******
 
 1D mesher
-~~~~~~~~~
+=========
 
 |devsim| has an internal 1D mesher and the proper sequence of commands follow in this example.
 
@@ -33,7 +34,7 @@ The :meth:`devsim.add_1d_contact`, :meth:`devsim.add_1d_interface` and :meth:`de
 Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` is called to create a mesh structure and then :meth:`devsim.create_device` is used to create a device using the mesh.
 
 2D mesher
-~~~~~~~~~
+=========
 
 Similar to the 1D mesher, the 2D mesher uses a sequence of non-terminating mesh lines are specified in both the x and y directions to specify a mesh structure.  As opposed to using tags, the regions are specified using :meth:`devsim.add_2d_region` as box coordinates on the mesh coordinates.  The contacts and interfaces are specified using boxes, however it is best to ensure the the interfaces and contacts encompass only one line of points.
 
@@ -72,16 +73,19 @@ Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` 
 .. _sec__externalmesher:
 
 Using an external mesher
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-|devsim| supports reading meshes from |gmsh|.   In addition, meshes may be input directly using the |python| interface.  These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
+========================
 
 .. _sec__gmshintro:
 
 Gmsh
-^^^^
+----
 
-The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create a 1D, 2D, or 3D mesh suitable for use in |devsim|.  When creating the mesh file using the software, use physical group names to map the difference entities in the resulting mesh file to a group name.  In this example, a MOS structure is read in:
+The |gmsh| meshing software (see :ref:`gmshAvailability`) can be used to create a 1D, 2D, or 3D mesh suitable for use in |devsim|.  |devsim| supports reading version ``2.2`` meshes from |gmsh|.  In order to write this format, it is necessary to specify the mesh format when writing out a mesh file.  From the `gmsh` command line, use the ``-format msh2`` option.
+
+When creating the mesh file using the software, use physical group names to map the difference entities in the resulting mesh file to a group name.  
+
+
+In this example, a MOS structure is read in:
 
 .. code-block:: python
 
@@ -113,15 +117,52 @@ Once the meshing commands have been completed, the :meth:`devsim.finalize_mesh` 
 .. _sec__customMeshLoad:
 
 Custom mesh loading using scripting
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
-It is also possible to arbitrarily load a mesh from a |python| using the :meth:`devsim.create_gmsh_mesh`.  This is explained in the ``Notes`` section of the command.
+It is also possible to arbitrarily load a mesh from a |python| using the :meth:`devsim.create_gmsh_mesh`.  This is explained in the ``Notes`` section of the command.  In addition, please see the ``testing/pythonmesh1d`` script for a simple demonstration script.
+These meshes may only contain points, lines, triangles, and tetrahedra.  Hybrid meshes or uniform meshes containing other elements are not supported at this time.
 
 .. _sec__devsimLoadSave:
 
 Loading and saving results
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 The :meth:`devsim.write_devices` is used to create an ASCII file suitable for saving data for restarting the simulation later.  The ``devsim`` format encodes structural information, as well as the commands necessary for generating the models and equations used in the simulation.  The ``devsim_data`` format is used for storing numerical information for use in other programs for analysis.
 The :meth:`devsim.load_devices` is then used to reload the device data for restarting the simulation.
+
+Mesh processing
+===============
+
+See :ref:`ch__examples` for examples involving mesh processing.
+
+Notes
+=====
+
+Contacts
+--------
+
+Contact material
+^^^^^^^^^^^^^^^^
+
+Contacts requires a material setting (e.g. ``metal``).  This is for informational purposes.  Contact models still look up parameter values based on the region they are located.
+
+
+Create contacts from interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :meth:`devsim.create_contact_from_interface` may be used to create a contact at the location of an interface.  This is useful when contact boundary conditions are needed for a region connected to the interface.
+
+Device and mesh deletion commands
+---------------------------------
+
+The :meth:`devsim.delete_device` command makes it possible to delete devices so they will no longer be solved in the simulation.  Any parameters set on the device are also removed from the system.
+
+The :meth:`devsim.delete_mesh` command makes it possible to delete meshes.  Once a mesh has been deleted, it is no longer possible to create devices from it using the :meth:`devsim.create_device` command.
+
+
+Periodic boundary conditions
+----------------------------
+
+The :meth:`devsim.create_interface_from_nodes` command makes it possible to create an interface with non coincident nodes.  This enables the use of periodic boundary conditions.
+
 

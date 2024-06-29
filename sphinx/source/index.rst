@@ -14,13 +14,15 @@ DEVSIM Manual
 
 .. toctree::
    :maxdepth: 3
-   :numbered:
+   :numbered: 3
 
    frontmatter
 
    releasenotes
 
-   introduction
+   gettingstarted
+
+   Python
 
    models
 
@@ -32,25 +34,17 @@ DEVSIM Manual
 
    solver
 
-   Python
-
    symdiff
 
    visualization
 
-   installation
+   examples
 
-   additional
+   examples_short
 
    CommandReference
 
    references
-
-   examples
-
-   examples_cap1d
-
-   examples_diode
 
 .. only:: html
 

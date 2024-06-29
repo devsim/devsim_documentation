@@ -1,14 +1,15 @@
 
+*****************
 Command Reference
------------------
+*****************
 
 .. automodule:: devsim
    :no-members:
 
 .. _CircuitCommands:
 
-Circuit Commands
-~~~~~~~~~~~~~~~~
+Circuit commands
+================
 
 Commands are for adding circuit elements to the simulation.
 
@@ -29,8 +30,8 @@ Commands are for adding circuit elements to the simulation.
 
 .. _EquationCommands:
 
-Equation Commands
-~~~~~~~~~~~~~~~~~
+Equation commands
+=================
 
 Commands for manipulating equations on contacts, interface, and regions
 
@@ -55,8 +56,8 @@ Commands for manipulating equations on contacts, interface, and regions
 
 .. _GeometryCommands:
 
-Geometry Commands
-~~~~~~~~~~~~~~~~~
+Geometry commands
+=================
 
 Commands for getting information about the device structure.
 
@@ -73,8 +74,8 @@ Commands for getting information about the device structure.
 
 .. _MaterialCommands:
 
-Material Commands
-~~~~~~~~~~~~~~~~~
+Material commands
+=================
 
 Commands for manipulating parameters and material properties
 
@@ -91,8 +92,8 @@ Commands for manipulating parameters and material properties
 
 .. _MeshingCommands:
 
-Meshing Commands
-~~~~~~~~~~~~~~~~
+Meshing commands
+================
 
 Commands for reading and writing meshes
 
@@ -126,8 +127,8 @@ Commands for reading and writing meshes
 
 .. _ModelCommands:
 
-Model Commands
-~~~~~~~~~~~~~~
+Model commands
+==============
 
 Commands for defining and evaluating models
 
@@ -180,8 +181,8 @@ Commands for defining and evaluating models
 
 .. _SolverCommands:
 
-Solver Commands
-~~~~~~~~~~~~~~~
+Solver commands
+===============
 
 Commands for simulation
 

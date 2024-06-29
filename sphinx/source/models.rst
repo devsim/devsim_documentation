@@ -1,12 +1,13 @@
-.. include:: macros.txt
+.. include:: macros.rst
 
 .. _sec__models:
 
-Equation and Models
--------------------
+*******************
+Equation and models
+*******************
 
 Overview
-~~~~~~~~
+========
 
 |devsim| uses the control volume approach for assembling partial-differential equations (PDE's) on the simulation mesh.  |devsim| is used to solve equations of the form:
 
@@ -23,40 +24,56 @@ Equations involving the divergence operators are converted into surface integral
 
 Additional detail concerning the discussion that follows is available in :cite:`sanchez:ieee,sanchez:techrxiv`.
 
-In :numref:`meshcell`, 2D mesh elements are depicted.  The shaded area around the center node is referred to as the node volume, and it is used for the volume integration.  The lines from the center node to other nodes are referred to as edges.  The flux through the edge are integrated with respect to the perpendicular bisectors (dashed lines) crossing each triangle edge.
+In :ref:`meshcell`, 2D mesh elements are depicted.  The shaded area around the center node is referred to as the node volume, and it is used for the volume integration.  The lines from the center node to other nodes are referred to as edges.  The flux through the edge are integrated with respect to the perpendicular bisectors (dashed lines) crossing each triangle edge.
 
 .. _meshcell:
 
 .. figure:: ./meshcell.*
     :align: center
 
-    Mesh elements in 2D.
+    Mesh elements in 2D
 
 .. _edgecell:
 
 .. figure:: ./edgecell.*
     :align: center
 
-    Edge model constructs in 2D.
+    Edge model constructs in 2D
 
 .. _elementedgecell:
 
 .. figure:: ./elementedgecell.*
     :align: center
 
-    Element edge model constructs in 2D.
+    Element edge model constructs in 2D
 
 In this form, we refer to a model integrated over the edges of triangles as edge models.  Models integrated over the volume of each triangle vertex are referred to as node models.  Element edge models are a special case where variables at other nodes off the edge may cause the flux to change.
 
 There are a default set of models created in each region upon initialization of a device, and are typically based on the geometrical attributes.  These are described in the following sections.  Models required for describing the device behavior are created using the equation parser described in :ref:`ch__symdiff`.  For special situations, custom matrix assembly is also available and is discussed in :ref:`models__customequation`.
 
+Structures
+----------
+
+**Devices**
+A ``device`` refers to a discrete structure being simulated.  It is composed of the following types of objects.
+
+**Regions**
+A ``region`` defines a portion of the device of a specific material.  Each region has its own system of equations being solved.
+
+**Interfaces**
+An ``interface`` connects two regions together.  At the interfaces, equations are specified to account for how the flux in each device region crosses the region boundary.
+
+**Contacts**
+A ``contact`` specifies the boundary conditions required for device simulation.  It also specifies how terminal currents are are integrated into an external circuit.
+
+
 Bulk models
-~~~~~~~~~~~
+===========
 
 Node models
-^^^^^^^^^^^
+-----------
 
-Node models may be specified in terms of other node models, mathematical functions, and parameters on the device.  The simplest model is the node solution, and it represents the solution variables being solved for.  Node models automatically created for a region are listed in :numref:`models__node`.
+Node models may be specified in terms of other node models, mathematical functions, and parameters on the device.  The simplest model is the node solution, and it represents the solution variables being solved for.  Node models automatically created for a region are listed in :ref:`models__node`.
 
 In this example, we present an implementation of Shockley Read Hall recombination :cite:`Mueller`.
 
@@ -80,7 +97,7 @@ The ``simplify`` function tells the expression parser to attempt to simplify the
 
 .. _models__node:
 
-.. csv-table:: Node models defined on each region of a device.
+.. csv-table:: Node models defined on each region of a device
   :header: "Node Model", "Description"
   :widths: 10, 20
 
@@ -102,9 +119,9 @@ The ``simplify`` function tells the expression parser to attempt to simplify the
 .. _models__edgemodel:
 
 Edge models
-^^^^^^^^^^^
+-----------
 
-Edge models may be specified in terms of other edge models, mathematical functions, and parameters on the device.  In addition, edge models may reference node models defined on the ends of the edge.  As depicted in :numref:`edgecell`, edge models are with respect to the two nodes on the edge, ``n0`` and ``n1``.
+Edge models may be specified in terms of other edge models, mathematical functions, and parameters on the device.  In addition, edge models may reference node models defined on the ends of the edge.  As depicted in :ref:`edgecell`, edge models are with respect to the two nodes on the edge, ``n0`` and ``n1``.
 
 For example, to calculate the electric field on the edges in the region, the following scheme is employed:
 
@@ -119,11 +136,11 @@ For example, to calculate the electric field on the edges in the region, the fol
 
 In this example, ``EdgeInverseLength`` is a built-in model for the inverse length between nodes on an edge.  ``Potential@n0`` and ``Potential@n1`` is the ``Potential`` node solution on the nodes at the end of the edge.  These edge quantities are created using the :meth:`devsim.edge_from_node_model`.  In addition, the :meth:`devsim.edge_average_model` can be used to create edge models in terms of node model quantities.
 
-Edge models automatically created for a region are listed in :numref:`models__edge`.
+Edge models automatically created for a region are listed in :ref:`models__edge`.
 
 .. _models__edge:
 
-.. csv-table:: Edge models defined on each region of a device.
+.. csv-table:: Edge models defined on each region of a device
   :header: "Edge Model", "Description"
   :widths: 10, 20
 
@@ -139,17 +156,17 @@ Edge models automatically created for a region are listed in :numref:`models__ed
 .. _models_element_edge:
 
 Element edge models
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
-Element edge models are used when the edge quantitites cannot be specified entirely in terms of the quantities on both nodes of the edge, such as when the carrier mobility is dependent on the normal electric field.  In 2D, element edge models are evaluated on each triangle edge.  As depicted in :numref:`elementedgecell`, edge models are with respect to the three nodes on each triangle edge and are denoted as ``en0``, ``en1``, and ``en2``.  Derivatives are with respect to each node on the triangle.
+Element edge models are used when the edge quantitites cannot be specified entirely in terms of the quantities on both nodes of the edge, such as when the carrier mobility is dependent on the normal electric field.  In 2D, element edge models are evaluated on each triangle edge.  As depicted in :ref:`elementedgecell`, edge models are with respect to the three nodes on each triangle edge and are denoted as ``en0``, ``en1``, and ``en2``.  Derivatives are with respect to each node on the triangle.
 
-In 3D, element edge models are evaluated on each tetrahedron edge.  Derivatives are with respect to the nodes on both triangles on the tetrahedron edge.  Element edge models automatically created for a region are listed in :numref:`models__elementedge`.
+In 3D, element edge models are evaluated on each tetrahedron edge.  Derivatives are with respect to the nodes on both triangles on the tetrahedron edge.  Element edge models automatically created for a region are listed in :ref:`models__elementedge`.
 
 As an alternative to treating integrating the element edge model with respect to ``ElementEdgeCouple``, the integration may be performed with respect to ``ElementNodeVolume``.  See :meth:`devsim.equation` for more information.
 
 .. _models__elementedge:
 
-.. csv-table:: Element edge models defined on each region of a device.
+.. csv-table:: Element edge models defined on each region of a device
   :header: "Element Edge Model", "Description"
   :widths: 10, 20
 
@@ -159,13 +176,13 @@ As an alternative to treating integrating the element edge model with respect to
 .. _models__modelderivatives:
 
 Model derivatives
-^^^^^^^^^^^^^^^^^
+-----------------
 
-To converge upon the solution, derivatives are required with respect to each of the solution variables in the system.  |devsim| will look for the required derivatives.  For a model ``model``, the derivatives with respect to solution variable ``variable`` are presented in :numref:`models__requiredderivatives`.
+To converge upon the solution, derivatives are required with respect to each of the solution variables in the system.  |devsim| will look for the required derivatives.  For a model ``model``, the derivatives with respect to solution variable ``variable`` are presented in :ref:`models__requiredderivatives`.
 
 .. _models__requiredderivatives:
 
-.. csv-table:: Required derivatives for equation assembly. ``model`` is the name of the model being evaluated, and ``variable`` is one of the solution variables being solved at each node.
+.. csv-table:: Required derivatives for equation assembly. ``model`` is the name of the model being evaluated, and ``variable`` is one of the solution variables being solved at each node
   :header: "Model Type", "Derivatives Required"
   :widths: 10, 20
 
@@ -176,7 +193,7 @@ To converge upon the solution, derivatives are required with respect to each of 
 
 
 Conversions between model types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 The :meth:`devsim.edge_from_node_model` is used to create edge models referring to the nodes connecting the edge.  For example, the edge models ``Potential@n0`` and ``Potential@n1`` refer to the ``Potential`` node model on each end of the edge.
 
@@ -187,7 +204,7 @@ When an edge model is referred to in an element edge model expression, the edge 
 The :meth:`devsim.element_from_edge_model` is used to create directional components of an edge model over an entire element.  The ``derivative`` option is used with this command to create the derivatives with respect to a specific node model. The :meth:`devsim.element_from_node_model` is used to create element edge models referring to each node on the element of the element edge.
 
 Equation assembly
-^^^^^^^^^^^^^^^^^
+-----------------
 
 Bulk equations are specified in terms of the node, edge, and element edge models using the :meth:`devsim.equation`.  Node models are integrated with respect to the node volume.  Edge models are integrated with the perpendicular bisectors along the edge onto the nodes on either end.
 
@@ -212,7 +229,7 @@ In addition, the solution variable coupled with this equation is ``Potential`` a
 
 .. _models__interfacerequiredderivatives:
 
-.. csv-table:: Required derivatives for interface equation assembly. The node model name ``nodemodel`` and its derivatives ``nodemodel:variable`` are suffixed with ``@r0`` and ``@r1`` to denote which region on the interface is being referred to.
+.. csv-table:: Required derivatives for interface equation assembly. The node model name ``nodemodel`` and its derivatives ``nodemodel:variable`` are suffixed with ``@r0`` and ``@r1`` to denote which region on the interface is being referred to
   :header: "Model Type", "Model Name", "Derivatives Required"
   :widths: 12, 10, 12
 
@@ -223,14 +240,14 @@ In addition, the solution variable coupled with this equation is ``Potential`` a
 
 
 Interface
-~~~~~~~~~
+=========
 
 Interface models
-^^^^^^^^^^^^^^^^
+----------------
 
-:numref:`interfacecell` depicts an interface in |devsim|.  It is a collection of overlapping nodes existing in two regions, ``r0`` and ``r1``.
+:ref:`interfacecell` depicts an interface in |devsim|.  It is a collection of overlapping nodes existing in two regions, ``r0`` and ``r1``.
 
-Interface models are node models specific to the interface being considered.  They are unique from bulk node models, in the sense that they may refer to node models on both sides of the interface.  They are specified using the :meth:`devsim.interface_model`.  Interface models may refer to node models or parameters on either side of the interface using the syntax ``nodemodel@r0`` and ``nodemodel@r1`` to refer to the node model in the first and second regions of the interface.  The naming convention for node models, interface node models, and their derivatives are shown in :numref:`models__interfacerequiredderivatives`.
+Interface models are node models specific to the interface being considered.  They are unique from bulk node models, in the sense that they may refer to node models on both sides of the interface.  They are specified using the :meth:`devsim.interface_model`.  Interface models may refer to node models or parameters on either side of the interface using the syntax ``nodemodel@r0`` and ``nodemodel@r1`` to refer to the node model in the first and second regions of the interface.  The naming convention for node models, interface node models, and their derivatives are shown in :ref:`models__interfacerequiredderivatives`.
 
 .. code-block:: python
 
@@ -238,7 +255,7 @@ Interface models are node models specific to the interface being considered.  Th
     name="continuousPotential", equation="Potential@r0-Potential@r1")
 
 Interface model derivatives
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 For a given interface model, ``model``, the derivatives with respect to the variable ``variable`` in the regions are
 
@@ -256,7 +273,7 @@ For a given interface model, ``model``, the derivatives with respect to the vari
 .. _sec__interface_equation_assembly:
 
 Interface equation assembly
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 There are three types of interface equations considered in |devsim|.  They are both activated using the :meth:`devsim.interface_equation`.
 
@@ -273,7 +290,7 @@ In the third form, ``hybrid``, equations for nodes on both sides of the interfac
 
 
 Contact
-~~~~~~~
+=======
 
 .. _contactcell:
 
@@ -283,19 +300,19 @@ Contact
     Contact constructs in 2D.
 
 Contact models
-^^^^^^^^^^^^^^
+--------------
 
-:numref:`contactcell` depicts how a contact is treated in a simulation.  It is a collection of nodes on a region.  During assembly, the specified models form an equation, which replaces the equation applied to these nodes for a bulk node.
+:ref:`contactcell` depicts how a contact is treated in a simulation.  It is a collection of nodes on a region.  During assembly, the specified models form an equation, which replaces the equation applied to these nodes for a bulk node.
 
 Contact models are equivalent to node and edge models, and are specified using the :meth:`devsim.contact_node_model` and the :meth:`devsim.contact_edge_model`, respectively.  The key difference is that the models are only evaluated on the contact nodes for the contact specified.
 
 Contact model derivatives
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 The derivatives are equivalent to the discussion in :ref:`models__modelderivatives`.  If external circuit boundary conditions are being used, the model ``model`` derivative with respect to the circuit node ``node`` name should be specified as ``model:node``.
 
 Contact equation assembly
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 The :meth:`devsim.contact_equation` is used to specify the boundary conditions on the contact nodes.  The models specified replace the models specified for bulk equations of the same name.  For example, the node model specified for the contact equation is assembled on the contact nodes, instead of the node model specified for the bulk equation.  Contact equation models not specified are not assembled, even if the model exists on the bulk equation for the region attached to the contact.
 
@@ -318,8 +335,8 @@ where :math:`i` is the integrated current and :math:`q` is the integrated charge
 
 .. _models__customequation:
 
-Custom Matrix assembly
-~~~~~~~~~~~~~~~~~~~~~~
+Custom matrix assembly
+======================
 
 The :meth:`devsim.custom_equation` command is used to register callbacks to be called during matrix and right hand side assembly.  The |python| procedure should expect to receive two arguments and return two lists and a boolean value.  For example a procedure named ``myassemble`` registered with
 
@@ -373,8 +390,8 @@ The matrix and right hand side entries should be scaled by the ``NodeVolume`` if
 
 .. _sec__cylindrical:
 
-Cylindrical Coordinate Systems
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cylindrical coordinate systems
+==============================
 
 In 2D, models representing the edge couples, surface areas and node volumes may be generated using the following commands:
 
@@ -402,4 +419,79 @@ In order to change the integration from the default models to cylindrical models
     value="ElementCylindricalNodeVolume@en1")
 
 
+Notes
+=====
+
+Interface
+---------
+
+Interace equation coupling
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``name0``, and ``name1`` options are now available for the :meth:`devsim.interface_equation` command.  They make it possible to couple dissimilar equation names across regions.
+
+Interface and contact surface area
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Interface surface area is stored in the ``SurfaceArea`` node model.  Contact surface area is stored in the ``ContactSurfaceArea`` node model.  These are listed in :numref:`models__node`.
+
+Skip nodes shared with contact
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Interface equation assembly skips nodes when an interface node is shared with a contact.  Best to be avoided.  Share helper script.
+
+.. _release_extended:
+
+Element assembly
+----------------
+
+The ``EdgeNodeVolume`` model is now available for the volume contained by an edge and is referenced in :ref:`models__edgemodel`.
+
+The :meth:`devsim.equation` supports these options:
+
+- ``volume_node0_model``
+- ``volume_node1_model``
+
+This makes it possible to better integrate nodal quantities on the volumes of element edges.  For example, a field dependent generation-recombination rate can be volume integrated separately for each node of an element edge.
+
+
+The :meth:`devsim.contact_equation` supports the following options:
+
+- ``edge_volume_model``
+- ``volume_node0_model``
+- ``volume_node1_model``
+
+This makes it possible to integrate edge and element edge quantities with respect to the volume on nodes of the edge at the contact.  This is similar to :meth:`devsim.equation`.
+
+The integration parameters for ``edge_volume_model`` are set with
+
+- ``edge_node0_volume_model`` (default ``EdgeNodeVolume`` :ref:`models__edgemodel` )
+- ``edge_node1_volume_model`` (default ``EdgeNodeVolume``)
+
+and for ``volume_model`` with:
+
+- ``element_node0_volume_model`` (default ``ElementNodeVolume`` :ref:`models__elementedge`)
+- ``element_node1_volume_model`` (default ``ElementNodeVolume``)
+
+These parameters are applicable to both :meth:`devsim.equation` :meth:`devsim.contact_equation`.
+
+
+Edge volume model
+-----------------
+
+The :meth:`devsim.equation` suppports the ``edge_volume_model``.  This makes it possible to integrate edge quantities properly so that it is integrated with respect to the volume on nodes of the edge.  To set the node volumes for integration, it is necessary to define a model for the node volumes on both nodes of the edge.  For example:
+
+.. code-block:: python
+
+  devsim.edge_model(device="device", region="region", name="EdgeNodeVolume",
+    equation="0.5*EdgeCouple*EdgeLength")
+  set_parameter(name="edge_node0_volume_model", value="EdgeNodeVolume")
+  set_parameter(name="edge_node1_volume_model", value="EdgeNodeVolume")
+
+For the cylindrical coordinate system in 2D, please see :ref:`sec__cylindrical`.
+
+Element pair from edge model
+----------------------------
+
+The :meth:`devsim.element_pair_from_edge_model` command is available to calculate element edge components averaged onto each node of the element edge.  This makes it possible to create an edge weighting scheme different from those used in :meth:`devsim.element_from_edge_model`.  The examples ``examples/diode/laux2d.py`` (2D) and ``examples/diode/laux3d.py`` (3D) compare the built-in implementations of these commands with equivalent implementations written in |python|
 

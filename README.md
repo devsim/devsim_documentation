@@ -14,4 +14,26 @@ https://forum.devsim.org
 
 ## Building
 
-Please see the ``README`` file in the distribution for instructions on how to build the documentation.
+Build steps starting with a Python virtual environment in your path.
+
+```
+# create environment
+python3 -mvenv venv
+
+# activate
+source venv/bin/activate
+
+# install sphinx documentation packages
+
+source preinstall.sh
+
+# build html and pdf documentation
+
+bash build.sh
+```
+
+The doc directory contains the pdf, html, and c++ file.
+
+## Adding a new command
+
+When adding a new command in ``devsim`` you should place the Python documentation in the `pydoc` directory of this project in the appropriate file.  The `build.sh` script will then create the doc strings for the pdf and html documentation.  A ``DevsimDoc.cc`` is also generated and needs to be placed in the ``src/pythonapi`` directory of your source repository.

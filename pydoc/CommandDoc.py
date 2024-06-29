@@ -370,8 +370,9 @@ with open(filename, "w") as ofh:
 filename="CommandReference.rst"
 with open(filename, "w") as ofh:
     ofh.write('''
+*****************
 Command Reference
------------------
+*****************
 ''')
     ofh.write('''
 .. automodule:: devsim
@@ -389,8 +390,8 @@ Command Reference
     for command in Commands:
         refname = '\n.. _' + command["name"] + "Commands:"
         ofh.write(refname + '\n\n')
-        head = command["name"] + " Commands"
-        head = head + '\n' + '~' * len(head) + '\n\n'
+        head = command["name"] + " commands"
+        head = head + '\n' + '=' * len(head) + '\n\n'
         ofh.write(head)
         ofh.write(command["description"] + "\n\n")
         # https://stackoverflow.com/questions/61374995/sphinx-with-autodoc-duplicate-object-description-warning-when-grouping-members

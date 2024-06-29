@@ -1,17 +1,16 @@
-.. include:: macros.txt
+.. include:: macros.rst
 
 .. _ch__scripting:
 
-User Interface
---------------
+**************
+User interface
+**************
 
 Starting DEVSIM
-~~~~~~~~~~~~~~~
+===============
 
 Refer to :ref:`sec__installation` for instructions on how to install |devsim|.  Once installed, |devsim| may be invoked using the following command
 
-
-It is necessary to first ``PYTHONPATH`` variable to the ``lib`` directory in the |devsim| distribution.  As an alternative, an experimental installation script is available to make the process easier.  Please see :ref:`sec__installation_script` for more information.
 
 ``devsim`` is loaded by calling
 
@@ -27,21 +26,37 @@ Many of the examples in the distribution rely on the ``python_packages`` module,
 
   import devsim.python_packages
 
-The supported versions of |python| for use in scripts is 3.6 or higher.
+Directory structure
+===================
+
+A |devsim| directory is created with the following sub directories listed in :ref:`installation__directories`.
+
+.. _installation__directories:
+
+.. table:: Directory structure for |devsim|
+
+   ==============================  =======================================================
+   ``devsim_data``                 contains project documentation files
+   ``devsim_data/doc``             product documentation
+   ``devsim_data/examples``        example scripts
+   ``devsim_data/testing``         additional examples used for testing
+   ==============================  =======================================================
+
+This may be found using the virtual environment path specified in :numref:`python_distros`.
 
 .. _sec__python:
 
-Python Language
-~~~~~~~~~~~~~~~
+|python| language
+=================
 
 Introduction
-^^^^^^^^^^^^
+------------
 
 |python| is the scripting language employed as the text interface to |devsim|.  Documentation and tutorials for the language are available from :cite:`python`.
 A paper discussing the general benefits of using scripting languages may be found in :cite:`Ousterhout98scripting:higher`.
 
 DEVSIM commands
-^^^^^^^^^^^^^^^
+---------------
 
 All of commands are in the ``devsim`` namespace.  In order to invoke a command, the command should be prefixed with ``devsim.``, or the following may be placed at the beginning of the script:
 
@@ -49,124 +64,69 @@ All of commands are in the ``devsim`` namespace.  In order to invoke a command, 
 
   from devsim import *
 
-For details concerning error handling, please see :ref:`errorHandling`.
+Unicode support
+---------------
 
-..
-  _sec__pythonpath:
-
-.. 
-  Other packages
-  ~~~~~~~~~~~~~~
-
-..
-  |devsim| is able to load |python| packages.  It is important to note that binary extensions loaded into |devsim| must be compatible with the operating system which it was compiled for.  To load an extension, it is first necessary to provide the path as an environment variable, or at program run time.
-
-..
-  For example, if the |python| packages on your system are available in ``/usr/share/tcltk``, it is necessary to set the environment variable in ``csh`` as
-
-..
-  .. code-block:: python
-
-..
-    setenv PYTHONPATH /usr/share/tcltk
-..
-  or in ``bash``
-
-..
-  .. code-block:: python
-
-..
-    export PYTHONPATH=/usr/share/tcltk
-
-..
-  In the |python| script, this may be done using using the appropriate paths for your system
-
-..
-  .. code-block:: python
-
-..
-    import sys
-..
-    sys.path.append("/usr/share/tcltk")
-
-..
-  Please see :ref:`additional__python` for more information on obtaining a copy of |python| for your computer's operating system.
-
-Advanced usage
-^^^^^^^^^^^^^^
-
-In this manual, more advanced usage of the |python| language may be used.  The reader is encouraged to use a suitable reference to clarify the proper use of the scripting language constructs, such as control structures.
-
-Unicode Support
-^^^^^^^^^^^^^^^
-
-Internally, |devsim| uses UTF-8 encoding, and expects model equations and saved mesh files to be written using this encoding.  Users are encouraged to use the standard ASCII character set if they do not wish to use this feature.  Python 3 interpreters handle UTF-8 encoding well.
-
-..
-  For the deprecated Python 2 interpreter, it is necessary to put the following line at the beginning of the python script.
-
-..
-  .. code-block:: none
-
-    # -*- coding: utf-8 -*-
-
-
-..
-  When reading a ``unicode`` encoded script, the built in |python| interpreter should be made aware of the encoding of the source encoding using this on the first or second line of the script
-
-..
-  This option is only required on systems, such as |mswindows|, which do not default to this encoding.
-
-On some systems, such as |mswindows|, it may be necessary to set the following environment variable before running a script containing UTF-8 characters.
-
-.. code-block:: none
-
-  SET PYTHONIOENCODING=utf-8
-
-
-Care should be taken when using UTF-8 characters in names for visualization using the tools in :ref:`ch__visualization`, as this character set may not be supported.
+Internally, |devsim| uses UTF-8 encoding, and expects model equations and saved mesh files to be written using this encoding.  Care should be taken when using non-ASCII characters in names for visualization using the tools in :ref:`ch__visualization`, as this character set may not be supported in these third-party tools.
 
 .. _errorHandling:
 
 Error handling
-~~~~~~~~~~~~~~
+==============
 
-Python errors
-^^^^^^^^^^^^^
+Exceptions
+----------
 
-When a syntax error occurs in a |python| script an exception may be thrown.  If it is uncaught, then |devsim| will terminate.  More details may be found in an appropriate reference.  An exception that is thrown by |devsim| is of the type ``devsim.error``.  It may be caught.
+When a syntax error occurs in a |python| script an exception may be thrown.  If it is uncaught, then |devsim| will terminate.  An exception that is thrown by |devsim| is of the type ``devsim.error``.  It may be caught, and a message may be extracted to determine the issue.
+
 
 Fatal errors
-^^^^^^^^^^^^
+------------
 
-When |devsim| enters a state in which it may not recover.  The interpreter should throw a |python| exception with a message ``DEVSIM FATAL``.  At this point |devsim| may enter an inconsistent state, so it is suggested not to attempt to continue script execution if this occurs.
+When |devsim| enters a state in which it may not recover.  The interpreter will throw a ``devsim.error`` exception with a message ``DEVSIM FATAL``.  At this point |devsim| may enter an inconsistent state, so it is suggested not to attempt to continue script execution if this occurs.
 
 In rare situations, the program may behave in an erratic manner, print a message, such as ``UNEXPECTED`` or terminate abruptly.  Please report this using the contact information in :ref:`Contact`.
 
+.. _sec_fpe:
+
 Floating point exceptions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 During model evaluation, |devsim| will attempt to detect floating point issues and return an error with some diagnostic information printed to the screen, such as the symbolic expression being evaluated.  Floating point errors may be characterized as invalid, division by zero, and numerical overflow.  This is considered to be a fatal error.
 
 Solver errors
-^^^^^^^^^^^^^
+-------------
 
-When using the :meth:`devsim.solve`, the solver may not converge and a message will be printed and an exception may be thrown.  The solution will be restored to its previous value before the simulation began.  This exception may be caught and the bias conditions may be changed so the simulation may be continued.  For example:
+When using the :meth:`devsim.solve`, the solver may not converge and a message will be printed and an exception may be thrown.  The solution will be restored to its previous value before the simulation began.  This exception may be caught and the bias conditions may be changed so the simulation may be continued.
 
-.. code-block:: python
 
-  try:
-    solve(type="dc", absolute_error=abs_error,
-      relative_error=rel_error, maximum_iterations=max_iter)
-  except devsim.error as msg:
-    if msg[0].find("Convergence failure") != 0:
-      raise
-    #### put code to modify step here.
 
 .. _python__verbosity:
 
+Example
+-------
+
+More helpful exception information returned to |python| if the error is considered fatal.  This can be used to decide if the simulation can be restarted.  Note that if this occurs during a solve, it is necessary for the user to restore the previous circuit and device solutions if a restart is desired.  In addition, model evaluation is reset so that no false cyclic dependencies are reported after an error.
+
+In this example code below, the previously ``DEVSIM FATAL`` error string will now provide the context that a floating point exception occurred and be handled in |python|.
+
+.. code-block:: none
+
+    try:
+        self.solve()
+    except error as msg:
+        m = str(msg)
+        if 'Convergence failure' in m:
+            self.set_vapp(last_bias)
+        elif'floating point exception' in m:
+            self.set_vapp(last_bias)
+            self.restore_callback(self.is_circuit)
+        else:
+            raise
+
+
 Verbosity
-^^^^^^^^^
+=========
 
 The :meth:`set_parameter` may be used to set the verbosity globally, per device, or per region.  Setting the ``debug_level`` parameter to ``info`` results in the default level of information to the screen.  Setting this option to ``verbose`` or any other name results in more information to the screen which may be useful for debugging.
 
@@ -180,10 +140,23 @@ The following example sets the default level of debugging for the entire simulat
 
 .. _python__parallelization:
 
-Parallelization
-^^^^^^^^^^^^^^^
+Command help
+============
 
-Routines for the evaluating of models have been parallelized.  In order to select the number of threads to use
+It is now possible to see the full list of |devsim| commands by typing
+
+.. code-block:: python
+
+  help(devsim.solve)
+
+
+Parallelization
+===============
+
+Model evaluation
+----------------
+
+Routines for the evaluating of models are parallelized.  In order to select the number of threads to use
 
 .. code-block:: python
 
@@ -197,5 +170,26 @@ where the value specified is the number of threads to be used.  By default, |dev
 
 The |intelmkl| is parallelized, the number of thread may be controlled by setting the ``MKL_NUM_THREADS`` environment variable.
 
+Long operations
+---------------
 
+While running long operations, |devsim|, will yield to the |python| to allow it to perform other operations.
+
+External math libraries
+-----------------------
+
+Please see the documentation for external solvers, such as BLAS/LAPACK or the |intelmklpardiso|, on how to control their threading behavior.
+
+
+Reset simulator
+===============
+
+The :meth:`devsim.reset_devsim` command will clear all simulator data, so that a program restart is not necessary.
+
+Array type input and output
+===========================
+
+In most circumstances, the software now returns numerical data using the |python| ``array`` class.  This is more efficient than using standard lists, as it encapsulates a contiguous block of memory.  More information about this class can be found at `https://docs.python.org/3/library/array.html <https://docs.python.org/3/library/array.html>`__.  The representation can be easily converted to lists and |numpy| arrays for efficient manipulation.
+
+When accepting user input involving lists of homogenous data, such as :meth:`devsim.set_node_values` the user may enter data using either a list, string of bytes, or the ``array`` class.  It may also be used to input |numpy| arrays or any other class with a ``tobytes`` method.
 

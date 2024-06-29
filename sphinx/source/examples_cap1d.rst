@@ -1,21 +1,18 @@
-
-.. include:: macros.txt
-
 .. _ch__capacitance:
 
 Capacitor
----------
+=========
 
 Overview
-~~~~~~~~
+--------
 
 In this chapter, we present a capacitance simulations.  The purpose is to demonstrate the use of |devsim| with a rather simple example.
 The first example in :ref:`sec__cap1d` is called ``cap1d.py`` and is located in the ``examples/capacitance`` directory distributed with |devsim|.  In this example, we have manually taken the derivative expressions. In other examples, we will show use of |symdiff| to create the derivatives in an automatic fashion.  The second example is in :ref:`sec__cap2d`.
 
 .. _sec__cap1d:
 
-1D Capacitor
-~~~~~~~~~~~~
+1D capacitor
+------------
 
 Equations
 ^^^^^^^^^
@@ -61,7 +58,7 @@ The following statements create a one-dimensional mesh which is :math:`1` cm lon
   create_device (mesh="mesh1", device=device)
 
 Setting device parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this section, we set the value of the permittivity to that of SiO :math:`_\text{2}`.
 
@@ -197,18 +194,6 @@ We run the simulation and see the results.
 
 .. code-block:: none
 
-  capacitance> python cap1d.py
-  ----------------------------------------
-  
-   DEVSIM
-  
-   Version: Beta 0.01
-  
-   Copyright 2009-2013 Devsim LLC
-  
-  ----------------------------------------
-  
-  
   contact2
    (region: MyRegion)
    (contact: contact1)
@@ -231,13 +216,13 @@ Which corresponds to our expected result of :math:`3.4515 10^{-13}` :math:`\text
 
 .. _sec__cap2d:
 
-2D Capacitor
-~~~~~~~~~~~~
+2D capacitor
+------------
 
 This example is called ``cap2d.py`` and is located in the ``examples/capacitance`` directory distributed with |devsim|.  This file uses the same physics as the 1D example, but with a 2D structure.  The mesh is built using the |devsim| internal mesher.  An air region exists with two electrodes in the simulation domain.
 
 Defining the mesh
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -288,7 +273,7 @@ Defining the mesh
   create_device(mesh=device, device=device)
 
 Setting up the models
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -372,7 +357,7 @@ Setting up the models
 
 
 Fields for visualization
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before writing the mesh out for visualization, the ``element_from_edge_model`` is used to calculate the electric field at each triangle center in the mesh.  The components are the ``ElectricField_x`` and ``ElectricField_y``.
 
@@ -386,21 +371,10 @@ Before writing the mesh out for visualization, the ``element_from_edge_model`` i
   write_devices(file="cap2d.dat", type="tecplot")
 
 Running the simulation
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: none
 
-  ----------------------------------------
-  
-   DEVSIM
-  
-   Version: Beta 0.01
-  
-   Copyright 2009-2013 Devsim LLC
-  
-  ----------------------------------------
-  
-  
   Creating Region air
   Creating Region m1
   Creating Region m2
@@ -431,7 +405,7 @@ Running the simulation
   3.35017166004e-12
   -3.35017166004e-12
 
-A visualization of the results is shown in :numref:`cap2dresult`.
+A visualization of the results is shown in :ref:`cap2dresult`.
 
 .. _cap2dresult:
 

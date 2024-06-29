@@ -1,20 +1,21 @@
-.. include:: macros.txt
+.. include:: macros.rst
 
 .. _ch__symdiff:
 
+*******
 SYMDIFF
--------
+*******
 
 Overview
-~~~~~~~~
+========
 
 |symdiff|  is a tool capable of evaluating derivatives of symbolic expressions.  Using a natural syntax, it is possible to manipulate symbolic equations in order to aid derivation of equations for a variety of applications.  It has been tailored for use within |devsim|.
 
 Syntax
-~~~~~~
+======
 
 Variables and numbers
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 Variables and numbers are the basic building blocks for expressions.  A variable is defined as any sequence of characters beginning with a letter and followed by letters, integer digits, and the ``_`` character.  Note that the letters are case sensitive so that ``a`` and {A} are not the same variable.  Any other characters are considered to be either mathematical operators or invalid, even if there is no space between the character and the rest of the variable name.
 
 Examples of valid variable names are:
@@ -27,11 +28,11 @@ Numbers can be integer or floating point.  Scientific notation is accepted as a 
 
 
 Basic expressions
-^^^^^^^^^^^^^^^^^
+-----------------
 
 .. _symdiff__operators:
 
-.. table:: Basic expressions involving unary, binary, and logical operators.
+.. table:: Basic expressions involving unary, binary, and logical operators
 
   +-------------------+--------------------------------------+
   | Expression        |   Description                        |
@@ -84,27 +85,27 @@ Basic expressions
   | ``number``        |   Integer or decimal number          |
   +-------------------+--------------------------------------+
 
-In :numref:`symdiff__operators`, the basic syntax for the language is presented.  An expression may be composed
+In :ref:`symdiff__operators`, the basic syntax for the language is presented.  An expression may be composed
 of variables and numbers tied together with mathematical operations.  Order of operations is from bottom to top in order of increasing precedence.  Operators with the same level of precedence are contained within horizontal lines.
 
 In the expression ``a + b * c``, the multiplication will be performed before the addition.  In order to override this precedence, parenthesis may be used.  For example, in ``(a + b) * c``, the addition operation is performed before the multiplication.
 
-The logical operators are based on non zero values being true and zero values being false.  The test operators are evaluate the numerical values and result in 0 for false and 1 for true.
+The logical operators are based on non zero values being true and zero values being false.  The test operators evaluate the numerical values and result in ``0`` for false and ``1`` for true.
 
   *It is important to note since values are based on double precision arithmetic, testing for equality with values other than 0.0 may yield unexpected results.*
 
 Functions
-^^^^^^^^^
+---------
 
 
 .. _symdiff__functions:
 
-.. list-table:: Predefined Functions
+.. list-table:: Predefined functions
     :widths: 20 30
     :header-rows: 1
 
     * - Function
-      -   Description
+      - Description
     * - ``acosh(exp1)``
       - Inverse Hyperbolic Cosine
     * - ``asinh(exp1)``
@@ -154,7 +155,7 @@ Functions
 
 .. _error__functions:
 
-.. list-table:: Error Functions
+.. list-table:: Error functions
     :widths: 20 30
     :header-rows: 1
 
@@ -180,7 +181,7 @@ Functions
 
 .. _fermi__functions:
 
-.. list-table:: Fermi Integral Functions
+.. list-table:: Fermi Integral functions
     :widths: 20 30
     :header-rows: 1
 
@@ -197,7 +198,7 @@ Functions
 
 .. _gaussfermi__functions:
 
-.. list-table:: Gauss-Fermi Integral Functions
+.. list-table:: Gauss-Fermi Integral functions
     :widths: 20 30
     :header-rows: 1
 
@@ -213,14 +214,14 @@ Functions
 
 
 
-In :numref:`symdiff__functions` are the built in functions of |symdiff|.  Note that the ``pow`` function uses the ``,`` operator to separate arguments.  In addition an expression like ``pow(a,b+y)`` is equivalent to an expression like ``a^(b+y)``.  Both ``exp`` and ``log`` are provided since many derivative expressions can be expressed in terms of these two functions.  It is possible to nest expressions within functions and vice-versa.  :numref:`error__functions` lists the error functions, derivatives, and inverses.  :numref:`fermi__functions` lists the Fermi functions, and are based on the Joyce-Dixon Approximation :cite:`joycedixon`. The Gauss-Fermi functions are listed in :numref:`gaussfermi__functions`, based on :cite:`paasch:2010`.
+In :ref:`symdiff__functions` are the built in functions of |symdiff|.  Note that the ``pow`` function uses the ``,`` operator to separate arguments.  In addition an expression like ``pow(a,b+y)`` is equivalent to an expression like ``a^(b+y)``.  Both ``exp`` and ``log`` are provided since many derivative expressions can be expressed in terms of these two functions.  It is possible to nest expressions within functions and vice-versa.  :ref:`error__functions` lists the error functions, derivatives, and inverses.  :ref:`fermi__functions` lists the Fermi functions, and are based on the Joyce-Dixon Approximation :cite:`joycedixon`. The Gauss-Fermi functions are listed in :ref:`gaussfermi__functions`, based on :cite:`paasch:2010`.
 
 Commands
-^^^^^^^^
+--------
 
 .. _symdiff__commands:
 
-.. table:: Commands.
+.. table:: Commands
 
   +---------------------------------------+---------------------------------------------------------------+
   | Command                               |   Description                                                 |
@@ -244,7 +245,7 @@ Commands
   | ``unsignedval(obj)``                  | Get unsigned value                                            |
   +---------------------------------------+---------------------------------------------------------------+
 
-Commands are shown in :numref:`symdiff__commands`.  While they appear to have the same form as functions, they are special in the sense that they manipulate expressions and are never present in the expression which results.  For example, note the result of the following command
+Commands are shown in :ref:`symdiff__commands`.  While they appear to have the same form as functions, they are special in the sense that they manipulate expressions and are never present in the expression which results.  For example, note the result of the following command
 
 
 .. code-block:: python
@@ -253,10 +254,10 @@ Commands are shown in :numref:`symdiff__commands`.  While they appear to have th
   a
 
 User functions
-^^^^^^^^^^^^^^
+--------------
 .. _symdiff__userfunccommands:
 
-.. table:: Commands for user functions.
+.. table:: Commands for user functions
 
   +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
   | Command                                            |   Description                                                                                                             |
@@ -269,7 +270,7 @@ User functions
   +----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
-Commands for specifying and manipulating user functions are listed in :numref:`symdiff__userfunccommands`.  They are used in order to define new user function, as well as the derivatives of the functions with respect to the user variables.  For example, the following expression defines a function named ``f`` which takes one argument.
+Commands for specifying and manipulating user functions are listed in :ref:`symdiff__userfunccommands`.  They are used in order to define new user function, as well as the derivatives of the functions with respect to the user variables.  For example, the following expression defines a function named ``f`` which takes one argument.
 
 .. code-block:: none
 
@@ -314,7 +315,7 @@ When declared, a functions derivatives are set to 0, unless specified with a def
   (-cos(cos(x)) * sin(x))
 
 Macro assignment
-^^^^^^^^^^^^^^^^
+----------------
 
 The use of macro assignment allows the substitution of expressions into new expressions.  Every time a command is successfully used, the resulting expression is assigned to a special macro definition, ``$_``.
 
@@ -343,10 +344,10 @@ This example demonstrates the use of macro assignment.
   (2 * a)
 
 Invoking SYMDIFF from DEVSIM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================
 
 Equation parser
-^^^^^^^^^^^^^^^
+---------------
 
 The :meth:`devsim.symdiff` should be used when defining new functions to the parser.  Since you do not specify regions or interfaces, it considers all strings as being independent variables, as opposed to models.  :ref:`ModelCommands` presents commands which have the concepts of models. A ``;`` should be used to separate each statement.
 
@@ -358,7 +359,7 @@ This is a sample invocation from |devsim|
   (bear * cat)
 
 Evaluating external math
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 The :meth:`devsim.register_function` is used to evaluate functions declared or defined within |symdiff|.  A |python| procedure may then be used taking the same number of arguments.  For example:
 
@@ -375,7 +376,7 @@ The :meth:`devsim.register_function` is used to evaluate functions declared or d
 The ``cos`` and ``sin`` function may then be used for model evaluation.  For improved efficiency, it is possible to create procedures written in C or C++ and load them into |python|.
 
 Models
-^^^^^^
+------
 
 When used withing the model commands discussed in :ref:`ModelCommands`, |devsim| has been extended to recognize model names in the expressions.  In this situation, the derivative of a model named, ``model``, with respect to another model, ``variable``, is then ``model:variable``.
 
