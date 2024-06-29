@@ -18,7 +18,7 @@ Version 2.8.2
 Documentation refactor
 ----------------------
 
-The release notes section has been shortened to the most recent releases.  Important information from the release notes was placed in the appropriate sections of the manual.  The manual has also been reorganized.  The ``pdf`` formatting has been improved to reducte the number of empty pages.
+The release notes section has been shortened to the most recent releases.  Important information from the release notes was placed in the appropriate sections of the manual.  The manual has also been reorganized.  The ``pdf`` formatting has been improved to reduce the number of empty pages.
 
 For older release notes, please refer to the Version 2.8.1 manual located at `https://doi.org/10.5281/zenodo.12211919 <https://doi.org/10.5281/zenodo.12211919>`__.  The latest version is available from `https://doi.org/10.5281/zenodo.4583208 <https://doi.org/10.5281/zenodo.4583208>`__.
 
