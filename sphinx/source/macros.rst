@@ -9,7 +9,9 @@
 .. |anaconda| replace:: ``Anaconda``
 .. |conda| replace:: ``conda``
 .. |centosseven| replace:: ``Centos 7``
-.. |rhelseven| replace:: ``Red Hat Enterprise Linux 7``
+.. |rhel-7| replace:: ``Red Hat Enterprise Linux 7``
+.. |rhel-8| replace:: ``Red Hat Enterprise Linux 8``
+.. |almalinux-8| replace:: ``AlmaLinux 8``
 .. |visit| replace:: ``VisIt``
 .. |paraview| replace:: ``ParaView``
 .. |tecplot| replace:: ``Tecplot``

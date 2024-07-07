@@ -12,6 +12,15 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.8.3
+=============
+
+Linux support
+-------------
+
+Due to the |rhel-7| end of life on June 30, 2024, the minimum support level for Linux is now |rhel-8| using the |almalinux-8| based `manylinux_2_28 <https://github.com/pypa/manylinux?tab=readme-ov-file#manylinux_2_28-almalinux-8-based>`__.  Please see :ref:`sec__installation` for more information.
+
+
 Version 2.8.2
 =============
 
