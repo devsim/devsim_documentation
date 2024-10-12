@@ -12,6 +12,45 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+
+Version 2.9.0
+=============
+
+Windows Python Support
+----------------------
+
+The official ``python.org`` distribution is beter supported.  This is since the ``python.org`` distribution does not appear to ship the ``zlib.dll``.
+
+VTK Writer
+----------
+
+[#151](https://github.com/devsim/devsim/issues/151)
+
+Use ``zlib`` from Python module instead of Anaconda ``zlib.dll`` or the system ``zlib`` for other operating systems.  The compressed binary data written to the ``.vtu`` files should be numerically the same.
+
+Clang build on Windows
+----------------------
+
+While the Windows version is still built with Visual Studio 2022, the build system now supports building with the Clang compilers.
+
+Version 2.8.4
+=============
+
+Serialization of equation command
+---------------------------------
+
+Write ``variable_update`` when writing the :meth:`devsim.equation` command to the devsim file format.
+
+Simulation Matrix
+-----------------
+
+Fix issue [#148](https://github.com/devsim/devsim/issues/148) segmentation fault in :meth:`devsim.get_matrix_and_rhs`.  Matrix and RHS now printed in ``testing/cap2.py``.
+
+macOS Build
+-----------
+
+Fix issue [#149](https://github.com/devsim/devsim/issues/149) fix issue with macOS build scripts.
+
 Version 2.8.3
 =============
 
@@ -20,6 +59,20 @@ Linux support
 
 Due to the |rhel-7| end of life on June 30, 2024, the minimum support level for Linux is now |rhel-8| using the |almalinux-8| based `manylinux_2_28 <https://github.com/pypa/manylinux?tab=readme-ov-file#manylinux_2_28-almalinux-8-based>`__.  Please see :ref:`sec__installation` for more information.
 
+Clang format
+------------
+
+Add `.clang-format` file to provide assist automatic formatting for new source code.
+
+Get equation command
+--------------------
+
+Fixed issue [#145](https://github.com/devsim/devsim/issues/145). `get_equation_command` now provides the `variable_update` option that was used.
+
+Exception propagation
+---------------------
+
+Fixed issue where an internal C++ based exception, may not be caught properly on some platforms.
 
 Version 2.8.2
 =============
