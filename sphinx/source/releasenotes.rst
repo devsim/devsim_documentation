@@ -16,12 +16,12 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.9.0
 =============
 
-Windows Python Support
+Windows Python support
 ----------------------
 
 The official ``python.org`` distribution is beter supported.  This is since the ``python.org`` distribution does not appear to ship the ``zlib.dll``.
 
-VTK Writer
+VTK writer
 ----------
 
 [#151](https://github.com/devsim/devsim/issues/151)
