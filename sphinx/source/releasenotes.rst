@@ -12,6 +12,57 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.10.0
+==============
+
+Available platform builds
+-------------------------
+
+Build automation is now being done using GitHub Actions.  This has lead to the following changes to the build:
+
+macOS
+~~~~~
+
+Intel ``x86_64`` is no longer longer a supported on ``macOS``.  The minimum supported version is now 14.7.6 Sonoma.  Regression results are updated:
+* [devsim_tests_macos_arm64](https://github.com/devsim/devsim_tests_macos_arm64)
+
+Windows
+~~~~~~~
+
+Now built on Windows 2025 server running the latest supported version of Visual Studio 2022 Enterprise.
+
+Linux
+~~~~~
+
+  Linux continues to be built on the ``manylinux_2_28`` docker image.  This is compatible with AlmaLinux 8 and is expected to be binary compatible with most current linux distributions for both ``x86_64`` and ``aarch64``.
+
+Python Version
+--------------
+
+Python 3.9 is now the minimum supported version.  Please make sure you are using a newer version of Python when attempting to download from PyPi.  Python 3.9 is end of life on October 31, 2025, and we may switch to Python 3.10 as the minimum supported version after that.
+
+Contact Normal Model
+--------------------
+
+Fix issue [#158](https://github.com/devsim/devsim/issues/158), Missing Contact Surface Normal
+
+* ``ContactNSurfaceNormal_x``
+* ``ContactNSurfaceNormal_y``
+* ``ContactNSurfaceNormal_z``
+
+are node models now listed in :numref:`models__node`.
+
+Thanks to [@marc-flex](https://github.com/marc-flex) for providing a pull request for these missing models.
+
+Documentation
+-------------
+
+A tasks note is added in ``HOWTO.md``, with some miscellaneous notes concerning building the software.
+
+Version 2.9.1
+=============
+
+Internal code was refactored.  While it has been tested, please report any issues you may encounter.
 
 Version 2.9.0
 =============
@@ -19,7 +70,7 @@ Version 2.9.0
 Windows Python support
 ----------------------
 
-The official ``python.org`` distribution is beter supported.  This is since the ``python.org`` distribution does not appear to ship the ``zlib.dll``.
+The official ``python.org`` distribution is better supported.  This is since the ``python.org`` distribution does not appear to ship the ``zlib.dll``.
 
 VTK writer
 ----------
