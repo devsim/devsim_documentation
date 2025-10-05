@@ -13,7 +13,7 @@ Supported platforms
 
   "|mswindows|", "x64", "|mswindowsten|"
   "|linux|", "x86_64, aarch64", "|rhel-8| (|almalinux-8| compatible)"
-  "|macosx|", "x86_64, arm64", "|macosxmonterey|"
+  "|macosx|", "arm64", "|macosxsonoma|"
 
 These are the minimum supported platforms, and also expected to work on newer versions of these operating systems.  If you require a version on a different software platform, please contact us :ref:`Contact`.
 

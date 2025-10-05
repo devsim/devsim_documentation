@@ -15,16 +15,21 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.10.0
 ==============
 
+Regression results
+------------------
+
+Due to the changes in this release, there are changes to the expected numerical results.  Please see :numref:`sec__regressions` for a listing of where the current results are stored.
+
+
 Available platform builds
 -------------------------
 
-Build automation is now being done using GitHub Actions.  This has lead to the following changes to the build:
+Build automation is now being done using GitHub Actions.   Please see :numref:`installation__platforms` for current OS support. This has lead to the following changes to the build:
 
 macOS
 ~~~~~
 
-Intel ``x86_64`` is no longer longer a supported on ``macOS``.  The minimum supported version is now 14.7.6 Sonoma.  Regression results are updated:
-* [devsim_tests_macos_arm64](https://github.com/devsim/devsim_tests_macos_arm64)
+Intel ``x86_64`` is no longer longer a supported on ``macOS``.  The minimum supported version is now |macosxsonoma|.
 
 Windows
 ~~~~~~~
@@ -34,12 +39,12 @@ Now built on Windows 2025 server running the latest supported version of Visual 
 Linux
 ~~~~~
 
-  Linux continues to be built on the ``manylinux_2_28`` docker image.  This is compatible with AlmaLinux 8 and is expected to be binary compatible with most current linux distributions for both ``x86_64`` and ``aarch64``.
+Linux continues to be built on the ``manylinux_2_28`` docker image.  This is compatible with AlmaLinux 8 and is expected to be binary compatible with most current linux distributions for both ``x86_64`` and ``aarch64``.
 
 Python Version
 --------------
 
-Python 3.9 is now the minimum supported version.  Please make sure you are using a newer version of Python when attempting to download from PyPi.  Python 3.9 is end of life on October 31, 2025, and we may switch to Python 3.10 as the minimum supported version after that.
+|pythonthreenine| is now the minimum supported version.  Please make sure you are using a newer version of Python when attempting to download from PyPi.  Python 3.9 is end of life on October 31, 2025, and we may switch to Python 3.10 as the minimum supported version after that.
 
 Contact Normal Model
 --------------------
@@ -181,7 +186,7 @@ Data output
 -----------
 
 Reduction in data file sizes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsim.write_devices` now supports reducing the file size of data files by allowing users to specify a callback function to reduce data usage.  In this example, only the ``NetDoping`` field is written to the Tecplot data file.
 
@@ -194,7 +199,7 @@ Based on a contribution by [@simbilod](https://github.com/simbilod) :meth:`devsi
     )
 
 FLOOPS data file output
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``floops`` option for :meth:`devsim.write_devices` has been removed.
 
@@ -203,12 +208,12 @@ Platform support
 ----------------
 
 Windows build issue
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 During testing, it was found the Visual Studio 2022 builds were failing a test related to threading.  This was found to be a problem with version ``17.10``, but not version ``17.9``.  This affects the build automation, but should not affect the binary releases.
 
 Centos 7 end of life
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 This is the last version to support Centos 7 before its end of life on June 30, 2024.  After this date we will be moving to the AlmaLinux 8 based ``manylinux_2_28``.
 

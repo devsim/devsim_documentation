@@ -31,12 +31,14 @@
 .. |linux| replace:: ``Linux``
 .. |macosx| replace:: ``Apple macOS``
 .. |macosxmonterey| replace:: ``macOS 12.5 (Monterey)``
+.. |macosxsonoma| replace:: ``macOS 14.7.6 (Sonoma)``
 .. |mswindows| replace:: ``Microsoft Windows``
 .. |mswindowsten| replace:: ``Microsoft Windows 10``
 
 .. |python| replace:: ``Python``
 .. |pythonthree| replace:: ``Python 3``
 .. |pythonthreeseven| replace:: ``Python 3.7``
+.. |pythonthreenine| replace:: ``Python 3.9``
 .. |symdiff| replace:: ``SYMDIFF``
 .. |superlu| replace:: ``SuperLU``
 
