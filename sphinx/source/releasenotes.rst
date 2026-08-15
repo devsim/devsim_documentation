@@ -12,6 +12,54 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+
+Version 2.11.0
+==============
+
+Surface Normal Models
+---------------------
+
+* [#162](https://github.com/devsim/devsim/issues/162) surface normal models should point outward
+
+The following node models now point outward for each node.  Previously, the sign was arbitrary.
+
+* ``ContactNSurfaceNormal_x``
+* ``ContactNSurfaceNormal_y``
+* ``ContactNSurfaceNormal_z``
+* ``NSurfaceNormal_x``
+* ``NSurfaceNormal_y``
+* ``NSurfaceNormal_z``
+
+The only regression results affected were the saved values for the values at some nodes changed direction based on how they were averaged to the node.
+
+GitHub Issues
+-------------
+
+* [#165](https://github.com/devsim/devsim/issues/165) Update c++20
+* [#164](https://github.com/devsim/devsim/issues/164) use std array for basic shapes
+* [#160](https://github.com/devsim/devsim/issues/160) Visual Studio 2026
+
+Version 2.10.1
+==============
+
+UMFPACK Solver
+--------------
+
+Fixed issue with `UMFPACK` solver when the dynamic library is being unloaded at program termination.
+
+Windows MKL
+-----------
+
+Fix issue [#159](https://github.com/devsim/devsim/issues/159) where users had to add ``Library\bin`` manually to the system path in order to load the Intel MKL when using a non Anaconda-based Python distribution.  The proper way to install the Intel MKL using ``pip`` is:
+
+.. code-block:: none
+
+  pip install mkl
+
+Thanks to [@JoonatanAlanampa](https://github.com/JoonatanAlanampa) for helping to diagnose this issue.
+
+
+
 Version 2.10.0
 ==============
 

@@ -2,7 +2,7 @@
 .. include:: <isonum.txt>
 
 .. |devsim| replace:: ``DEVSIM``
-.. |mycopyright| replace:: Copyright |copy| 2009--2024 DEVSIM LLC
+.. |mycopyright| replace:: Copyright |copy| 2009--2026 DEVSIM LLC
 
 .. |boost| replace:: ``boost``
 .. |numpy| replace:: ``numpy``
