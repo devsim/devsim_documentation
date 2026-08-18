@@ -12,6 +12,13 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.11.1
+==============
+
+macOS Version
+-------------
+
+|macosxsequoia| is the minimum version supported for macOS.
 
 Version 2.11.0
 ==============

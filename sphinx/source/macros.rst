@@ -32,6 +32,8 @@
 .. |macosx| replace:: ``Apple macOS``
 .. |macosxmonterey| replace:: ``macOS 12.5 (Monterey)``
 .. |macosxsonoma| replace:: ``macOS 14.7.6 (Sonoma)``
+.. |macosxsequoia| replace:: ``macOS 15.7.7 (Sequoia)``
+
 .. |mswindows| replace:: ``Microsoft Windows``
 .. |mswindowsten| replace:: ``Microsoft Windows 10``
 
