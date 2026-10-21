@@ -12,13 +12,90 @@ Introduction
 |devsim| download and installation instructions are located in :ref:`sec__installation`.  The following sections list bug fixes and enhancements over time.  Contact information is listed in :ref:`Contact`.
 A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain additional details concerning a new release.
 
+Version 2.11.2
+==============
+
+Citing DEVSIM
+-------------
+
+* The ``CITATION.cff`` file contains citations for the simulator.  It also contains some additional references.
+
+Resetting DEVSIM while using umfpack
+------------------------------------
+
+* [#169](https://github.com/devsim/devsim/issues/169) umfpack reload after ``devsim_reset``
+
+When using the ``reset_devsim`` command to reset the simulator, the ``UMFPACK 5.1`` solver was not being reloaded.  The command is modified so that the solver will now continue to with the same ``BLAS`` library when ``devsim`` is first loaded.
+
+Internally, the ``UMFPACK 5.1`` hook in devsim will no longer reload the ``BLAS`` library with each call to the ``solve`` command.  In addition, the math libraries used by ``devsim`` will only be loaded when the module is first imported.
+
 Version 2.11.1
 ==============
 
-macOS Version
--------------
+Math Library Support
+--------------------
 
-|macosxsequoia| is the minimum version supported for macOS.
+BLAS Symbol Naming
+~~~~~~~~~~~~~~~~~~
+
+* [#167](https://github.com/devsim/devsim/issues/167) Accept scipy-openblas32 as a BLAS/LAPACK provider
+
+When ``DEVSIM_MATH_LIBS`` is set, a user may specify ``DEVSIM_BLAS_PREFIX`` and ``DEVSIM_BLAS_SUFFIX`` to math symbols not using the standard form.
+
+.. code-block:: none
+
+    import scipy_openblas32
+    import os
+    os.environ['DEVSIM_MATH_LIBS'] = os.path.join(scipy_openblas32.get_lib_dir(), 'libscipy_openblas.dylib')
+    os.environ['DEVSIM_BLAS_PREFIX'] = 'scipy_'
+    os.environ['DEVSIM_BLAS_SUFFIX'] = '_'
+    import devsim
+
+Please see ``testing/other_blas.py`` for an example using the ``scipy_openblas32`` package as an alternative to the default math packages on each system.  This example is fragile as the math package maintainers make no guarantess for a stable abi.
+
+Thanks to [@benvial](https://github.com/benvial) for suggesting this feature.
+
+Info strings with more math informaiton
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As part of this work, more information is returned via the ``info`` parameter:
+
+.. code-block:: none
+
+    >>> _ = [print(x) for x in devsim.get_parameter(name="info").items()]
+    ('blas_symbol_prefix', 'scipy_')
+    ('blas_symbol_suffix', '_')
+    ('copyright', 'Copyright © 2009-2026 DEVSIM LLC')
+    ('direct_solver', 'custom')
+    ('extended_precision', True)
+    ('license', 'Apache License, Version 2.0')
+    ('math_libraries', ('/Users/user/git/venv/lib/python3.14/site-packages/scipy_openblas32/lib/libscipy_openblas.dylib',))
+    ('version', '2.11.1')
+    ('website', 'https://devsim.org')
+    ('custom_solver', 'UMFPACK 5.1')
+
+Platform Support
+----------------
+
+macOS Version
+~~~~~~~~~~~~~
+
+|macosxsequoia| is the minimum version supported for macOS.  This is due to the ending of vendor support for |macosxsonoma|.
+
+Windows
+~~~~~~~
+
+Due to changes to the file location of shared libraries and include files in |anaconda| Python, the automated build has been updated.
+
+Bugs
+----
+
+Helper function for model creation bug
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [#168](https://github.com/devsim/devsim/issues/168) ``model_create.EnsureEdgeFromNodeModelExists`` never creates the ``X@n0/X@n1`` edge models
+
+Thanks to [@NooriDan](https://github.com/NooriDan) for reporting this issue.
 
 Version 2.11.0
 ==============
