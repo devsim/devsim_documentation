@@ -22,7 +22,8 @@ make latexpdf
 
 rm -rf ${PKGDIR}
 mkdir -p ${PKGDIR}
-cp -vR  ${SPHINXBUILD}/html ${PKGDIR}
-cp -v ${SPHINXBUILD}/latex/devsim.pdf ${PKGDIR}
-cp -v ${PYDIR}/DevsimDoc.cc ${PKGDIR}
+cp -avR  ${SPHINXBUILD}/html ${PKGDIR}
+cp -av ${SPHINXBUILD}/latex/devsim.pdf ${PKGDIR}
+cp -av ${PYDIR}/DevsimDoc.cc ${PKGDIR}
+cp -av ${PYDIR}/devsim.py ${PKGDIR}/__init__.py
 
