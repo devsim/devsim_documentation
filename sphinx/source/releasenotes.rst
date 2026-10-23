@@ -15,6 +15,13 @@ A file named ``CHANGES.md`` is now distributed with |devsim|, which can contain 
 Version 2.11.2
 ==============
 
+Trusted Publishing
+------------------
+
+* [#170](https://github.com/devsim/devsim/issues/170) add trusted publishing to pypi
+
+Python wheels are now published directly from GitHub Actions to PyPI.  This makes the released files more secure in the their handling.  Tools are available to verify the provenance.  More info is available from https://docs.pypi.org/trusted-publishers/.
+
 Citing DEVSIM
 -------------
 
