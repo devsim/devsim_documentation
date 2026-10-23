@@ -36,6 +36,15 @@ When using the ``reset_devsim`` command to reset the simulator, the ``UMFPACK 5.
 
 Internally, the ``UMFPACK 5.1`` hook in devsim will no longer reload the ``BLAS`` library with each call to the ``solve`` command.  In addition, the math libraries used by ``devsim`` will only be loaded when the module is first imported.
 
+
+pylance compatible docstrings
+-----------------------------
+
+* [#155](https://github.com/devsim/devsim/issues/155) pylance compatible docstrings
+
+A ``__init__.pyi`` file is included in ``devsim`` to provide documentation in IDEs which cannot get them from the compiled shared libraries.  This file should be automatically detected and used within the IDE.  It is generated in the ``devsim/devsim_documenation`` project.
+
+
 Version 2.11.1
 ==============
 
